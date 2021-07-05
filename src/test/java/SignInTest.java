@@ -61,7 +61,7 @@ public class SignInTest {
         addToCart.clickOnViewCart();
 
         CartPagePObj cartPage = new CartPagePObj(webdriver);
-        Assert.assertEquals("Adolescent/Adult Sensory Profile Complete Kit", cartPage.getAspckProductName());
+        Assert.assertEquals("Adolescent/Adult Sensory Profile Complete Kit", cartPage.getQuantityUpdatedMessage());
 
     }
 
@@ -156,12 +156,12 @@ public class SignInTest {
         quantityField.clickOnQtyField();
         quantityField.deleteTheQtyFieldValue();
         quantityField.typeQtyField();
+        quantityField.enterValueTypedQty();
 
+        //navigator.scrollUp();
 
-        CartPagePObj cartPage = new CartPagePObj(webdriver);
-        Assert.assertEquals("Adolescent/Adult Sensory Profile Complete Kit", cartPage.getAspckProductName());
-
-        //Assert.assertEquals
+        CartPagePObj qtyUpdatedMessage = new CartPagePObj(webdriver);
+        Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
 
 
     }

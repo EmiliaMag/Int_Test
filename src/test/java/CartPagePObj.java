@@ -1,3 +1,4 @@
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,8 +19,8 @@ public class CartPagePObj extends PageObject {
     @FindBy(xpath = "//div[@class='col-xs-5 col-md-6 cart-totals-right text-right grand-total js-total-price']")
     private WebElement estimateOrderTotalPrice;
 
-    @FindBy(xpath = "//span[@class='item__name']")
-    private WebElement productNameCartAspck;
+    @FindBy(xpath = "//div[@class='c-alert__content']//p[@class='c-alert__text']")
+    private WebElement quantityUpdatedMessage;
 
     @FindBy(xpath = "//input[@id='quantity_0']")
     private WebElement qtyField;
@@ -32,19 +33,23 @@ public class CartPagePObj extends PageObject {
         estimateOrderTotalPrice.click();
     }
 
-    public String getAspckProductName() {
-        return productNameCartAspck.getText();
-    }
-
     public void clickOnQtyField() {
         qtyField.click();
     }
 
     public void deleteTheQtyFieldValue() {
-        qtyField.clear();
+        qtyField.sendKeys(Keys.BACK_SPACE);
     }
 
     public void typeQtyField() {
         qtyField.sendKeys("3");
+    }
+
+    public void enterValueTypedQty () {
+        qtyField.sendKeys(Keys.ENTER);
+    }
+
+    public String getQuantityUpdatedMessage() {
+        return quantityUpdatedMessage.getText();
     }
 }
