@@ -36,7 +36,9 @@ public class QuickOrderPObj extends PageObject {
         isbnPCText.click();
     }
 
-    public String getProductNameAbas() {return qoProducNameAbas.getText(); }
+    public String getProductNameAbas() {
+        return qoProducNameAbas.getText();
+    }
 
 
 }

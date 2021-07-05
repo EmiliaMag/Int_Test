@@ -2,7 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class StorePagePObj extends PageObject{
+public class StorePagePObj extends PageObject {
     @FindBy(xpath = "//div[@class='pagination-bar-results']//span")
     private WebElement totalItemsInStore;
 
@@ -13,12 +13,12 @@ public class StorePagePObj extends PageObject{
     private WebElement cognitionAndNeuroCategory;
 
     @FindBy(xpath = "//div[@class='facet__values js-facet-values js-facet-form']//li[2]//span[@class='facet__value__count']")
-    private  WebElement academicLearningTotalItemsLabel;
+    private WebElement academicLearningTotalItemsLabel;
 
-    @FindBy(xpath ="//li[@class='product__list--item']//a[@class='product__list--name']")
+    @FindBy(xpath = "//li[@class='product__list--item']//a[@class='product__list--name']")
     private WebElement ampacProductLink;
 
-    @FindBy(xpath = "//ul[@class='product__listing product__list']//li[3]//a[@class='product__list--name']" )
+    @FindBy(xpath = "//ul[@class='product__listing product__list']//li[3]//a[@class='product__list--name']")
     private WebElement sensoryProfileAdultProductLink;
 
     @FindBy(xpath = "//button[@class='preferred-format__button']")
@@ -37,7 +37,7 @@ public class StorePagePObj extends PageObject{
         super(driver);
     }
 
-    public void clickOnAmpacProductLink () {
+    public void clickOnAmpacProductLink() {
         ampacProductLink.click();
     }
 
@@ -49,15 +49,15 @@ public class StorePagePObj extends PageObject{
         KitsFormatCardSpaProduct.click();
     }
 
-    public void clickOnAddToCartButton () {
+    public void clickOnAddToCartButton() {
         addToCartButton.click();
     }
 
-    public void clickOnViewCart () {
+    public void clickOnViewCart() {
         viewCartButtonPopUp.click();
     }
 
-    public String getAmpacTextName () {
+    public String getAmpacTextName() {
         return ampacProgramName.getText();
 
     }

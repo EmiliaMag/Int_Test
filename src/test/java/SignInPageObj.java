@@ -49,8 +49,6 @@ public class SignInPageObj extends PageObject {
     private WebElement unsuccesfulSignInMessage;
 
 
-
-
     //methods
     public SignInPageObj(WebDriver driver) {
         super(driver);
@@ -97,11 +95,18 @@ public class SignInPageObj extends PageObject {
     public void clickOnSearchField() {
         searchBarField.click();
     }
-    public void typeSearchFieldInput(){searchBarField.sendKeys("ampac");}
-    public void clickOnSearchButton(){searchBarButton.click();}
 
-    public String getErrorMessageText() { return unsuccesfulSignInMessage.getText(); }
+    public void typeSearchFieldInput() {
+        searchBarField.sendKeys("ampac");
+    }
 
+    public void clickOnSearchButton() {
+        searchBarButton.click();
+    }
+
+    public String getErrorMessageText() {
+        return unsuccesfulSignInMessage.getText();
+    }
 
 
 }

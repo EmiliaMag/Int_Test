@@ -39,9 +39,11 @@ public class CartPagePObj extends PageObject {
     public void clickOnQtyField() {
         qtyField.click();
     }
+
     public void deleteTheQtyFieldValue() {
         qtyField.clear();
     }
+
     public void typeQtyField() {
         qtyField.sendKeys("3");
     }
