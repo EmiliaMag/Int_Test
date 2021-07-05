@@ -93,7 +93,7 @@ public class SignInTest {
     }
 
     @Test
-    public void searchProductWithSearchBar()  {
+    public void searchProductWithSearchBar() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\emma0505\\Desktop\\chromedriver.exe");
         WebDriver webdriver = new ChromeDriver();
         webdriver.get("https://www.pearsonassessments.com/");
@@ -110,7 +110,7 @@ public class SignInTest {
 
 
     @Test
-    public void scrollDownandUp()  {
+    public void scrollDownandUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\emma0505\\Desktop\\chromedriver.exe");
         WebDriver webdriver = new ChromeDriver();
         webdriver.get("https://www.pearsonassessments.com/");
@@ -157,10 +157,11 @@ public class SignInTest {
         quantityField.deleteTheQtyFieldValue();
         quantityField.typeQtyField();
 
+
         CartPagePObj cartPage = new CartPagePObj(webdriver);
         Assert.assertEquals("Adolescent/Adult Sensory Profile Complete Kit", cartPage.getAspckProductName());
 
-        //Assert
+        //Assert.assertEquals
 
 
     }
