@@ -45,7 +45,7 @@ public class CartPagePObj extends PageObject {
         qtyField.sendKeys("3");
     }
 
-    public void enterValueTypedQty () {
+    public void enterValueTypedQty() {
         qtyField.sendKeys(Keys.ENTER);
     }
 
