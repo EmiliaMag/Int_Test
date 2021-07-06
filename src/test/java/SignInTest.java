@@ -5,6 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SignInTest {
 
 
+//    @Before
+//    public void beforeClass(){
+//
+//    }
+
     @Test
     public void unsuccesfulLogIn() throws InterruptedException {
 
@@ -172,5 +177,16 @@ public class SignInTest {
         webdriver.close();
 
     }
+
+//    @After
+//    public void runAfterEachTest() {
+//
+//    }
+
+//    @AfterClass
+//    public static void runAfterAllTheTest() {
+//        WebDriver webdriver = new ChromeDriver();
+//        webdriver.quit();
+//    }
 
 }
