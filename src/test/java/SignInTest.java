@@ -44,7 +44,6 @@ public class SignInTest {
         webdriver.manage().window().maximize();
 
         PageObject navigator = new PageObject(webdriver);
-
         SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
         storeButton.clickPopUpCloseButton();         //close the Pop-Up
         Thread.sleep(2000);
