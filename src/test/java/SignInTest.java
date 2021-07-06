@@ -27,7 +27,7 @@ public class SignInTest {
         PageObject navigator = new PageObject(webdriver);
         SignInPageObj signIn = new SignInPageObj(webdriver); //obj
         signIn.clickPopUpCloseButton();         //close the Pop-Up
-        signIn.clickPrivacyWindow();            //close the Privacy window
+      //  signIn.clickPrivacyWindow();            //close the Privacy window
         signIn.clickOnUsernameInput();          //Click on Username field
         signIn.typeUsername();
         Thread.sleep(2000);//Type an Username
@@ -46,7 +46,6 @@ public class SignInTest {
     @Test
     public void addProductInCartWhenLogOut() throws InterruptedException {
         webdriver.get("https://www.pearsonassessments.com/");
-        webdriver.manage().window().maximize();
 
         PageObject navigator = new PageObject(webdriver);
         SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
@@ -78,7 +77,6 @@ public class SignInTest {
     @Test
     public void addProductFromQuickOrder() throws InterruptedException {
         webdriver.get("https://www.pearsonassessments.com/");
-        webdriver.manage().window().maximize();
 
         SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
         storeButton.clickPopUpCloseButton();         //close the Pop-Up
@@ -105,7 +103,6 @@ public class SignInTest {
     @Test
     public void searchProductWithSearchBar() {
         webdriver.get("https://www.pearsonassessments.com/");
-        webdriver.manage().window().maximize();
 
         SignInPageObj searchBar = new SignInPageObj(webdriver); //obj
         searchBar.clickPopUpCloseButton();         //close the Pop-Up
@@ -122,19 +119,18 @@ public class SignInTest {
     @Test
     public void scrollDownandUp() {
         webdriver.get("https://www.pearsonassessments.com/");
-        webdriver.manage().window().maximize();
 
         SignInPageObj searchBar = new SignInPageObj(webdriver); //obj
         searchBar.clickPopUpCloseButton();         //close the Pop-Up
         PageObject navigator = new PageObject(webdriver);
         navigator.scrollDown();
         navigator.scrollUp();
-            }
+    }
 
     @Test
     public void increaseQuantityInCartMessage() throws InterruptedException {
         webdriver.get("https://www.pearsonassessments.com/");
-        webdriver.manage().window().maximize();
+
 
         PageObject navigator = new PageObject(webdriver);
         SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
@@ -168,9 +164,34 @@ public class SignInTest {
         //navigator.scrollUp();
         CartPagePObj qtyUpdatedMessage = new CartPagePObj(webdriver);
         Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
-
-
     }
+
+    @Test
+    public void checkNumbersOfItemsWithFilters() throws InterruptedException {
+        webdriver.get("https://www.pearsonassessments.com/");
+        PageObject navigator = new PageObject(webdriver);
+        SignInPageObj signIn = new SignInPageObj(webdriver); //obj
+        SignInPageObj closePrivacyPopup = new SignInPageObj(webdriver);
+        SignInPageObj storeButton = new SignInPageObj(webdriver);
+
+        signIn.clickPopUpCloseButton();         //close the Pop-Up
+        Thread.sleep(2000);
+        closePrivacyPopup.clickPrivacyWindow();
+        storeButton.clickStoreButtonHeader();
+
+        StorePagePObj storePage = new StorePagePObj(webdriver);
+        navigator.scrollDown();
+        navigator.scrollDown();
+
+        storePage.clickBehaviorCategoryFilter();
+        navigator.scrollDown();
+        storePage.clickAgeRangeDropdown();
+        navigator.scrollDown();
+        storePage.clickPreschoolCheckbox();
+
+        Assert.assertEquals("27 Items found in Store", storePage.getTotalItemsWithFilters());
+    }
+
 
     @After
     public void runAfterEachTest() {

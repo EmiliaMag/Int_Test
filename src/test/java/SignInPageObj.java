@@ -36,7 +36,7 @@ public class SignInPageObj extends PageObject {
     @FindBy(xpath = "//button[@class='pop-up-close']")
     private WebElement popUpCloseButton;
 
-    @FindBy(xpath = "//*[@id='js-cookie-notification']/div/div/div/div/button[2]")
+    @FindBy(xpath = "//a[@class='js--pearson-cookie-policy-accept-continue button-ghost--on-dark']")
     private WebElement closePrivacyWindow;
 
     @FindBy(xpath = "//div[@class='form-group current-password']//input[@class='input']")
@@ -70,8 +70,7 @@ public class SignInPageObj extends PageObject {
         usernameInput.sendKeys("username");
     }
 
-    public void clickPrivacyWindow() throws InterruptedException {
-        Thread.sleep(2000);
+    public void clickPrivacyWindow() {
         closePrivacyWindow.click();
     }
 

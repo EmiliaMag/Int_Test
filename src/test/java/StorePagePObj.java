@@ -33,6 +33,18 @@ public class StorePagePObj extends PageObject {
     @FindBy(xpath = "//h1[@class='program-details__name']")
     private WebElement ampacProgramName;
 
+    @FindBy(xpath="//a[@href='/store/usassessments/en/Store/c/store?q=%26%26relevance%26%26category%26%26behavior']")
+    private WebElement behaviorCategoryFilter;
+
+    @FindBy(xpath="//div[@id='product-facet']//div[3]//div[1]//div[2]")
+    private WebElement ageRangeDropDownButton;
+
+    @FindBy(xpath="//ul[@class='facet__list js-facet-list js-facet-top-values']//li[2]")
+    private WebElement preschoolAgeRangeCheckbox;
+
+    @FindBy(xpath="//div[@class='pagination-bar-results']")
+    private WebElement totalItemsWithSelectedFilter;
+
     public StorePagePObj(WebDriver driver) {
         super(driver);
     }
@@ -60,6 +72,22 @@ public class StorePagePObj extends PageObject {
     public String getAmpacTextName() {
         return ampacProgramName.getText();
 
+    }
+
+    public void clickBehaviorCategoryFilter(){
+        behaviorCategoryFilter.click();
+    }
+
+    public void clickAgeRangeDropdown(){
+        ageRangeDropDownButton.click();
+    }
+
+    public void  clickPreschoolCheckbox() {
+        preschoolAgeRangeCheckbox.click();
+    }
+
+    public String  getTotalItemsWithFilters() {
+        return totalItemsWithSelectedFilter.getText();
     }
 
 
