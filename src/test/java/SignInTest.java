@@ -176,7 +176,5 @@ public class SignInTest {
     public void runAfterEachTest() {
         webdriver.manage().deleteAllCookies();
         webdriver.close();
-
     }
-
 }
