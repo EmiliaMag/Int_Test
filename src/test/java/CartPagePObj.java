@@ -25,6 +25,9 @@ public class CartPagePObj extends PageObject {
     @FindBy(xpath = "//input[@id='quantity_0']")
     private WebElement qtyField;
 
+    @FindBy(xpath = "//div[@class='program_name']//a[@href='/store/usassessments/en/Store/Professional-Assessments/Motor-Sensory/Adolescent-Adult-Sensory-Profile/p/100000434.html']")
+    private WebElement productNameCart;
+
     public CartPagePObj(WebDriver driver) {
         super(driver);
     }
@@ -51,5 +54,9 @@ public class CartPagePObj extends PageObject {
 
     public String getQuantityUpdatedMessage() {
         return quantityUpdatedMessage.getText();
+    }
+
+    public String getProductNameFromCart() {
+        return productNameCart.getText();
     }
 }

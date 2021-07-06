@@ -4,8 +4,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SignInTest {
 
-//    @Before
-//    public void webdrv () {}
 
     @Test
     public void unsuccesfulLogIn() throws InterruptedException {
@@ -30,6 +28,7 @@ public class SignInTest {
         Thread.sleep(2000);//Type an Username
         Assert.assertEquals("Sorry, the credentials you have entered do not match. Please try again.", signIn.getErrorMessageText());
         // Assert.assertTrue("Sorry, the credentials you have entered do not match. Please try again.", signIn.getErrorMessageText());
+        webdriver.close();
     }
 
     @Test
@@ -61,7 +60,9 @@ public class SignInTest {
         addToCart.clickOnViewCart();
 
         CartPagePObj cartPage = new CartPagePObj(webdriver);
-        Assert.assertEquals("Adolescent/Adult Sensory Profile Complete Kit", cartPage.getQuantityUpdatedMessage());
+        navigator.scrollDown();
+        Assert.assertEquals("Adolescent/Adult Sensory Profile", cartPage.getProductNameFromCart());
+        webdriver.close();
 
     }
 
@@ -90,6 +91,8 @@ public class SignInTest {
         quickOrder.clickIsbnPcText();
         Thread.sleep(2000);
         Assert.assertEquals("ABAS-3 Manual", quickOrder.getProductNameAbas());
+        webdriver.close();
+
     }
 
     @Test
@@ -106,6 +109,8 @@ public class SignInTest {
         searchBar.clickOnSearchButton();
         StorePagePObj ampacText = new StorePagePObj(webdriver);
         Assert.assertEquals("Activity Measure for Post Acute Care", ampacText.getAmpacTextName());
+        webdriver.close();
+
     }
 
 
@@ -121,10 +126,12 @@ public class SignInTest {
         PageObject navigator = new PageObject(webdriver);
         navigator.scrollDown();
         navigator.scrollUp();
+        webdriver.close();
+
     }
 
     @Test
-    public void increaseQuantityInCart() throws InterruptedException {
+    public void increaseQuantityInCartMessage() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\emma0505\\Desktop\\chromedriver.exe");
         WebDriver webdriver = new ChromeDriver();
         webdriver.get("https://www.pearsonassessments.com/");
@@ -162,9 +169,8 @@ public class SignInTest {
 
         CartPagePObj qtyUpdatedMessage = new CartPagePObj(webdriver);
         Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
-
+        webdriver.close();
 
     }
-
 
 }
