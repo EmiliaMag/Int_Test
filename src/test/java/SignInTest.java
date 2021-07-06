@@ -124,7 +124,7 @@ public class SignInTest {
     }
 
     @Test
-    public void increaseQuantityInCart() throws InterruptedException {
+    public void quantityUpdateMessage() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\emma0505\\Desktop\\chromedriver.exe");
         WebDriver webdriver = new ChromeDriver();
         webdriver.get("https://www.pearsonassessments.com/");
