@@ -170,7 +170,6 @@ public class SignInTest {
         quantityField.enterValueTypedQty();
 
         //navigator.scrollUp();
-
         CartPagePObj qtyUpdatedMessage = new CartPagePObj(webdriver);
         Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
         webdriver.close();
