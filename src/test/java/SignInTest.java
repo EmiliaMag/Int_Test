@@ -176,7 +176,6 @@ public class SignInTest {
         Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
         webdriver.close();
 
-
     }
 
 //    @After
