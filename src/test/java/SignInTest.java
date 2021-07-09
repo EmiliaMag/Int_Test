@@ -158,15 +158,13 @@ public class SignInTest {
 
         PageObject navigator = new PageObject(webdriver);
         SignInPageObj signIn = new SignInPageObj(webdriver); //obj
-        SignInPageObj closePrivacyPopup = new SignInPageObj(webdriver);
-        SignInPageObj storeButton = new SignInPageObj(webdriver);
         StorePagePObj storePage = new StorePagePObj(webdriver);
 
 
         signIn.clickPopUpCloseButton();         //close the Pop-Up
         Thread.sleep(2000);
-        closePrivacyPopup.clickClosePrivacyWindow();
-        storeButton.clickStoreButtonHeader();
+        signIn.clickClosePrivacyWindow();
+        signIn.clickStoreButtonHeader();
 
         navigator.scrollDown();
         navigator.scrollDown();
