@@ -1,6 +1,8 @@
 package StepDef;
-
+import PageObject.PageObject;
 import PageObject.SignInPageObj;
+import Utils.CredentialsInput;
+import Utils.CloseBrowser;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -15,6 +17,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class SuccesfullSignInStepDef {
 
     SignInPageObj signInPageObj = new SignInPageObj(DriverManager.getDriver());
+    PageObject navigator = new PageObject(DriverManager.getDriver());
+
 
 
     @Given("user visit the PearsonAssesment's LogIn Page")
@@ -33,10 +37,12 @@ public class SuccesfullSignInStepDef {
     public void userTypeTheUsernameInTheUsernameField() {
         signInPageObj.clickOnUsernameInput();
         signInPageObj.typeValidUsername();
+
     }
 
     @And("type the password in the Password Field")
     public void typeThePasswordInThePasswordField() {
+        navigator.scrollDown();
         signInPageObj.clickPasswordInputField();
         signInPageObj.typeValidPassword();
     }
@@ -49,6 +55,7 @@ public class SuccesfullSignInStepDef {
     @Then("the user should be logged in to the page")
     public void theUserShouldBeLoggedInToThePage() {
         Assert.assertEquals("My Account", signInPageObj.getMyAccountText());
+
     }
 }
 

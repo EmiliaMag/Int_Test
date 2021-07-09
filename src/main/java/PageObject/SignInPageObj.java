@@ -1,5 +1,6 @@
 package PageObject;
 
+import Utils.CredentialsInput;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -59,6 +60,8 @@ public class SignInPageObj extends PageObject {
     @FindBy(xpath = "//button[@class='js-context-switcher']")
     private WebElement myAccountHeaderButton;
 
+    @FindBy(xpath = "//button[@class='button-ghost--on-dark button--primary hasArrow arrowRight js-cookie-notification-accept']")
+    private WebElement closePrivacyWindow2;
 
     //methods
     public SignInPageObj(WebDriver driver) {
@@ -90,7 +93,7 @@ public class SignInPageObj extends PageObject {
     }
 
     public void typeValidPassword() {
-        signInPasswordField.sendKeys("Pass7890@");
+        signInPasswordField.sendKeys("Adem590@");
     }
 
     public void clickSignInButton() {
@@ -135,6 +138,10 @@ public class SignInPageObj extends PageObject {
 
     public String getMyAccountText() {
         return myAccountHeaderButton.getText();
+    }
+
+    public void clickClosePrivacyPopup2() {
+        closePrivacyWindow2.click();
     }
 }
 
