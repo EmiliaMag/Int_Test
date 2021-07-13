@@ -15,26 +15,21 @@ public class CheckProductsWithFilterStepDefs {
     SignInPageObject signIn = new SignInPageObject(DriverManager.getDriver()); //obj
     StorePagePageObject storePage = new StorePagePageObject(DriverManager.getDriver());
 
-    @And("user closes the pop-up")
-    public void userClosesThePopup() {
-        signIn.clickPopUpCloseButton();
-        signIn.clickClosePrivacyPopup2();
-    }
 
-    @And("click on Store button from the header")
+    @And("customer clicks on Store button from the header")
     public void clickOnStoreButtonFromTheHeader() throws InterruptedException {
         navigator.implicitWait();
         signIn.clickStoreButtonHeader();
     }
 
-    @When("user click Behavior Category Filter")
+    @When("customer clicks Behavior Category Filter")
     public void userClickBehaviorCategoryFilter() throws InterruptedException {
         navigator.implicitWait();
         navigator.scrollDown();
         storePage.clickBehaviorCategoryFilter();
     }
 
-    @And("click Age Range Dropdown")
+    @And("customer clicks Age Range Dropdown")
     public void clickAgeRangeDropdown() throws InterruptedException {
         navigator.implicitWait();
         navigator.scrollDown();
@@ -42,14 +37,15 @@ public class CheckProductsWithFilterStepDefs {
         storePage.clickAgeRangeDropdown();
     }
 
-    @And("click Preschool Checkbox")
+    @And("customer clicks Preschool Checkbox")
     public void clickPreschoolCheckbox() throws InterruptedException {
         navigator.scrollDown();
         storePage.clickPreschoolCheckbox();
     }
 
-    @Then("the user should see the number of products according to the selected filters")
+    @Then("customer should see the number of products according to the selected filters")
     public void theUserShouldSeeTheNumberOfProductsAccordingToTheSelectedFilters() {
         Assert.assertEquals("27 Items found in Store", storePage.getTotalItemsWithFilters());
+        navigator.closeBrowser();
     }
 }

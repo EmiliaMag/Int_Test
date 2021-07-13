@@ -11,5 +11,6 @@ public class AddToCartFromStoreAndQuickOrderStepDefs {
     public  void userSeeProductInCart() {
  cartPage.getSensoryProfileProductTitle();
     }
+
     }
 

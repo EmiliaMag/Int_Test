@@ -1,13 +1,13 @@
 Feature: Save Cart
 
-  Scenario: User save the cart when is logged out
-    Given user visit the PearsonAssesment Page
-    And user closes pop-up
-    When user click on Quick Order button from the Pearson Banner
-    And click on Isbn-Product Code field
-    And type the Product Code in the field
-    And click on Isbn-Product Code first column text
-    And click on Add to Cart button on the right side of the Product Code field
-    When user click on View Cart button from the Add to cart pop-up
-    And click on Save cart button on the pop-up
-    Then the user should see the Sign In page in breadcrumb
+  Scenario: Customer save the cart when is logged out
+    Given customer visits the PearsonAssessment's LogIn Page
+    And customer closes the pop-up
+    When customer clicks on Quick Order button from the Pearson Banner
+    And customer clicks on Isbn-Product Code field
+    And customer types the Product Code in the field
+    And customer clicks on Isbn-Product Code first column text
+    And customer clicks on add to Cart button on the right side of the Product Code field
+    When customer clicks on View Cart button from the Add to Cart pop-up
+    And customer clicks on Save cart button on the pop-up
+    Then customer should see the Sign In page in breadcrumb

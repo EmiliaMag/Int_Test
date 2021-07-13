@@ -1,5 +1,6 @@
 package StepDef;
 
+import PageObject.PageObject;
 import PageObject.SignInPageObject;
 import PageObject.StorePagePageObject;
 import Utils.DriverManager;
@@ -13,36 +14,27 @@ public class SearchProductWithSearchBarStepDefs {
 
     SignInPageObject searchBar = new SignInPageObject(DriverManager.getDriver()); //obj
     StorePagePageObject ampacText = new StorePagePageObject(DriverManager.getDriver());
+    PageObject navigator = new PageObject(DriverManager.getDriver());
 
-    @Given("user visit the PearsonAssesment page")
-    public void userVisitThePearsonAssesmentPage() {
-        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
-        DriverManager.getDriver().manage().window().maximize();
-    }
 
-    @And("user closes Pop-up")
-    public void userClosesPopUp() {
-        searchBar.clickClosePrivacyPopup2();
-        searchBar.clickPopUpCloseButton();
-    }
-
-    @When("user click on Search Bar")
+    @When("customer clicks on Search Bar")
     public void userClickOnSearchBar() {
         searchBar.clickOnSearchField();
     }
 
-    @And("type the Ampac produc name")
+    @And("customer types the Ampac produc name")
     public void typeTheAmpacProducName() {
         searchBar.typeSearchFieldInput();
     }
 
-    @And("click on search button")
+    @And("customer clicks on search button")
     public void clickOnSearchButton() {
         searchBar.clickOnSearchButton();
     }
 
-    @Then("the user should see the Ampac's Product Page")
+    @Then("customer should see the Ampac's Product Page")
     public void theUserShouldSeeTheAmpacSProductPage() {
         Assert.assertEquals("Activity Measure for Post Acute Care", ampacText.getAmpacTextName());
+        navigator.closeBrowser();
     }
 }

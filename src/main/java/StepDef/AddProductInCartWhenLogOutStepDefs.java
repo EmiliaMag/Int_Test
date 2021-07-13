@@ -19,51 +19,41 @@ public class AddProductInCartWhenLogOutStepDefs {
     PageObject navigator = new PageObject(DriverManager.getDriver());
 
 
-    @Given("user visit the PearsonAssesment Page")
-    public void user_visit_the_PearsonAssesment_Page() {
-        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
-        DriverManager.getDriver().manage().window().maximize();
-    }
 
-    @And("user closes pop-up")
-    public void user_closes_popup() {
-        storeButton.clickPopUpCloseButton();
-        storeButton.clickClosePrivacyPopup2();
-    }
-
-    @When("user click on Store button from the header")
+    @When("customer  clicks on Store button from the header")
     public void user_click_on_Store_button_from_the_header() {
         storeButton.clickStoreButtonHeader();
     }
 
-    @And("click on Sensory Profile Adult Product")
+    @And("customer clicks on Sensory Profile Adult Product")
     public void clickOnSensoryProfileAdultProduct()  {
         navigator.implicitWait();
         navigator.scrollDown();
         addToCart.clickSensoryProfileAdultProductLink();
     }
 
-    @And("click on Kits Format Card")
+    @And("customer clicks on Kits Format Card")
     public void clickOnKitsFormatCard() {
         navigator.scrollDown();
         addToCart.clickonKitsFormatCardSpaProduct();
     }
 
-    @And("click on Add to Cart button")
+    @And("customer clicks on add to Cart button")
     public void clickOnAddToCartButton() {
         navigator.scrollDown();
         addToCart.clickOnAddToCartButton();
     }
 
-    @And("click on View Cart button from the Add to Cart pop-up")
+    @And("customer clicks on View Cart button from the Add to Cart pop-up")
     public void clickOnViewCartButtonFromTheAddToCartPopUp() throws InterruptedException {
         navigator.implicitWait();
         addToCart.clickOnViewCart();
     }
 
-    @Then("the user should see the product in the cart")
+    @Then("customer should see the product in the cart")
     public void theUserShouldSeeTheProductInTheCart() {
         Assert.assertEquals("Adolescent/Adult Sensory Profile", cartPage.getProductNameFromCart());
+        navigator.closeBrowser();
     }
 
 
