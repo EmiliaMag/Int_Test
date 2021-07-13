@@ -1,7 +1,7 @@
 package StepDef;
 
-import PageObject.SignInPageObj;
-import PageObject.StorePagePObj;
+import PageObject.SignInPageObject;
+import PageObject.StorePagePageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,10 +9,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class SearchProductWithSearchBar {
+public class SearchProductWithSearchBarStepDefs {
 
-    SignInPageObj searchBar = new SignInPageObj(DriverManager.getDriver()); //obj
-    StorePagePObj ampacText = new StorePagePObj(DriverManager.getDriver());
+    SignInPageObject searchBar = new SignInPageObject(DriverManager.getDriver()); //obj
+    StorePagePageObject ampacText = new StorePagePageObject(DriverManager.getDriver());
 
     @Given("user visit the PearsonAssesment page")
     public void userVisitThePearsonAssesmentPage() {
@@ -22,6 +22,7 @@ public class SearchProductWithSearchBar {
 
     @And("user closes Pop-up")
     public void userClosesPopUp() {
+        searchBar.clickClosePrivacyPopup2();
         searchBar.clickPopUpCloseButton();
     }
 

@@ -1,15 +1,15 @@
 package StepDef;
 
-import PageObject.SignInPageObj;
+import PageObject.SignInPageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class PearsonLogoButtonFunctionality {
+public class PearsonLogoButtonFunctionalityStepDefs {
 
-    SignInPageObj pearsonLogo = new SignInPageObj(DriverManager.getDriver()); //obj
+    SignInPageObject pearsonLogo = new SignInPageObject(DriverManager.getDriver()); //obj
 
     @When("user click on Search Bar field")
     public void userClickOnSearchBarField() {

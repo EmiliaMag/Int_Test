@@ -1,8 +1,8 @@
 package StepDef;
 
 import PageObject.PageObject;
-import PageObject.SignInPageObj;
-import PageObject.QuickOrderPObj;
+import PageObject.SignInPageObject;
+import PageObject.QuickOrderPageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,10 +11,10 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 
-public class AddToCartFromQuickOrder {
-    SignInPageObj storeButton = new SignInPageObj(DriverManager.getDriver()); //obj
+public class AddToCartFromQuickOrderStepDefs {
+    SignInPageObject storeButton = new SignInPageObject(DriverManager.getDriver()); //obj
     PageObject navigator = new PageObject(DriverManager.getDriver());
-    QuickOrderPObj quickOrder = new QuickOrderPObj(DriverManager.getDriver());
+    QuickOrderPageObject quickOrder = new QuickOrderPageObject(DriverManager.getDriver());
 
 
         @Given("user visit the PearsonAssesment's Page")
@@ -25,21 +25,22 @@ public class AddToCartFromQuickOrder {
 
     @And("closes the pop-up")
     public void closesThePopUp() {
+            storeButton.clickClosePrivacyPopup2();
             storeButton.clickPopUpCloseButton();
     }
 
 
     @When("user click Quick Order button")
     public void userClickQuickOrderButton() throws InterruptedException {
-            Thread.sleep(3000);
+            navigator.implicitWait();
             quickOrder.clickOnQuickOrderButton();
     }
 
 
     @And("click on Isbn-Product Code field")
-    public void clickOnIsbnProductCodeField() throws InterruptedException {
-
-        Thread.sleep(3000);
+    public void clickOnIsbnProductCodeField()  {
+        navigator.implicitWait();
+        navigator.scrollDown();
         navigator.scrollDown();
         quickOrder.clickIsbnField();
     }
@@ -57,7 +58,7 @@ public class AddToCartFromQuickOrder {
 
     @Then("the user should see the product with the product code")
     public void theUserShouldSeeTheProductWithTheProductCode() throws InterruptedException {
-            Thread.sleep(3000);
+            navigator.implicitWait();
         Assert.assertEquals("ABAS-3 Manual", quickOrder.getProductNameAbas());
     }
 }

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class QuickOrderPObj extends PageObject {
+public class QuickOrderPageObject extends PageObject {
 
     @FindBy(xpath = "//a[@href='/store/usassessments/en/quickOrder']")
     private WebElement quickOrderButton;
@@ -19,12 +19,16 @@ public class QuickOrderPObj extends PageObject {
     private WebElement qoProducNameAbas;
 
     @FindBy(xpath = "//div[@class='orderSectionFooter']//button[@id='js-add-to-cart-quick-order-btn-bottom']")
-    private WebElement addToCartButtonQuickOrder;
+    private WebElement addToCartButtonQuickOrderBottom;
+
+    @FindBy(xpath = "//button[@id='js-add-to-cart-quick-order-btn-top']")
+    private WebElement addToCartButtonTop;
+
 
     @FindBy(xpath = "//a[@class='button button--primary button--block add-to-cart-button']")
     private WebElement viewCartButton;
 
-    public QuickOrderPObj(WebDriver driver) {
+    public QuickOrderPageObject(WebDriver driver) {
         super(driver);
     }
 
@@ -49,7 +53,11 @@ public class QuickOrderPObj extends PageObject {
     }
 
     public void clickOnAddToCartButtonQO() {
-        addToCartButtonQuickOrder.click();
+        addToCartButtonQuickOrderBottom.click();
+    }
+
+    public void clickOnAddToCartButtonTop() {
+        addToCartButtonTop.click();
     }
 
     public void clickOnViewCartButton() {

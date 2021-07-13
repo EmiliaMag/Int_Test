@@ -1,27 +1,26 @@
 package StepDef;
 
 import PageObject.PageObject;
-import PageObject.SignInPageObj;
-import PageObject.CartPagePObj;
-import PageObject.StorePagePObj;
-import PageObject.AccountsForCheckoutPObj;
-import PageObject.CheckoutPageObj;
+import PageObject.SignInPageObject;
+import PageObject.CartPagePageObject;
+import PageObject.StorePagePageObject;
+import PageObject.AccountsForCheckoutPageObject;
+import PageObject.CheckoutPageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java8.Th;
 import org.junit.Assert;
 
-public class CheckoutPage {
+public class CheckoutPageStepDefs {
 
     PageObject navigator = new PageObject(DriverManager.getDriver());
-    SignInPageObj signInPage = new SignInPageObj(DriverManager.getDriver()); //obj
-    CartPagePObj cartPage = new CartPagePObj(DriverManager.getDriver());
-    StorePagePObj addToCart = new StorePagePObj(DriverManager.getDriver());
-    AccountsForCheckoutPObj customerAccount = new AccountsForCheckoutPObj(DriverManager.getDriver());
-    CheckoutPageObj checkoutPage = new CheckoutPageObj(DriverManager.getDriver());
+    SignInPageObject signInPage = new SignInPageObject(DriverManager.getDriver()); //obj
+    CartPagePageObject cartPage = new CartPagePageObject(DriverManager.getDriver());
+    StorePagePageObject addToCart = new StorePagePageObject(DriverManager.getDriver());
+    AccountsForCheckoutPageObject customerAccount = new AccountsForCheckoutPageObject(DriverManager.getDriver());
+    CheckoutPageObject checkoutPage = new CheckoutPageObject(DriverManager.getDriver());
 
     @Given("User visit the PearsonAssesment page")
     public void userVisitThePearsonAssesmentPage() {
@@ -37,7 +36,7 @@ public class CheckoutPage {
 
     @When("user click on SignIn Button from the header of the page")
     public void userClickOnSignInButtonFromTheHeaderOfThePage() throws InterruptedException {
-        Thread.sleep(3000);
+        navigator.implicitWait();
         signInPage.clickSigninRegisterHeaderButton();
     }
 
@@ -59,13 +58,13 @@ public class CheckoutPage {
 
     @Then("click on Store button from the header of the page")
     public void clickOnStoreButtonFromTheHeaderOfThePage() throws InterruptedException {
-        Thread.sleep(2000);
+        navigator.scrollDown();
         signInPage.clickStoreButtonHeader();
     }
 
     @And("click on Sensory Profile Adult Product Link")
     public void clickOnSensoryProfileAdultProductLink() throws InterruptedException {
-        Thread.sleep(2000);
+        navigator.implicitWait();
         navigator.scrollDown();
         addToCart.clickSensoryProfileAdultProductLink();
     }
@@ -91,20 +90,20 @@ public class CheckoutPage {
 
     @And("click on View Cart on the displayed pop-up")
     public void clickOnViewCartOnTheDisplayedPopUp() throws InterruptedException {
-        Thread.sleep(3000);
+//        navigator.implicitWait();
         addToCart.clickOnViewCart();
     }
 
     @Then("click on checkout button")
     public void clickOnCheckoutButton() throws InterruptedException {
-        Thread.sleep(2000);
+        navigator.implicitWait();
         navigator.scrollDown();
         cartPage.clickOnCheckoutButton();
     }
 
     @And("click on My Account Radio Box")
     public void clickOnMyAccountRadioBox() throws InterruptedException {
-        Thread.sleep(2000);
+        //navigator.implicitWait();
         customerAccount.clickMyAccountRadioBox();
     }
 

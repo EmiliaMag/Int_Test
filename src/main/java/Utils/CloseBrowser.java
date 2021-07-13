@@ -5,4 +5,6 @@ public class CloseBrowser {
         DriverManager.getDriver().manage().deleteAllCookies();
         DriverManager.getDriver().close();
     }
+
+
 }

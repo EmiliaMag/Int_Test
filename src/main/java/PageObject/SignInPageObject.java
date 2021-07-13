@@ -1,11 +1,10 @@
 package PageObject;
 
-import Utils.CredentialsInput;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPageObj extends PageObject {
+public class SignInPageObject extends PageObject {
     @FindBy(id = "username")
     private WebElement usernameInput;
 
@@ -63,8 +62,11 @@ public class SignInPageObj extends PageObject {
     @FindBy(xpath = "//button[@class='button-ghost--on-dark button--primary hasArrow arrowRight js-cookie-notification-accept']")
     private WebElement closePrivacyWindow2;
 
+    @FindBy(xpath = "//div[@class='context-menu-section sign-out']")
+    private WebElement signOutButton;
+
     //methods
-    public SignInPageObj(WebDriver driver) {
+    public SignInPageObject(WebDriver driver) {
         super(driver);
     }
 
@@ -97,6 +99,7 @@ public class SignInPageObj extends PageObject {
     }
 
     public void clickSignInButton() {
+       waitUntilElementIsDisplayed(signInButton);
         signInButton.click();
     }
 
@@ -143,6 +146,19 @@ public class SignInPageObj extends PageObject {
     public void clickClosePrivacyPopup2() {
         closePrivacyWindow2.click();
     }
+
+    public void clickMyAccountDropdownButton() {
+        myAccountHeaderButton.click();
+    }
+
+    public void clickOnSignOutButton() {
+        waitUntilElementIsDisplayed(signOutButton);
+        signOutButton.click();
+
+
+    }
+
+
 }
 
 

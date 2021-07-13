@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AccountsForCheckoutPObj extends PageObject {
+public class AccountsForCheckoutPageObject extends PageObject {
 
     @FindBy(xpath = "//div[@id='contextSelector']//span[@class='c-radiobtn__check']")
     private WebElement myAccountRadioBox;
@@ -13,7 +13,7 @@ public class AccountsForCheckoutPObj extends PageObject {
     private WebElement continueButton;
 
 
-    public AccountsForCheckoutPObj(WebDriver driver) {
+    public AccountsForCheckoutPageObject(WebDriver driver) {
         super(driver);
     }
 

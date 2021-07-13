@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class StorePagePObj extends PageObject {
+public class StorePagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='pagination-bar-results']//span")
     private WebElement totalItemsInStore;
 
@@ -32,6 +32,9 @@ public class StorePagePObj extends PageObject {
     @FindBy(xpath = "//a[@class='button button--primary button--block add-to-cart-button']")
     private WebElement viewCartButtonPopUp;
 
+    @FindBy(xpath = "//button[@class='button--secondary button--block js-mini-cart-close-button']")
+    private WebElement continueShoppingButtonPopUp;
+
     @FindBy(xpath = "//h1[@class='program-details__name']")
     private WebElement ampacProgramName;
 
@@ -50,7 +53,10 @@ public class StorePagePObj extends PageObject {
     @FindBy(xpath = "//a[@id='declineSurvey']")
     private WebElement surveyPopUp;
 
-    public StorePagePObj(WebDriver driver) {
+    @FindBy(xpath = "//div[@class='pagination-bar-results']")
+    private WebElement totalNumberOfProducts;
+
+    public StorePagePageObject(WebDriver driver) {
         super(driver);
     }
 
@@ -95,12 +101,16 @@ public class StorePagePObj extends PageObject {
         return totalItemsWithSelectedFilter.getText();
     }
 
-    public void clickNoSurveyPopup() {
-        if (surveyPopUp.isDisplayed()) {
-            surveyPopUp.click();
-        }
-
+    public String getTotalNumberOfProducts() {
+        return totalNumberOfProducts.getText();
     }
 
+    public void clickContinueShoppingOnPopUp() {
+        continueShoppingButtonPopUp.click();
+    }
+
+public void clickNoSurveyPopup() {
+        surveyPopUp.click();
+}
 
 }

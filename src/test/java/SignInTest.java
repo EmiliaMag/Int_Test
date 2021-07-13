@@ -23,7 +23,7 @@ public class SignInTest {
         webdriver.get("https://www.pearsonassessments.com/store/usassessments/en/login");
 
         PageObject navigator = new PageObject(webdriver);
-        SignInPageObj signIn = new SignInPageObj(webdriver); //obj
+        SignInPageObject signIn = new SignInPageObject(webdriver); //obj
 
         signIn.clickPopUpCloseButton();         //close the Pop-Up
         signIn.clickOnUsernameInput();          //Click on Username field
@@ -44,9 +44,9 @@ public class SignInTest {
         webdriver.get("https://www.pearsonassessments.com/");
 
         PageObject navigator = new PageObject(webdriver);
-        SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
-        CartPagePObj cartPage = new CartPagePObj(webdriver);
-        StorePagePObj addToCart = new StorePagePObj(webdriver);
+        SignInPageObject storeButton = new SignInPageObject(webdriver); //obj
+        CartPagePageObject cartPage = new CartPagePageObject(webdriver);
+        StorePagePageObject addToCart = new StorePagePageObject(webdriver);
 
         storeButton.clickPopUpCloseButton();         //close the Pop-Up
         Thread.sleep(2000);
@@ -71,9 +71,9 @@ public class SignInTest {
     public void addProductFromQuickOrder() throws InterruptedException {
         webdriver.get("https://www.pearsonassessments.com/");
 
-        SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
+        SignInPageObject storeButton = new SignInPageObject(webdriver); //obj
         PageObject navigator = new PageObject(webdriver);
-        QuickOrderPObj quickOrder = new QuickOrderPObj(webdriver);
+        QuickOrderPageObject quickOrder = new QuickOrderPageObject(webdriver);
 
         storeButton.clickPopUpCloseButton();         //close the Pop-Up
         quickOrder.clickOnQuickOrderButton();
@@ -92,8 +92,8 @@ public class SignInTest {
     public void searchProductWithSearchBar() {
         webdriver.get("https://www.pearsonassessments.com/");
 
-        SignInPageObj searchBar = new SignInPageObj(webdriver); //obj
-        StorePagePObj ampacText = new StorePagePObj(webdriver);
+        SignInPageObject searchBar = new SignInPageObject(webdriver); //obj
+        StorePagePageObject ampacText = new StorePagePageObject(webdriver);
 
         searchBar.clickPopUpCloseButton();         //close the Pop-Up
         searchBar.clickOnSearchField();
@@ -108,7 +108,7 @@ public class SignInTest {
     public void scrollDownandUp() {
         webdriver.get("https://www.pearsonassessments.com/");
 
-        SignInPageObj searchBar = new SignInPageObj(webdriver); //obj
+        SignInPageObject searchBar = new SignInPageObject(webdriver); //obj
         PageObject navigator = new PageObject(webdriver);
 
         searchBar.clickPopUpCloseButton();         //close the Pop-Up
@@ -122,10 +122,10 @@ public class SignInTest {
 
 
         PageObject navigator = new PageObject(webdriver);
-        SignInPageObj storeButton = new SignInPageObj(webdriver); //obj
-        CartPagePObj quantityField = new CartPagePObj(webdriver);
-        StorePagePObj addToCart = new StorePagePObj(webdriver);
-        CartPagePObj qtyUpdatedMessage = new CartPagePObj(webdriver);
+        SignInPageObject storeButton = new SignInPageObject(webdriver); //obj
+        CartPagePageObject quantityField = new CartPagePageObject(webdriver);
+        StorePagePageObject addToCart = new StorePagePageObject(webdriver);
+        CartPagePageObject qtyUpdatedMessage = new CartPagePageObject(webdriver);
 
 
         storeButton.clickPopUpCloseButton();         //close the Pop-Up
@@ -157,8 +157,8 @@ public class SignInTest {
         webdriver.get("https://www.pearsonassessments.com/");
 
         PageObject navigator = new PageObject(webdriver);
-        SignInPageObj signIn = new SignInPageObj(webdriver); //obj
-        StorePagePObj storePage = new StorePagePObj(webdriver);
+        SignInPageObject signIn = new SignInPageObject(webdriver); //obj
+        StorePagePageObject storePage = new StorePagePageObject(webdriver);
 
 
         signIn.clickPopUpCloseButton();         //close the Pop-Up
@@ -182,7 +182,7 @@ public class SignInTest {
     public void checkPearsonLogo() {
         webdriver.get("https://www.pearsonassessments.com/");
 
-        SignInPageObj pearsonLogo = new SignInPageObj(webdriver); //obj
+        SignInPageObject pearsonLogo = new SignInPageObject(webdriver); //obj
 
         pearsonLogo.clickPopUpCloseButton();         //close the Pop-Up
         pearsonLogo.clickOnSearchField();
@@ -197,10 +197,10 @@ public class SignInTest {
     public void saveCartLoggedOutQO() throws InterruptedException {
         webdriver.get("https://www.pearsonassessments.com/");
 
-        SignInPageObj signInPage = new SignInPageObj(webdriver); //obj
+        SignInPageObject signInPage = new SignInPageObject(webdriver); //obj
         PageObject navigator = new PageObject(webdriver);
-        QuickOrderPObj quickOrder = new QuickOrderPObj(webdriver);
-        CartPagePObj saveCart = new CartPagePObj(webdriver);
+        QuickOrderPageObject quickOrder = new QuickOrderPageObject(webdriver);
+        CartPagePageObject saveCart = new CartPagePageObject(webdriver);
 
         signInPage.clickPopUpCloseButton();         //close the Pop-Up
         signInPage.clickClosePrivacyWindow();
@@ -229,11 +229,11 @@ public class SignInTest {
         webdriver.get("https://www.pearsonassessments.com/");
 
         PageObject navigator = new PageObject(webdriver);
-        SignInPageObj signInPage = new SignInPageObj(webdriver); //obj
-        CartPagePObj cartPage = new CartPagePObj(webdriver);
-        StorePagePObj addToCart = new StorePagePObj(webdriver);
-        AccountsForCheckoutPObj customerAccount = new AccountsForCheckoutPObj(webdriver);
-        CheckoutPageObj checkoutPage = new CheckoutPageObj(webdriver);
+        SignInPageObject signInPage = new SignInPageObject(webdriver); //obj
+        CartPagePageObject cartPage = new CartPagePageObject(webdriver);
+        StorePagePageObject addToCart = new StorePagePageObject(webdriver);
+        AccountsForCheckoutPageObject customerAccount = new AccountsForCheckoutPageObject(webdriver);
+        CheckoutPageObject checkoutPage = new CheckoutPageObject(webdriver);
 
         signInPage.clickPopUpCloseButton();
         signInPage.clickClosePrivacyWindow();

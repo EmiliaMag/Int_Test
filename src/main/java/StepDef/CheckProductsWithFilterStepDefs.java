@@ -1,19 +1,19 @@
 package StepDef;
 
 import PageObject.PageObject;
-import PageObject.SignInPageObj;
-import PageObject.StorePagePObj;
+import PageObject.SignInPageObject;
+import PageObject.StorePagePageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class CheckProductsWithFilter {
+public class CheckProductsWithFilterStepDefs {
 
     PageObject navigator = new PageObject(DriverManager.getDriver());
-    SignInPageObj signIn = new SignInPageObj(DriverManager.getDriver()); //obj
-    StorePagePObj storePage = new StorePagePObj(DriverManager.getDriver());
+    SignInPageObject signIn = new SignInPageObject(DriverManager.getDriver()); //obj
+    StorePagePageObject storePage = new StorePagePageObject(DriverManager.getDriver());
 
     @And("user closes the pop-up")
     public void userClosesThePopup() {
@@ -23,20 +23,20 @@ public class CheckProductsWithFilter {
 
     @And("click on Store button from the header")
     public void clickOnStoreButtonFromTheHeader() throws InterruptedException {
-        Thread.sleep(2000);
+        navigator.implicitWait();
         signIn.clickStoreButtonHeader();
     }
 
     @When("user click Behavior Category Filter")
     public void userClickBehaviorCategoryFilter() throws InterruptedException {
-        Thread.sleep(2000);
+        navigator.implicitWait();
         navigator.scrollDown();
         storePage.clickBehaviorCategoryFilter();
     }
 
     @And("click Age Range Dropdown")
     public void clickAgeRangeDropdown() throws InterruptedException {
-        Thread.sleep(2000);
+        navigator.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
         storePage.clickAgeRangeDropdown();
