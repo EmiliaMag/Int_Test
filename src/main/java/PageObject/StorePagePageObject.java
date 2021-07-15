@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class StorePagePageObject extends PageObject {
+
     @FindBy(xpath = "//div[@class='pagination-bar-results']//span")
     private WebElement totalItemsInStore;
 
@@ -56,6 +57,7 @@ public class StorePagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='pagination-bar-results']")
     private WebElement totalNumberOfProducts;
 
+    //methods
     public StorePagePageObject(WebDriver driver) {
         super(driver);
     }
@@ -82,7 +84,6 @@ public class StorePagePageObject extends PageObject {
 
     public String getAmpacTextName() {
         return ampacProgramName.getText();
-
     }
 
     public void clickBehaviorCategoryFilter() {
@@ -109,8 +110,8 @@ public class StorePagePageObject extends PageObject {
         continueShoppingButtonPopUp.click();
     }
 
-public void clickNoSurveyPopup() {
+    public void clickNoSurveyPopup() {
         surveyPopUp.click();
-}
+    }
 
 }

@@ -12,7 +12,7 @@ public class AccountsForCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//div[@id='digitalAccountFormSubmitID']//button[@id='digitalAccountFormSubmit']")
     private WebElement continueButton;
 
-
+    //methods
     public AccountsForCheckoutPageObject(WebDriver driver) {
         super(driver);
     }
@@ -24,6 +24,5 @@ public class AccountsForCheckoutPageObject extends PageObject {
     public void clickContinueButton() {
         continueButton.click();
     }
-
 
 }

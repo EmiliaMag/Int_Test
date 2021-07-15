@@ -1,16 +1,18 @@
 package PageObject;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SignInPageObject extends PageObject {
-    @FindBy(id = "username")
+
+    @FindBy(xpath = "//input[@id = 'username']")
     private WebElement usernameInput;
 
     @FindBy(xpath = "//div[@class = 'nav__right utility-nav--container']//a[@title='Store']")
     private WebElement storeButton;
 
-    @FindBy(id = "site-logo")
+    @FindBy(xpath = "//div[@id = 'site-logo']")
     private WebElement pearsonLogo;
 
     @FindBy(xpath = "//button[@class='search-box-icon']")
@@ -22,7 +24,7 @@ public class SignInPageObject extends PageObject {
     @FindBy(className = "pull-right forgotten-username")
     private WebElement forgotUsernameAndPasswordButton;
 
-    @FindBy(xpath = "//*[@id='emailID']")
+    @FindBy(xpath = "//input[@id='emailID']")
     private WebElement emailInput;
 
     @FindBy(xpath = "//*[@id='acceptTermsOfUseError']/label/input")
@@ -98,7 +100,7 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickSignInButton() {
-       waitUntilElementIsDisplayed(signInButton);
+        waitUntilElementIsDisplayed(signInButton);
         signInButton.click();
     }
 
@@ -153,10 +155,7 @@ public class SignInPageObject extends PageObject {
     public void clickOnSignOutButton() {
         waitUntilElementIsDisplayed(signOutButton);
         signOutButton.click();
-
-
     }
-
 
 }
 

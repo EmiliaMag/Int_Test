@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CartPagePageObject extends PageObject {
+
     @FindBy(xpath = "//div[@class='item__description']//div[@class='item__ISBN']")
     private WebElement itemISBN;
 
@@ -36,9 +37,10 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//button[@class='button--ctap button--block btn--continue-checkout js-continue-checkout-button js-track-checkoutstep js-sticky-anchor']")
     private WebElement checkoutButton;
 
-    @FindBy(xpath= "//span[@class= 'item__name']")
+    @FindBy(xpath = "//span[@class= 'item__name']")
     private WebElement sensoryProfileProductTitle;
 
+    //methods
     public CartPagePageObject(WebDriver driver) {
         super(driver);
     }
@@ -82,4 +84,5 @@ public class CartPagePageObject extends PageObject {
     public String getSensoryProfileProductTitle() {
         return sensoryProfileProductTitle.getText();
     }
+
 }

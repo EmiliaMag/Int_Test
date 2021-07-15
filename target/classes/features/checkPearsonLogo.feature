@@ -2,7 +2,7 @@ Feature: Pearson Logo functionality
 
   Scenario: Customer return to the Home Page using the Pearson's Logo Button
     Given customer visits the PearsonAssessment's LogIn Page
-    And customer closes the pop-up
+    And customer closes pop-ups
     When customer clicks on Search Bar field
     And customer types the Ampac product name
     And customer clicks on search button next to the search field

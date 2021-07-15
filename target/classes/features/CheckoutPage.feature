@@ -2,7 +2,7 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
 
   Scenario: Customer adds a product to cart and reaches the checkout page
     Given customer visits the PearsonAssessment's LogIn Page
-    And  customer closes the pop-up
+    And  customer closes pop-ups
     When customer customer clicks on SignIn button from the header of the page
     And customer clicks the username and password field and enter the credentials on the SignIn form
     And customer clicks on SignIn button

@@ -74,9 +74,8 @@ public class SecureCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//select[@id='address.country']//option[@value='AR']")
     private WebElement countryFieldsArgentinaOption;
 
-    @FindBy(xpath="//button[@id='placeOrder']")
+    @FindBy(xpath = "//button[@id='placeOrder']")
     private WebElement placeOrderButton;
-
 
     //methods
     public SecureCheckoutPageObject(WebDriver driver) {
@@ -123,7 +122,9 @@ public class SecureCheckoutPageObject extends PageObject {
         cityField.sendKeys("Phoenix");
     }
 
-    public void clickCountryField() {countryField.click();}
+    public void clickCountryField() {
+        countryField.click();
+    }
 
     public void clickOnStateField() {
         stateDropDownList.click();
@@ -184,16 +185,17 @@ public class SecureCheckoutPageObject extends PageObject {
 
     public void clickOnTermsCheckbox() {
         clickWithJS(termsAndConditionsCheckbox);
-    }
+    }           //click with JS
+
     public void clickOnTermsCheckboxWithActions() {
-        Actions clickButton= new Actions(driver);
+        Actions clickButton = new Actions(driver);
         //termsAndConditionsCheckbox.click();
-        clickButton.moveToElement(termsAndConditionsSpan,-150,0).click().perform();
+        clickButton.moveToElement(termsAndConditionsSpan, -150, 0).click().perform();
 
-    }
+    }                                       //click with Actions
 
-    public  String getShippingMethodText() {
-       return shippingMethodTitle.getText();
+    public String getShippingMethodText() {
+        return shippingMethodTitle.getText();
     }
 
     public String getPaymentAndBillingText() {
@@ -204,7 +206,7 @@ public class SecureCheckoutPageObject extends PageObject {
         countryField.click();
     }
 
-    public void selectFromCountryField () {
+    public void selectFromCountryField() {
         countryFieldsArgentinaOption.click();
     }
 
@@ -212,5 +214,6 @@ public class SecureCheckoutPageObject extends PageObject {
         return placeOrderButton.getAttribute("disabled");
         //return placeOrderButton.getCssValue("disabled");
     }
+
 }
 

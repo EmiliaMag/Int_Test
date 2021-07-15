@@ -10,7 +10,7 @@ public class CredentialsInput {
         String username = user.nextLine();
     }
 
-    public void passwordInput () {
+    public void passwordInput() {
         Scanner pass = new Scanner(System.in);
         String password = pass.nextLine();
     }

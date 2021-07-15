@@ -12,11 +12,23 @@ import java.util.function.Function;
 public class PageObject {
     protected WebDriver driver;
 
+
+    //Webdriver
+    public PageObject(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+
+    }
+
+
+    //close browser method
     public void closeBrowser() {
         DriverManager.getDriver().manage().deleteAllCookies();
         DriverManager.getDriver().close();
     }
 
+
+    //scroll methods
     public void scrollDown() {
         JavascriptExecutor jsx = (JavascriptExecutor) driver;
         jsx.executeScript("window.scrollBy(0,450)", "");
@@ -33,16 +45,10 @@ public class PageObject {
     }
 
 
-    public PageObject(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
-
-    }
-
+    //Wait methods
     public void implicitWait() {
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        DriverManager.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-
 
     public void waitUntilElementIsDisplayed(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -64,7 +70,6 @@ public class PageObject {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-
     public void fluentWait() {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(30))
@@ -78,69 +83,31 @@ public class PageObject {
         });
     }
 
-//      WebDriver driver_;
-//
-//    public void waitForPageLoad() {
-//        Wait<WebDriver> wait = new WebDriverWait(driver_, 30);
-//        wait.until(new Function<WebDriver, Boolean>() {
-//            public Boolean apply(WebDriver driver) {
-//                System.out.println("Current Window State       : "
-//                        + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
-//                return String
-//                        .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
-//                        .equals("complete");
-//            }
-//        });
-//    }
-//
-//
-//    public void waitForPageToLoad() {
-//        ExpectedCondition<Boolean> javascriptDone = new ExpectedCondition<Boolean>() {
-//            public Boolean apply(WebDriver d) {
-//                try {
-//                    return ((JavascriptExecutor) getDriver()).executeScript("return document.readyState").equals("complete");
-//                } catch (Exception e) {
-//                    return Boolean.FALSE;
-//                }
-//            }
-//        };
-//        WebDriverWait wait = new WebDriverWait(getDriver(), waitTimeOut);
-//        wait.until(javascriptDone);
-//    }
 
-//    public void waitForLoad(WebDriver driver) {
-//        ExpectedCondition<Boolean> pageLoadCondition = new
-//                ExpectedCondition<Boolean>() {
-//                    public Boolean apply(WebDriver driver) {
-//                        return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-//                    }
-//                };
-//        WebDriverWait wait = new WebDriverWait(driver, 30);
-//        wait.until(pageLoadCondition);
-//    }
-
+    //Wait Page/JS/JQuery methods
     public boolean waitUntilPageIsLoaded(WebDriver webDriver, int length) {
         return waitForJs(webDriver, length) && waitForJQuery(webDriver, length);
-    }
+    }      //this method combines the waitForJs&waitForJQuery methods
 
     private static boolean waitForJs(WebDriver webDriver, int length) {
         WebDriverWait wait = new WebDriverWait(webDriver, length);
         return wait.until((ExpectedCondition<Boolean>) driver -> ((JavascriptExecutor) driver).executeScript(
                 "return document.readyState"
         ).equals("complete"));
-    }
+    }          //wait for JS
 
     private static boolean waitForJQuery(WebDriver webDriver, int length) {
         WebDriverWait wait = new WebDriverWait(webDriver, length);
         return wait.until((ExpectedCondition<Boolean>) driver -> (Long) ((JavascriptExecutor) driver).executeScript(
                 "return jQuery.active"
         ) == 0);
-    }
+    }      //wait for JQuery
 
+
+    //click with JS method
     public void clickWithJS(WebElement element) {
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
-
 
 }

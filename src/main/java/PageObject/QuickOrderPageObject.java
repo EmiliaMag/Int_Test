@@ -24,10 +24,10 @@ public class QuickOrderPageObject extends PageObject {
     @FindBy(xpath = "//button[@id='js-add-to-cart-quick-order-btn-top']")
     private WebElement addToCartButtonTop;
 
-
     @FindBy(xpath = "//a[@class='button button--primary button--block add-to-cart-button']")
     private WebElement viewCartButton;
 
+    //methods
     public QuickOrderPageObject(WebDriver driver) {
         super(driver);
     }
@@ -63,6 +63,5 @@ public class QuickOrderPageObject extends PageObject {
     public void clickOnViewCartButton() {
         viewCartButton.click();
     }
-
 
 }

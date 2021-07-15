@@ -3,17 +3,145 @@ package StepDef;
 import PageObject.PageObject;
 import PageObject.SignInPageObject;
 import Utils.DriverManager;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class SignInPageStepDefs {
+
 
     SignInPageObject signInPage = new SignInPageObject(DriverManager.getDriver()); //obj
     PageObject navigator = new PageObject(DriverManager.getDriver());
 
-    @Then("sign in page is open")
-    public void open() {
-        navigator.waitUntilPageIsLoaded(DriverManager.getDriver(), 30);
+
+    @Given("customer visits the PearsonAssessment's LogIn Page")
+    public void userVisitThePearsonAssesmentSLogInPage() {
+
+        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
+        DriverManager.getDriver().manage().window().maximize();
+        DriverManager.getDriver().manage().deleteAllCookies();
     }
 
+    @And("customer closes pop-ups")
+    public void closePopUp() {
+        signInPage.clickClosePrivacyPopup2();
+        signInPage.clickPopUpCloseButton();
+    }
+
+    @When("customer types the username in the Username Field")
+    public void userTypeTheUsernameInTheUsernameField() {
+        signInPage.clickOnUsernameInput();
+        signInPage.typeValidUsername();
+    }
+
+    @And("customer types the password in the Password Field")
+    public void typeThePasswordInThePasswordField() {
+        navigator.scrollDown();
+        signInPage.clickPasswordInputField();
+        signInPage.typeValidPassword();
+    }
+
+    @And("customer clicks on SignIn button")
+    public void clickOnSignInButton() {
+        navigator.implicitWait();
+        signInPage.clickSignInButton();
+    }
+
+    @Then("customer should be logged in to the page")
+    public void theUserShouldBeLoggedInToThePage() {
+        navigator.implicitWait();
+        Assert.assertEquals("My Account", signInPage.getMyAccountText());
+        navigator.closeBrowser();
+
+    }
+
+    @When("customer clicks on Search Bar")
+    public void userClickOnSearchBar() {
+        signInPage.clickOnSearchField();
+    }
+
+    @And("customer clicks on search button")
+    public void clickOnSearchButton() {
+        signInPage.clickOnSearchButton();
+    }
+
+    @Then("customer should see the Sign In page in breadcrumb")
+    public void theUserShouldShouldBeRedirectedAndShouldSeeTheSignInPageInBreadcrumb() {
+        navigator.implicitWait();
+        navigator.waitUntilPageIsLoaded(DriverManager.getDriver(), 30);
+        Assert.assertEquals("The texts don't match", "Sign in", signInPage.getSignInBreadcrumbText());
+        navigator.closeBrowser();
+    }
+
+    @When("customer clicks on Search Bar field")
+    public void userClickOnSearchBarField() {
+        signInPage.clickOnSearchField();
+    }
+
+    @And("customer types the Ampac product name")
+    public void typeTheAmpacProductName() {
+        signInPage.typeSearchFieldInput();
+    }
+
+    @And("customer clicks on search button next to the search field")
+    public void clickOnSearchButtonNextToTheSearchField() {
+        signInPage.clickOnSearchButton();
+    }
+
+    @And("customer clicks on Pearson's Logo button")
+    public void clickOnPearsonSLogoButton() {
+        signInPage.clickOnPearsonLogo();
+    }
+
+    @Then("customer should be redirected to the Home Page")
+    public void theUserShouldBeRedirectedToTheHomePage() {
+        navigator.implicitWait();
+        Assert.assertEquals("The tittle is incorrect", "Pearson Assessments", signInPage.getHomePageTitle());
+        navigator.closeBrowser();
+    }
+
+    @And("user is logged out and redirected to the home page")
+    public void userIsLoggedOut() {
+        signInPage.clickMyAccountDropdownButton();
+        signInPage.clickOnSignOutButton();
+        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
+    }
+
+    @And("customer clicks on Store button from the header")
+    public void clickOnStoreButtonFromTheHeader() throws InterruptedException {
+        navigator.implicitWait();
+        signInPage.clickStoreButtonHeader();
+    }
+
+    @When("customer customer clicks on SignIn button from the header of the page")
+    public void userClickOnSignInButtonFromTheHeaderOfThePage() throws InterruptedException {
+        navigator.implicitWait();
+        signInPage.clickSigninRegisterHeaderButton();
+    }
+
+    @And("customer clicks the username and password field and enter the credentials on the SignIn form")
+    public void clickTheUsernameAndPasswordFieldAndEnterTheCredentialsOnTheSignInForm() {
+        navigator.scrollDown();
+        signInPage.clickOnUsernameInput();
+        signInPage.typeValidUsername();
+        navigator.scrollDown();
+        signInPage.clickPasswordInputField();
+        signInPage.typeValidPassword();
+    }
+
+    @Then("customer clicks on Store button from the header of the page")
+    public void clickOnStoreButtonFromTheHeaderOfThePage() throws InterruptedException {
+        navigator.scrollDown();
+        signInPage.clickStoreButtonHeader();
+    }
+
+    @When("customer  clicks on Store button from the header")
+    public void user_click_on_Store_button_from_the_header() {
+        signInPage.clickStoreButtonHeader();
+    }
 
 }
+
+

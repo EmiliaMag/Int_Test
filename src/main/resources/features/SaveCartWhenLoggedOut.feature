@@ -2,7 +2,7 @@ Feature: Save Cart
 
   Scenario: Customer save the cart when is logged out
     Given customer visits the PearsonAssessment's LogIn Page
-    And customer closes the pop-up
+    And customer closes pop-ups
     When customer clicks on Quick Order button from the Pearson Banner
     And customer clicks on Isbn-Product Code field
     And customer types the Product Code in the field

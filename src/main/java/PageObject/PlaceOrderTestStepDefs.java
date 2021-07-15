@@ -27,6 +27,7 @@ public class PlaceOrderTestStepDefs extends PageObject {
     @FindBy(xpath = "//input[@id='address.region']")
     private WebElement stateField;
 
+    //methods
     public String getSecureCheckoutTitleText() {
         return secureCheckoutPageTitle.getText();
     }
@@ -42,6 +43,5 @@ public class PlaceOrderTestStepDefs extends PageObject {
     public PlaceOrderTestStepDefs(WebDriver driver) {
         super(driver);
     }
-
 
 }

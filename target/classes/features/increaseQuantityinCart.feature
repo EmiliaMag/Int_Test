@@ -2,7 +2,7 @@ Feature: quantity field in ca cart
 
   Scenario: Customer increase the quantity of a product from the QTY field
     Given customer visits the PearsonAssessment's LogIn Page
-    And  customer closes the pop-up
+    And  customer closes pop-ups
     When customer clicks on Store button from the header of the page
     And customer clicks on Sensory Profile Adult Product Link
     # And customer clicks No button on the Survey Pop-up
