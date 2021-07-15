@@ -1,5 +1,6 @@
 package PageObject;
 
+import Utils.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,15 @@ public class QuickOrderPageObject extends PageObject {
 
     @FindBy(xpath = "//a[@class='button button--primary button--block add-to-cart-button']")
     private WebElement viewCartButton;
+
+    @FindBy(xpath = "//h1[@class='orderSectionHeader__title']")
+    private WebElement quickOrderPageTitle;
+
+    @FindBy(xpath = "//button[@class='btn js-remove-quick-order-row']")
+    private WebElement xButtonQuickOrder;
+
+    @FindBy(xpath = "//button[@id='js-reset-quick-order-form-btn-bottom']")
+    private WebElement resetFormButton;
 
     //methods
     public QuickOrderPageObject(WebDriver driver) {
@@ -63,5 +73,22 @@ public class QuickOrderPageObject extends PageObject {
     public void clickOnViewCartButton() {
         viewCartButton.click();
     }
+
+    public String getQuickOrderPageTitle() {
+        return quickOrderPageTitle.getText();
+    }
+
+    public void clickOnXButton() {
+        xButtonQuickOrder.click();
+    }
+
+    public String getAddtoCartButtonAttribute () {
+       return addToCartButtonTop.getAttribute("disabled");
+    }
+
+    public void clickOnResetFormButton () {
+        resetFormButton.click();
+    }
+
 
 }

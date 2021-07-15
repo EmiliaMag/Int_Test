@@ -63,4 +63,19 @@ public class CartPageStepDefs {
         navigator.closeBrowser();
     }
 
+    @And ("customer clicks on the X button on the right side of the first product")
+    public void customerClicksXButton () {
+        cartPage.clickOnTheXButton();
+    }
+
+    @And("customer clicks on remove button")
+    public void customerClicksOnRemoveButton() {
+        cartPage.clickOnRemoveButton();
+    }
+
+    @Then("customer should see the remove alert message")
+    public void customerShouldSeeTheRemoveAlertMessage() {
+        Assert.assertEquals("The messages don't match", "The product has been removed from your cart.", cartPage.getRemoveAlertMessageText());
+    }
+
 }

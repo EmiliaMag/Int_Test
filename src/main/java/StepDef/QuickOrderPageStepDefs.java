@@ -4,6 +4,7 @@ import PageObject.PageObject;
 import PageObject.QuickOrderPageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -23,9 +24,9 @@ public class QuickOrderPageStepDefs {
     @And("customer clicks on add to Cart button on the right side of the Product Code field")
     public void clickOnAddToCartButtonOnTheRightSideOfTheProductCodeField() throws InterruptedException {
         navigator.implicitWait();
-        navigator.scrollDown();
-        navigator.scrollDown();
+        navigator.scrollUp();
         quickOrderPage.clickOnAddToCartButtonTop();
+        navigator.implicitWait();
     }
 
     @When("customer clicks Quick Order button")
@@ -57,6 +58,38 @@ public class QuickOrderPageStepDefs {
         navigator.implicitWait();
         Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
         navigator.closeBrowser();
+    }
+
+    @Then("customer should see the product name")
+    public void theUserShouldSeeTheProductWithTheProductCode2() throws InterruptedException {
+        navigator.implicitWait();
+        Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
+        DriverManager.getDriver().manage().deleteAllCookies();
+    }
+
+    @Given("customer is on the Quick Order Page")
+    public void customerIsOnTheQuickOrderPage() {
+        navigator.implicitWait();
+        Assert.assertEquals("Quick Order", quickOrderPage.getQuickOrderPageTitle());
+    }
+
+    @And("customer clicks on X button to remove the product")
+    public void customerClicksOnXButtonToRemoveTheProduct() {
+        quickOrderPage.clickOnXButton();
+    }
+
+    @Then("customer should see the Add to Cart button disabled")
+    public void customerShouldSeeTheAddToCartButtonDisabled() {
+        navigator.implicitWait();
+        Assert.assertEquals("frwefwef", "true", quickOrderPage.getAddtoCartButtonAttribute());
+    }
+
+    @When("customer clicks on Reset Form Button")
+    public void customerClicksOnResetFormButton(){
+        navigator.implicitWait();
+        quickOrderPage.clickOnResetFormButton();
+        navigator.implicitWait();
+        navigator.disableChromeChangesPopup();
     }
 
 }

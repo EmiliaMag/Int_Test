@@ -40,6 +40,15 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//span[@class= 'item__name']")
     private WebElement sensoryProfileProductTitle;
 
+    @FindBy(xpath = "//button[@class='btn btn-default js-cartItemDetailBtn']")
+    private WebElement xButtonOnTheRightOfTheFirstElement;
+
+    @FindBy(xpath = "//a[@class='js-track-removecartitem']")
+    private WebElement removeButton;
+
+    @FindBy(xpath = "//p[@class='c-alert__text']")
+    private WebElement removeProductAlertMessage;
+
     //methods
     public CartPagePageObject(WebDriver driver) {
         super(driver);
@@ -85,4 +94,15 @@ public class CartPagePageObject extends PageObject {
         return sensoryProfileProductTitle.getText();
     }
 
+    public void clickOnTheXButton () {
+        xButtonOnTheRightOfTheFirstElement.click();
+    }
+
+    public void clickOnRemoveButton () {
+        removeButton.click();
+    }
+
+    public String getRemoveAlertMessageText () {
+        return removeProductAlertMessage.getText();
+    }
 }
