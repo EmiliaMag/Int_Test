@@ -34,7 +34,7 @@ public class SearchProductWithSearchBarStepDefs {
 
     @Then("customer should see the Ampac's Product Page")
     public void theUserShouldSeeTheAmpacSProductPage() {
-        Assert.assertEquals("Activity Measure for Post Acute Care", ampacText.getAmpacTextName());
+        Assert.assertEquals( "The title is incorrect","Activity Measure for Post Acute Care", ampacText.getAmpacTextName());
         navigator.closeBrowser();
     }
 }

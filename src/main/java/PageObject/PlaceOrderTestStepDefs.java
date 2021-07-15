@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CheckoutPageObject extends PageObject {
+public class PlaceOrderTestStepDefs extends PageObject {
 
     @FindBy(xpath = "//div[@class='col-md-12']//h1[@class='c-sectionHeader']")
     private WebElement secureCheckoutPageTitle;
@@ -39,7 +39,7 @@ public class CheckoutPageObject extends PageObject {
         firstNameField.sendKeys("Name");
     }
 
-    public CheckoutPageObject(WebDriver driver) {
+    public PlaceOrderTestStepDefs(WebDriver driver) {
         super(driver);
     }
 

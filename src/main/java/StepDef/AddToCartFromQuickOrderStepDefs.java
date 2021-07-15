@@ -52,7 +52,7 @@ public class AddToCartFromQuickOrderStepDefs {
     @Then("customer should see the product with the product code")
     public void theUserShouldSeeTheProductWithTheProductCode() throws InterruptedException {
             navigator.implicitWait();
-        Assert.assertEquals("ABAS-3 Manual", quickOrder.getProductNameAbas());
+        Assert.assertEquals("The product name does not match","ABAS-3 Manual", quickOrder.getProductNameAbas());
         navigator.closeBrowser();
     }
 }

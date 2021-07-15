@@ -40,7 +40,7 @@ public class PageObject {
     }
 
     public void implicitWait() {
-        DriverManager.getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        DriverManager.getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
 
@@ -57,6 +57,11 @@ public class PageObject {
     public void waitUntilElementInvisible(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    public void waitUntilElementIsClickable(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
 
@@ -114,20 +119,27 @@ public class PageObject {
 //        wait.until(pageLoadCondition);
 //    }
 
-    public static boolean waitUntilPageIsLoaded(WebDriver webDriver, int length) {
-        return waitForJs(webDriver,length)&&waitForJQuery(webDriver,length);
+    public boolean waitUntilPageIsLoaded(WebDriver webDriver, int length) {
+        return waitForJs(webDriver, length) && waitForJQuery(webDriver, length);
     }
-    private static boolean waitForJs(WebDriver webDriver, int length){
+
+    private static boolean waitForJs(WebDriver webDriver, int length) {
         WebDriverWait wait = new WebDriverWait(webDriver, length);
         return wait.until((ExpectedCondition<Boolean>) driver -> ((JavascriptExecutor) driver).executeScript(
                 "return document.readyState"
         ).equals("complete"));
     }
-    private static boolean waitForJQuery(WebDriver webDriver, int length){
+
+    private static boolean waitForJQuery(WebDriver webDriver, int length) {
         WebDriverWait wait = new WebDriverWait(webDriver, length);
-        return wait.until((ExpectedCondition<Boolean>) driver -> (Long)((JavascriptExecutor) driver).executeScript(
+        return wait.until((ExpectedCondition<Boolean>) driver -> (Long) ((JavascriptExecutor) driver).executeScript(
                 "return jQuery.active"
-        )==0);
+        ) == 0);
+    }
+
+    public void clickWithJS(WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element);
     }
 
 

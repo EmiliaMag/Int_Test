@@ -45,7 +45,7 @@ public class CheckProductsWithFilterStepDefs {
 
     @Then("customer should see the number of products according to the selected filters")
     public void theUserShouldSeeTheNumberOfProductsAccordingToTheSelectedFilters() {
-        Assert.assertEquals("27 Items found in Store", storePage.getTotalItemsWithFilters());
+        Assert.assertEquals( "Incorrect message","27 Items found in Store", storePage.getTotalItemsWithFilters());
         navigator.closeBrowser();
     }
 }

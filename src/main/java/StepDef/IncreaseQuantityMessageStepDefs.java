@@ -34,7 +34,7 @@ quantityField.clickOnQtyField();
 
     @Then("customer should see update message")
     public void userShouldSeeUpdateMessage() {
-        Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
+        Assert.assertEquals( "The message is not displayed or is incorrect","Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
         navigator.closeBrowser();
     }
 }

@@ -233,7 +233,7 @@ public class SignInTest {
         CartPagePageObject cartPage = new CartPagePageObject(webdriver);
         StorePagePageObject addToCart = new StorePagePageObject(webdriver);
         AccountsForCheckoutPageObject customerAccount = new AccountsForCheckoutPageObject(webdriver);
-        CheckoutPageObject checkoutPage = new CheckoutPageObject(webdriver);
+        PlaceOrderTestStepDefs checkoutPage = new PlaceOrderTestStepDefs(webdriver);
 
         signInPage.clickPopUpCloseButton();
         signInPage.clickClosePrivacyWindow();

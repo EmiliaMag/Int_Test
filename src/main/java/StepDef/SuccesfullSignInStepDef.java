@@ -20,6 +20,7 @@ public class SuccesfullSignInStepDef {
 
         DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
         DriverManager.getDriver().manage().window().maximize();
+        DriverManager.getDriver().manage().deleteAllCookies();
     }
 
     @And("customer closes pop-ups")
@@ -48,8 +49,9 @@ public class SuccesfullSignInStepDef {
     }
 
     @Then("customer should be logged in to the page")
-    public void theUserShouldBeLoggedInToThePage() throws InterruptedException {
-        Assert.assertEquals("My Account", signInPageObj.getMyAccountText());
+    public void theUserShouldBeLoggedInToThePage()  {
+        navigator.implicitWait();
+        Assert.assertEquals("Incorrect text" ,"My Account", signInPageObj.getMyAccountText());
         navigator.closeBrowser();
 
     }

@@ -3,6 +3,7 @@ package PageObject;
 import PageObject.PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class SecureCheckoutPageObject extends PageObject {
@@ -55,8 +56,26 @@ public class SecureCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//input[@id='card_cvNumber']")
     private WebElement securityCodeField;
 
-    @FindBy(xpath = "//div[@class='c-terms-conditions-area isBoxed']//span[@class='c-checkbox__check']")
+    @FindBy(xpath = "//label[@class='c-checkbox']//input[@id='Terms1']")
     private WebElement termsAndConditionsCheckbox;
+
+    @FindBy(xpath = "//label[@class='c-checkbox']//span[@class='c-checkbox__check']")
+    private WebElement termsAndConditionsSpan;
+
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/checkout/multi/delivery-method/choose']")
+    private WebElement shippingMethodTitle;
+
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/checkout/multi/summary/enter']")
+    private WebElement paymentAndBillingTitle;
+
+    @FindBy(xpath = "//select[@id='address.country']")
+    private WebElement countryField;
+
+    @FindBy(xpath = "//select[@id='address.country']//option[@value='AR']")
+    private WebElement countryFieldsArgentinaOption;
+
+    @FindBy(xpath="//button[@id='placeOrder']")
+    private WebElement placeOrderButton;
 
 
     //methods
@@ -69,6 +88,7 @@ public class SecureCheckoutPageObject extends PageObject {
     }
 
     public void clickOnFirstNameField() {
+        firstNameField.clear();
         firstNameField.click();
     }
 
@@ -77,6 +97,7 @@ public class SecureCheckoutPageObject extends PageObject {
     }
 
     public void clickOnLastNameField() {
+        lastNameField.clear();
         lastNameField.click();
     }
 
@@ -85,6 +106,7 @@ public class SecureCheckoutPageObject extends PageObject {
     }
 
     public void clickOnStreetAddressField() {
+        streetAddressField.clear();
         streetAddressField.click();
     }
 
@@ -96,11 +118,23 @@ public class SecureCheckoutPageObject extends PageObject {
         cityField.click();
     }
 
+    public void typesCityField() {
+        cityField.clear();
+        cityField.sendKeys("Phoenix");
+    }
+
+    public void clickCountryField() {countryField.click();}
+
+    public void clickOnStateField() {
+        stateDropDownList.click();
+    }
+
     public void selectState() {
         arizonaDropDownList.click();
     }
 
     public void clickOnZipCodeField() {
+        zipCodeField.clear();
         zipCodeField.click();
     }
 
@@ -149,6 +183,34 @@ public class SecureCheckoutPageObject extends PageObject {
     }
 
     public void clickOnTermsCheckbox() {
-        termsAndConditionsCheckbox.click();
+        clickWithJS(termsAndConditionsCheckbox);
+    }
+    public void clickOnTermsCheckboxWithActions() {
+        Actions clickButton= new Actions(driver);
+        //termsAndConditionsCheckbox.click();
+        clickButton.moveToElement(termsAndConditionsSpan,-150,0).click().perform();
+
+    }
+
+    public  String getShippingMethodText() {
+       return shippingMethodTitle.getText();
+    }
+
+    public String getPaymentAndBillingText() {
+        return paymentAndBillingTitle.getText();
+    }
+
+    public void clickOnCountryField() {
+        countryField.click();
+    }
+
+    public void selectFromCountryField () {
+        countryFieldsArgentinaOption.click();
+    }
+
+    public String getPlaceOrderButtonAttributeD() {
+        return placeOrderButton.getAttribute("disabled");
+        //return placeOrderButton.getCssValue("disabled");
     }
 }
+

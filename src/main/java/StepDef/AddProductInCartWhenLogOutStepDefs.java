@@ -52,7 +52,7 @@ public class AddProductInCartWhenLogOutStepDefs {
 
     @Then("customer should see the product in the cart")
     public void theUserShouldSeeTheProductInTheCart() {
-        Assert.assertEquals("Adolescent/Adult Sensory Profile", cartPage.getProductNameFromCart());
+        Assert.assertEquals("The names don't match","Adolescent/Adult Sensory Profile", cartPage.getProductNameFromCart());
         navigator.closeBrowser();
     }
 

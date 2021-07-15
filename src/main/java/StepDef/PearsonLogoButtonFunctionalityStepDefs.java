@@ -35,7 +35,7 @@ public class PearsonLogoButtonFunctionalityStepDefs {
 
     @Then("customer should be redirected to the Home Page")
     public void theUserShouldBeRedirectedToTheHomePage() {
-        Assert.assertEquals("Pearson Assessments", pearsonLogo.getHomePageTitle());
+        Assert.assertEquals("The tittle is incorrect","Pearson Assessments", pearsonLogo.getHomePageTitle());
         navigator.closeBrowser();
     }
 }

@@ -42,7 +42,8 @@ public class SaveCartWhenLoggedOutStepDefs {
     @Then("customer should see the Sign In page in breadcrumb")
     public void theUserShouldShouldBeRedirectedAndShouldSeeTheSignInPageInBreadcrumb() {
         navigator.implicitWait();
-        Assert.assertEquals("Sign in", signInPage.getSignInBreadcrumbText());
+        navigator.waitUntilPageIsLoaded(DriverManager.getDriver(), 30);
+        Assert.assertEquals("The texts don't match","Sign in", signInPage.getSignInBreadcrumbText());
         navigator.closeBrowser();
     }
 }
