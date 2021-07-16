@@ -3,6 +3,8 @@ package StepDef;
 import PageObject.PageObject;
 import PageObject.SignInPageObject;
 import Utils.DriverManager;
+import Utils.Waits;
+import com.sun.deploy.util.Waiter;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -46,13 +48,13 @@ public class SignInPageStepDefs {
 
     @And("customer clicks on SignIn button")
     public void clickOnSignInButton() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         signInPage.clickSignInButton();
     }
 
     @Then("customer should be logged in to the page")
     public void theUserShouldBeLoggedInToThePage() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("My Account", signInPage.getMyAccountText());
         navigator.closeBrowser();
 
@@ -70,8 +72,8 @@ public class SignInPageStepDefs {
 
     @Then("customer should see the Sign In page in breadcrumb")
     public void theUserShouldShouldBeRedirectedAndShouldSeeTheSignInPageInBreadcrumb() {
-        navigator.implicitWait();
-        navigator.waitUntilPageIsLoaded(DriverManager.getDriver(), 30);
+        Waits.implicitWait();
+        Waits.waitUntilPageIsLoaded(DriverManager.getDriver(), 30);
         Assert.assertEquals("The texts don't match", "Sign in", signInPage.getSignInBreadcrumbText());
         navigator.closeBrowser();
     }
@@ -98,7 +100,7 @@ public class SignInPageStepDefs {
 
     @Then("customer should be redirected to the Home Page")
     public void theUserShouldBeRedirectedToTheHomePage() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("The tittle is incorrect", "Pearson Assessments", signInPage.getHomePageTitle());
         navigator.closeBrowser();
     }
@@ -112,13 +114,13 @@ public class SignInPageStepDefs {
 
     @And("customer clicks on Store button from the header")
     public void clickOnStoreButtonFromTheHeader() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         signInPage.clickStoreButtonHeader();
     }
 
     @When("customer customer clicks on SignIn button from the header of the page")
     public void userClickOnSignInButtonFromTheHeaderOfThePage() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         signInPage.clickSigninRegisterHeaderButton();
     }
 
@@ -142,6 +144,17 @@ public class SignInPageStepDefs {
     public void user_click_on_Store_button_from_the_header() {
         signInPage.clickStoreButtonHeader();
     }
+
+    @And("customer clicks on My Account dropdown button")
+    public void customerClicksOnMyAccount() {
+        signInPage.clickMyAccountDropdownButton();
+    }
+
+    @And("customer clicks on Address Book Button from the dropdown list")
+    public void customerClicksOnAddressBook() {
+        signInPage.clickOnAddressBook();
+    }
+
 
 }
 

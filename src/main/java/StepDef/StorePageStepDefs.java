@@ -3,6 +3,7 @@ package StepDef;
 import PageObject.PageObject;
 import PageObject.StorePagePageObject;
 import Utils.DriverManager;
+import Utils.Waits;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,14 +24,14 @@ public class StorePageStepDefs {
 
     @When("customer clicks Behavior Category Filter")
     public void userClickBehaviorCategoryFilter() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         storePage.clickBehaviorCategoryFilter();
     }
 
     @And("customer clicks Age Range Dropdown")
     public void clickAgeRangeDropdown() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
         storePage.clickAgeRangeDropdown();
@@ -50,7 +51,7 @@ public class StorePageStepDefs {
 
     @And("customer clicks on Sensory Profile Adult Product Link")
     public void clickOnSensoryProfileAdultProductLink() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         storePage.clickSensoryProfileAdultProductLink();
     }
@@ -68,13 +69,13 @@ public class StorePageStepDefs {
 
     @And("customer clicks on View Cart on the displayed pop-up")
     public void clickOnViewCartOnTheDisplayedPopUp() throws InterruptedException {
-//        navigator.implicitWait();
+//        Waits.implicitWait();
         storePage.clickOnViewCart();
     }
 
     @And("customer clicks on Sensory Profile Adult Product")
     public void clickOnSensoryProfileAdultProduct() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         storePage.clickSensoryProfileAdultProductLink();
     }
@@ -93,7 +94,7 @@ public class StorePageStepDefs {
 
     @And("customer clicks on View Cart button from the Add to Cart pop-up")
     public void clickOnViewCartButtonFromTheAddToCartPopUp() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         storePage.clickOnViewCart();
     }
 

@@ -3,6 +3,7 @@ package StepDef;
 import PageObject.PageObject;
 import PageObject.QuickOrderPageObject;
 import Utils.DriverManager;
+import Utils.Waits;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,21 +24,21 @@ public class QuickOrderPageStepDefs {
 
     @And("customer clicks on add to Cart button on the right side of the Product Code field")
     public void clickOnAddToCartButtonOnTheRightSideOfTheProductCodeField() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollUp();
         quickOrderPage.clickOnAddToCartButtonTop();
-        navigator.implicitWait();
+        Waits.implicitWait();
     }
 
     @When("customer clicks Quick Order button")
     public void userClickQuickOrderButton() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         quickOrderPage.clickOnQuickOrderButton();
     }
 
     @And("customer clicks on Isbn-Product Code field")
     public void clickOnIsbnProductCodeField() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
         quickOrderPage.clickIsbnField();
@@ -55,21 +56,21 @@ public class QuickOrderPageStepDefs {
 
     @Then("customer should see the product with the product code")
     public void theUserShouldSeeTheProductWithTheProductCode() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
         navigator.closeBrowser();
     }
 
     @Then("customer should see the product name")
     public void theUserShouldSeeTheProductWithTheProductCode2() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
         DriverManager.getDriver().manage().deleteAllCookies();
     }
 
     @Given("customer is on the Quick Order Page")
     public void customerIsOnTheQuickOrderPage() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("Quick Order", quickOrderPage.getQuickOrderPageTitle());
     }
 
@@ -80,15 +81,15 @@ public class QuickOrderPageStepDefs {
 
     @Then("customer should see the Add to Cart button disabled")
     public void customerShouldSeeTheAddToCartButtonDisabled() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("frwefwef", "true", quickOrderPage.getAddtoCartButtonAttribute());
     }
 
     @When("customer clicks on Reset Form Button")
-    public void customerClicksOnResetFormButton(){
-        navigator.implicitWait();
+    public void customerClicksOnResetFormButton() {
+        Waits.implicitWait();
         quickOrderPage.clickOnResetFormButton();
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.acceptChromePopup();
     }
 

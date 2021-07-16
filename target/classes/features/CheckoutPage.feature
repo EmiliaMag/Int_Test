@@ -17,7 +17,7 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     And customer clicks on Continue button
     Then customer should see the Secure Checkout Page
     And customer clicks on "Add a new address" radio button
-#    And customer clicks on Country field and selects "Argentina"
+#    And customer clicks on Country field and selects "Chile"
     And customer clicks on First Name field and types "Name" in the field
     And customer clicks on Last Name field and types "Last Name" in the field
     And customer clicks on Street Address field and types "the address" in the field

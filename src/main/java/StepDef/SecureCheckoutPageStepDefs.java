@@ -3,9 +3,11 @@ package StepDef;
 import PageObject.PageObject;
 import PageObject.SecureCheckoutPageObject;
 import Utils.DriverManager;
+import Utils.Waits;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Wait;
 
 public class SecureCheckoutPageStepDefs {
 
@@ -102,15 +104,19 @@ public class SecureCheckoutPageStepDefs {
     @And("customer clicks on Terms&Conditions checkbox button")
     public void customerClicksOn() throws InterruptedException {
         navigator.scrollDown();
-        navigator.implicitWait();
+        Waits.implicitWait();
         secureCheckoutPage.clickOnTermsCheckbox();
         // secureCheckout.clickOnTermsCheckboxWithActions();
     }
 
     @And("customer clicks on Country field and selects {string}")
-    public void customerClicksOnCountryFieldAndSelects(String arg0) {
-        secureCheckoutPage.clickOnCountryField();
-        secureCheckoutPage.selectFromCountryField();
+    public void customerClicksOnCountryFieldAndSelects(String arg0) throws InterruptedException {
+        secureCheckoutPage.clickOptionFromCountryDropdown(arg0);
+        Thread.sleep(6000);
+        secureCheckoutPage.waitAddressFormDisplayed();
+        Waits.waitUntilPageIsLoaded(DriverManager.getDriver(), 20);
+//        secureCheckoutPage.clickOnCountryField();
+//        secureCheckoutPage.selectFromCountryField();
     }
 
     @Then("customer should see the Place Order button disabled")

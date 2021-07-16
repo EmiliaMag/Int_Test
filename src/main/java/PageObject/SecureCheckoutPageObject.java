@@ -1,10 +1,11 @@
 package PageObject;
 
-import PageObject.PageObject;
+import Utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class SecureCheckoutPageObject extends PageObject {
 
@@ -71,11 +72,14 @@ public class SecureCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//select[@id='address.country']")
     private WebElement countryField;
 
-    @FindBy(xpath = "//select[@id='address.country']//option[@value='AR']")
-    private WebElement countryFieldsArgentinaOption;
+    @FindBy(xpath = "//select[@id='address.country']//option[@value='CL']")
+    private WebElement countryFieldsChileOption;
 
     @FindBy(xpath = "//button[@id='placeOrder']")
     private WebElement placeOrderButton;
+
+    @FindBy(xpath = "//div[contains(@class, 'add-new-address')]")
+    private WebElement addressForm;
 
     //methods
     public SecureCheckoutPageObject(WebDriver driver) {
@@ -120,10 +124,6 @@ public class SecureCheckoutPageObject extends PageObject {
     public void typesCityField() {
         cityField.clear();
         cityField.sendKeys("Phoenix");
-    }
-
-    public void clickCountryField() {
-        countryField.click();
     }
 
     public void clickOnStateField() {
@@ -202,17 +202,27 @@ public class SecureCheckoutPageObject extends PageObject {
         return paymentAndBillingTitle.getText();
     }
 
-    public void clickOnCountryField() {
-        countryField.click();
-    }
+//    public void clickOnCountryField() {
+//        countryField.click();
+//    }
 
-    public void selectFromCountryField() {
-        countryFieldsArgentinaOption.click();
-    }
+//    public void selectFromCountryField() {
+//        countryFieldsArgentinaOption.click();
+//    }
 
     public String getPlaceOrderButtonAttributeD() {
         return placeOrderButton.getAttribute("disabled");
         //return placeOrderButton.getCssValue("disabled");
+    }
+
+    public void clickOptionFromCountryDropdown(String country) {
+        Select countryDropdown = new Select(countryField);
+        countryDropdown.selectByVisibleText(country);
+        Waits.waitUntilElementIsDisplayed(countryFieldsChileOption);
+    }
+
+    public void waitAddressFormDisplayed() {
+        Waits.waitUntilElementIsDisplayed(addressForm);
     }
 
 }

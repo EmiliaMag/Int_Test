@@ -82,11 +82,11 @@ public class QuickOrderPageObject extends PageObject {
         xButtonQuickOrder.click();
     }
 
-    public String getAddtoCartButtonAttribute () {
-       return addToCartButtonTop.getAttribute("disabled");
+    public String getAddtoCartButtonAttribute() {
+        return addToCartButtonTop.getAttribute("disabled");
     }
 
-    public void clickOnResetFormButton () {
+    public void clickOnResetFormButton() {
         resetFormButton.click();
     }
 

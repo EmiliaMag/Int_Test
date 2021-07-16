@@ -94,15 +94,15 @@ public class CartPagePageObject extends PageObject {
         return sensoryProfileProductTitle.getText();
     }
 
-    public void clickOnTheXButton () {
+    public void clickOnTheXButton() {
         xButtonOnTheRightOfTheFirstElement.click();
     }
 
-    public void clickOnRemoveButton () {
+    public void clickOnRemoveButton() {
         removeButton.click();
     }
 
-    public String getRemoveAlertMessageText () {
+    public String getRemoveAlertMessageText() {
         return removeProductAlertMessage.getText();
     }
 }

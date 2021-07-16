@@ -14,7 +14,7 @@ public class AccountsForCheckoutPageStepDefs {
 
     @And("customer clicks on My Account Radio Button")
     public void clickOnMyAccountRadioBox() throws InterruptedException {
-        //navigator.implicitWait();
+        //Waits.implicitWait();
         customerAccount.clickMyAccountRadioBox();
     }
 

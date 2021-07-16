@@ -1,7 +1,7 @@
 package StepDef;
 
 import PageObject.PageObject;
-import PageObject.PlaceOrderTestStepDefs;
+import PageObject.PlaceOrderPageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -9,7 +9,7 @@ import org.junit.Assert;
 public class PlaceOrderPageStepDefs {
 
 
-    PlaceOrderTestStepDefs placeOrderPage = new PlaceOrderTestStepDefs(DriverManager.getDriver());
+    PlaceOrderPageObject placeOrderPage = new PlaceOrderPageObject(DriverManager.getDriver());
     PageObject navigator = new PageObject(DriverManager.getDriver());
 
 

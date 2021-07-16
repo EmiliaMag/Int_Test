@@ -1,5 +1,6 @@
 package PageObject;
 
+import Utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -66,6 +67,10 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//div[@class='context-menu-section sign-out']")
     private WebElement signOutButton;
 
+    @FindBy(xpath = "//ul[@class='nav__links']//a[@title='Address Book']")
+    private WebElement addressBookButton;
+
+
     //methods
     public SignInPageObject(WebDriver driver) {
         super(driver);
@@ -100,7 +105,7 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickSignInButton() {
-        waitUntilElementIsDisplayed(signInButton);
+        Waits.waitUntilElementIsDisplayed(signInButton);
         signInButton.click();
     }
 
@@ -153,8 +158,12 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickOnSignOutButton() {
-        waitUntilElementIsDisplayed(signOutButton);
+        Waits.waitUntilElementIsDisplayed(signOutButton);
         signOutButton.click();
+    }
+
+    public void clickOnAddressBook() {
+        addressBookButton.click();
     }
 
 

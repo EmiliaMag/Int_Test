@@ -3,6 +3,7 @@ package StepDef;
 import PageObject.CartPagePageObject;
 import PageObject.PageObject;
 import Utils.DriverManager;
+import Utils.Waits;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -16,7 +17,7 @@ public class CartPageStepDefs {
 
     @And("customer clicks on Save cart button on the pop-up")
     public void clickOnSaveCartButtonOnThePopUp() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
         cartPage.clickOnSaveCartButton();
@@ -40,14 +41,14 @@ public class CartPageStepDefs {
 
     @Then("customer should see update message")
     public void userShouldSeeUpdateMessage() {
-        navigator.implicitWait();
+        Waits.implicitWait();
         Assert.assertEquals("The message is not displayed or is incorrect", "Product quantity has been updated.", cartPage.getQuantityUpdatedMessage());
         navigator.closeBrowser();
     }
 
     @Then("customer clicks on checkout button")
     public void clickOnCheckoutButton() throws InterruptedException {
-        navigator.implicitWait();
+        Waits.implicitWait();
         navigator.scrollDown();
         cartPage.clickOnCheckoutButton();
     }
@@ -63,8 +64,8 @@ public class CartPageStepDefs {
         navigator.closeBrowser();
     }
 
-    @And ("customer clicks on the X button on the right side of the first product")
-    public void customerClicksXButton () {
+    @And("customer clicks on the X button on the right side of the first product")
+    public void customerClicksXButton() {
         cartPage.clickOnTheXButton();
     }
 
