@@ -87,7 +87,7 @@ public class PageObject {
     //Wait Page/JS/JQuery methods
     public boolean waitUntilPageIsLoaded(WebDriver webDriver, int length) {
         return waitForJs(webDriver, length) && waitForJQuery(webDriver, length);
-    }      //this method combines the waitForJs&waitForJQuery methods
+    }      //waitForJs & waitForJQuery methods
 
     private static boolean waitForJs(WebDriver webDriver, int length) {
         WebDriverWait wait = new WebDriverWait(webDriver, length);
