@@ -6,7 +6,7 @@ import Utils.DriverManager;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
-public class PlaceOrderPage {
+public class PlaceOrderPageStepDefs {
 
 
     PlaceOrderTestStepDefs placeOrderPage = new PlaceOrderTestStepDefs(DriverManager.getDriver());

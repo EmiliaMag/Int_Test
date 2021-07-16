@@ -110,7 +110,7 @@ public class PageObject {
         executor.executeScript("arguments[0].click();", element);
     }
 
-    public void disableChromeChangesPopup() {
+    public void acceptChromePopup() {
         DriverManager.getDriver().switchTo().alert().accept();
     }
 }

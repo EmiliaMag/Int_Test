@@ -89,7 +89,7 @@ public class QuickOrderPageStepDefs {
         navigator.implicitWait();
         quickOrderPage.clickOnResetFormButton();
         navigator.implicitWait();
-        navigator.disableChromeChangesPopup();
+        navigator.acceptChromePopup();
     }
 
 }
