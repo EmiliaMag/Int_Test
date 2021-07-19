@@ -7,6 +7,7 @@ import Utils.Waits;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Wait;
 
 public class SecureCheckoutPageStepDefs {
@@ -129,4 +130,20 @@ public class SecureCheckoutPageStepDefs {
         Assert.assertNull("00fhffghfjfgh", secureCheckoutPage.getPlaceOrderButtonAttributeD());
     }
 
+    @And("customer clicks on Search Address field")
+    public void customerClicksOnSearchAddressField() {
+        secureCheckoutPage.clickOnSearchAddressFieldJS();
+        secureCheckoutPage.typeSearchAddressFieldInput();
+
+    }
+
+    @And("customer press the down arrow to select the second address from the list")
+    public void customerPressDownArrow() {
+        secureCheckoutPage.pressEnterSearchAddressField();
+    }
+
+    @And("customer clicks on Back to Cart breadcrumb link")
+    public void customerClicksOnBackToCartBreadcrumbLink() {
+        secureCheckoutPage.clickOnBackToCartBreadcrumb();
+    }
 }

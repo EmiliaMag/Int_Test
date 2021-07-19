@@ -1,6 +1,7 @@
 package PageObject;
 
 import Utils.Waits;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -80,6 +81,12 @@ public class SecureCheckoutPageObject extends PageObject {
 
     @FindBy(xpath = "//div[contains(@class, 'add-new-address')]")
     private WebElement addressForm;
+
+    @FindBy(xpath = "//input[@class='form-control ui-autocomplete-input']")
+    private WebElement  searchAddressField;
+
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/cart']")
+    private WebElement backToCartBreadcrumb;
 
     //methods
     public SecureCheckoutPageObject(WebDriver driver) {
@@ -225,5 +232,26 @@ public class SecureCheckoutPageObject extends PageObject {
         Waits.waitUntilElementIsDisplayed(addressForm);
     }
 
+    public void clickOnSearchAddressField() {
+        searchAddressField.click();
+    }
+
+    public void typeSearchAddressFieldInput(){
+        searchAddressField.sendKeys("Emilia");
+    }
+
+    public void pressEnterSearchAddressField() {
+        searchAddressField.sendKeys(Keys.ARROW_DOWN);
+        searchAddressField.sendKeys(Keys.ARROW_DOWN);
+        searchAddressField.sendKeys(Keys.ENTER);
+    }
+
+    public void clickOnSearchAddressFieldJS() {
+        clickWithJS(searchAddressField);
+    }
+
+public void clickOnBackToCartBreadcrumb() {
+        backToCartBreadcrumb.click();
+}
 }
 

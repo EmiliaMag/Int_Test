@@ -40,4 +40,9 @@ public class AddressBookStepDefs {
     public void customerClicksDeleteButton() {
         addressBook.clickDeleteButtonAddressPopup();
     }
+
+    @Then("customer should see the update message")
+    public void customerShouldSeeTheUpdateMessage() {
+        Assert.assertEquals("The messages are not identical","Address removed successfully", addressBook.getAddressRemovedMessage());
+    }
 }

@@ -79,4 +79,7 @@ public class CartPageStepDefs {
         Assert.assertEquals("The messages don't match", "The product has been removed from your cart.", cartPage.getRemoveAlertMessageText());
     }
 
+    @Then("customer should see the {string} product in Cart")
+    public void customerShouldSeeTheProductInCart(String arg0) {
+        Assert.assertEquals("", "Adaptive Behavior Assessment System | Third Edition", cartPage.getAbasLinkText()); }
 }

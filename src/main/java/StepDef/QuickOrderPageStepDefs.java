@@ -58,7 +58,7 @@ public class QuickOrderPageStepDefs {
     public void theUserShouldSeeTheProductWithTheProductCode() throws InterruptedException {
         Waits.implicitWait();
         Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
-        navigator.closeBrowser();
+//        navigator.closeBrowser();
     }
 
     @Then("customer should see the product name")
@@ -91,6 +91,11 @@ public class QuickOrderPageStepDefs {
         quickOrderPage.clickOnResetFormButton();
         Waits.implicitWait();
         navigator.acceptChromePopup();
+    }
+
+    @And("customer clicks on View Cart button from the pop-up")
+    public void customerClicksOnViewCart(){
+        quickOrderPage.clickOnViewCartButton();
     }
 
 }

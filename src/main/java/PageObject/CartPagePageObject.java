@@ -49,6 +49,9 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//p[@class='c-alert__text']")
     private WebElement removeProductAlertMessage;
 
+    @FindBy(xpath = "//div[@class='program_name']")
+    private WebElement abasProductLink;
+
     //methods
     public CartPagePageObject(WebDriver driver) {
         super(driver);
@@ -104,5 +107,9 @@ public class CartPagePageObject extends PageObject {
 
     public String getRemoveAlertMessageText() {
         return removeProductAlertMessage.getText();
+    }
+
+    public String getAbasLinkText() {
+        return abasProductLink.getText();
     }
 }

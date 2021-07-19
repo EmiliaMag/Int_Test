@@ -19,8 +19,12 @@ public class AddressBookPageObject extends PageObject {
     @FindBy(xpath = "//p[@class='c-alert__text']")
     private WebElement addressCreatedMessage;
 
+    @FindBy(xpath = "//p[@class='c-alert__text']")
+    private WebElement addressRemovedMessage;
+
     @FindBy(xpath = "//div[@id='cboxLoadedContent']//a[@class='button button--primary button--block']")
     private WebElement deleteButtonAddressPopup;
+
 
 
     public AddressBookPageObject(WebDriver driver) {
@@ -40,6 +44,10 @@ public class AddressBookPageObject extends PageObject {
     }
 
     public String getAddressCreatedMessage() {
+        return addressCreatedMessage.getText();
+    }
+
+    public String getAddressRemovedMessage() {
         return addressCreatedMessage.getText();
     }
 

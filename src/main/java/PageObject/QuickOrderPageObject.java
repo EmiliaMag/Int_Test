@@ -1,6 +1,7 @@
 package PageObject;
 
 import Utils.DriverManager;
+import Utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -67,6 +68,7 @@ public class QuickOrderPageObject extends PageObject {
     }
 
     public void clickOnAddToCartButtonTop() {
+        Waits.implicitWait();
         addToCartButtonTop.click();
     }
 
