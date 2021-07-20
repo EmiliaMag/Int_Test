@@ -68,7 +68,7 @@ public class QuickOrderPageObject extends PageObject {
     }
 
     public void clickOnAddToCartButtonTop() {
-        Waits.implicitWait();
+        Waits.waitUntilElementIsClickable(addToCartButtonTop);
         addToCartButtonTop.click();
     }
 

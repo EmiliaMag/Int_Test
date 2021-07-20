@@ -49,11 +49,11 @@ public class StorePageStepDefs {
         navigator.closeBrowser();
     }
 
-    @And("customer clicks on Sensory Profile Adult Product Link")
-    public void clickOnSensoryProfileAdultProductLink() throws InterruptedException {
+    @And("^customer clicks on \"(.*)\" Product Link$")
+    public void clickOnSensoryProfileAdultProductLink(String name) {
         Waits.implicitWait();
         navigator.scrollDown();
-        storePage.clickSensoryProfileAdultProductLink();
+        storePage.clickOnNameFragmentWithName(name);
     }
 
     @And("customer clicks No button on the Survey Pop-up")
@@ -97,5 +97,7 @@ public class StorePageStepDefs {
         Waits.implicitWait();
         storePage.clickOnViewCart();
     }
+
+
 
 }

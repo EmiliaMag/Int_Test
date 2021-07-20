@@ -1,8 +1,13 @@
 package PageObject;
 
+import Fragments.ProgramFragment;
+import Utils.Waits;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.util.List;
 
 public class StorePagePageObject extends PageObject {
 
@@ -56,6 +61,9 @@ public class StorePagePageObject extends PageObject {
 
     @FindBy(xpath = "//div[@class='pagination-bar-results']")
     private WebElement totalNumberOfProducts;
+
+    @FindBy(xpath = "locator")
+    private List<ProgramFragment> programFragmentList;
 
     //methods
     public StorePagePageObject(WebDriver driver) {
@@ -112,6 +120,24 @@ public class StorePagePageObject extends PageObject {
 
     public void clickNoSurveyPopup() {
         surveyPopUp.click();
+    }
+
+
+
+
+    @FindBy(xpath = "locator parinte")
+    private WebElement nameFragmentSection;
+
+    private ProgramFragment getNameFragmentByName(String uniqueName) {
+        return programFragmentList.stream()
+                .filter(item -> item.getTitle().getText().equals(uniqueName))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a nameFragment with uniqueName: " + uniqueName));
+    }
+
+    public void clickOnNameFragmentWithName(String name){
+        Waits.waitUntilElementIsClickable(getNameFragmentByName(name).getTitle());
+        getNameFragmentByName(name).click();
     }
 
 }

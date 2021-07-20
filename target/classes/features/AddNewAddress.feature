@@ -22,4 +22,5 @@ Feature: Add a new Address in the Address Book
 #    And customer clicks No button on the Survey Pop-up
     And customer click X Button to remove the new added address
     And customer click on Delete button from the Delete Address Pop-up
+    Then customer should see the update message
 
