@@ -53,7 +53,8 @@ public class StorePageStepDefs {
     public void clickOnSensoryProfileAdultProductLink(String name) {
         Waits.implicitWait();
         navigator.scrollDown();
-        storePage.clickOnNameFragmentWithName(name);
+        storePage.clickSensoryProfileAdultProductLink();
+//        storePage.clickOnNameFragmentWithName(name);
     }
 
     @And("customer clicks No button on the Survey Pop-up")
@@ -113,7 +114,7 @@ public class StorePageStepDefs {
 
     @Then("customer should see the header of the page")
     public void customerShouldSeeTheHeaderOfThePage() {
-        Assert.assertEquals("The messages are not identical", "For telepractice support during COVID-19 see our resources.", storePage.getAlertMessageText());
+        Assert.assertEquals("The messages are not identical","For telepractice support during COVID-19 see our resources.", storePage.getAlertMessageText());
         navigator.closeBrowser();
 
     }

@@ -52,6 +52,12 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='program_name']")
     private WebElement abasProductLink;
 
+    @FindBy(xpath = "//input[@id='saveCartName']")
+    private WebElement saveCartNameFieldPopup;
+
+    @FindBy(xpath = "//div[@class='col-xs-12']//button[@class='button--primary button--block']")
+    private WebElement saveButtonSaveCartPopup;
+
 
     //methods
     public CartPagePageObject(WebDriver driver) {
@@ -112,5 +118,17 @@ public class CartPagePageObject extends PageObject {
 
     public String getAbasLinkText() {
         return abasProductLink.getText();
+    }
+
+    public void clickCartNameFieldPopUp() {
+        saveCartNameFieldPopup.click();
+    }
+
+    public void typeCartNameFieldPopupName() {
+        saveCartNameFieldPopup.sendKeys("Name");
+    }
+
+    public void clickSaveButtonSaveCartPopup () {
+        saveButtonSaveCartPopup.click();
     }
 }

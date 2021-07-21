@@ -57,7 +57,6 @@ public class SignInPageStepDefs {
         Waits.implicitWait();
         Assert.assertEquals("My Account", signInPage.getMyAccountText());
         navigator.closeBrowser();
-
     }
 
     @When("customer clicks on Search Bar")
@@ -154,6 +153,13 @@ public class SignInPageStepDefs {
     public void customerClicksOnAddressBook() {
         signInPage.clickOnAddressBook();
     }
+
+    @And("customer clicks on Saved Carts Link from the dropdown list")
+    public void customerClicksOnSavedCarts() {
+        signInPage.clickOnSaveCartsLink();
+    }
+
+
 
 }
 

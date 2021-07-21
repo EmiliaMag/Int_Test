@@ -70,6 +70,9 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//ul[@class='nav__links']//a[@title='Address Book']")
     private WebElement addressBookButton;
 
+    @FindBy(xpath = "//li[1]//a[@title='Saved Carts']")
+    private WebElement saveCartsLink;
+
 
     //methods
     public SignInPageObject(WebDriver driver) {
@@ -164,6 +167,10 @@ public class SignInPageObject extends PageObject {
 
     public void clickOnAddressBook() {
         addressBookButton.click();
+    }
+
+    public void clickOnSaveCartsLink() {
+        saveCartsLink.click();
     }
 
 

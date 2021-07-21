@@ -17,8 +17,8 @@ public class SecureCheckoutPageStepDefs {
     PageObject navigator = new PageObject(DriverManager.getDriver());
 
 
-    @And("customer clicks on {string} radio button")
-    public void customerClicksOnRadioButton(String arg0) {
+    @And("customer clicks on Add a new address radio button")
+    public void customerClicksOnRadioButton() {
         secureCheckoutPage.clickOnAddNewAddressRadioButton();
     }
 
@@ -40,41 +40,41 @@ public class SecureCheckoutPageStepDefs {
         secureCheckoutPage.typeStreetAddress();
     }
 
-    @And("customer clicks on the {string} field and types {string} in the field")
-    public void customerClicksOnTheFieldAndTypesInTheField(String arg0, String arg1) {
+    @And("customer clicks on the City field and types {string} in the field")
+    public void customerClicksOnTheFieldAndTypesInTheField(String arg0) {
         secureCheckoutPage.clickOnCityField();
         secureCheckoutPage.typesCityField();
     }
 
-    @And("customer clicks on {string} dropdown list and selects {string} from the list")
-    public void customerClicksOnDropdownListAndSelectsFromTheList(String arg0, String arg1) {
+    @And("customer clicks on State dropdown list and selects {string} from the list")
+    public void customerClicksOnDropdownListAndSelectsFromTheList(String arg0) {
         secureCheckoutPage.clickOnStateField();
         secureCheckoutPage.selectState();
     }
 
-    @And("customer clicks on {string} field and types {string} in the {string} field")
-    public void customerClicksOnFieldAndTypesInTheField(String arg0, String arg1, String arg2) {
+    @And("customer clicks on ZIP field and types {string} in the ZIP field")
+    public void customerClicksOnFieldAndTypesInTheField(String arg0) {
         secureCheckoutPage.clickOnZipCodeField();
         secureCheckoutPage.typeZipCode();
     }
 
-    @And("customer clicks on the {string} button")
-    public void customerClicksOnTheButton(String arg0) {
+    @And("customer clicks on the Next button")
+    public void customerClicksOnTheButton() {
         secureCheckoutPage.clickAddressNextButton();
     }
 
-    @Then("customer should see the {string} displayed")
-    public void customerShouldSeeTheDisplayed(String arg0) {
+    @Then("customer should see the Shipping method displayed")
+    public void customerShouldSeeTheDisplayed() {
         Assert.assertEquals("Shipping method", secureCheckoutPage.getShippingMethodText());
     }
 
-    @And("customer clicks on {string} button")
-    public void customerClicksOnButton(String arg0) {
+    @And("customer clicks on Next button")
+    public void customerClicksOnButton() {
         secureCheckoutPage.clickOnDeliveryNextButton();
     }
 
-    @Then("customer should see {string} section displayed")
-    public void theSectionShouldBeDisplayed(String arg0) {
+    @Then("customer should see Payment and billing section displayed")
+    public void theSectionShouldBeDisplayed() {
         Assert.assertEquals("Payment and billing", secureCheckoutPage.getPaymentAndBillingText());
     }
 
@@ -103,7 +103,7 @@ public class SecureCheckoutPageStepDefs {
     }
 
     @And("customer clicks on Terms&Conditions checkbox button")
-    public void customerClicksOn() throws InterruptedException {
+    public void customerClicksOn() {
         navigator.scrollDown();
         Waits.implicitWait();
         secureCheckoutPage.clickOnTermsCheckbox();

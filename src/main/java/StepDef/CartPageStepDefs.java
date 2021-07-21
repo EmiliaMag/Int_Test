@@ -83,4 +83,20 @@ public class CartPageStepDefs {
     public void customerShouldSeeTheProductInCart(String arg0) {
         Assert.assertEquals("", "Adaptive Behavior Assessment System | Third Edition", cartPage.getAbasLinkText());
     }
+
+    @And("customer clicks on Save Cart button")
+    public void customerClicksOnSaveCartButton() {
+        cartPage.clickOnSaveCartButton();
+    }
+
+    @And("customer clicks on Cart Name field on Save Cart Popup and types {string} in the field")
+    public void customerClicksOnCartNameFieldOnSaveCartPopupAndTypesInTheField(String arg0) {
+        cartPage.clickCartNameFieldPopUp();
+        cartPage.typeCartNameFieldPopupName();
+    }
+
+    @And("customer clicks on Save Button from Save Cart Popup")
+    public void customerClicksSaveButtonFromSaveCartPopup() {
+        cartPage.clickSaveButtonSaveCartPopup();
+    }
 }

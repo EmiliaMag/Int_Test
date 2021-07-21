@@ -2,6 +2,7 @@ package StepDef;
 
 import PageObject.PageObject;
 import Utils.DriverManager;
+import Utils.Waits;
 import io.cucumber.java.en.And;
 import PageObject.AccountsForCheckoutPageObject;
 
@@ -14,7 +15,7 @@ public class AccountsForCheckoutPageStepDefs {
 
     @And("customer clicks on My Account Radio Button")
     public void clickOnMyAccountRadioBox() throws InterruptedException {
-        //Waits.implicitWait();
+        Waits.implicitWait();
         customerAccount.clickMyAccountRadioBox();
     }
 

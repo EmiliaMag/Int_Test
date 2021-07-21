@@ -16,6 +16,7 @@ public class AddAddressStepDefs {
         addAddressBook.typeFirstName();
     }
 
+
     @And("customer clicks on Last Name field and types {string}")
     public void customerClicksOnLastNameFieldAndTypes(String arg0) {
         addAddressBook.clickOnLastNameField();
