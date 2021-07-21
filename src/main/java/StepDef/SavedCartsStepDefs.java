@@ -1,7 +1,7 @@
 package StepDef;
 
 import PageObject.PageObject;
-import PageObject.SavedCartsPageObject
+import PageObject.SavedCartsPageObject;
 import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

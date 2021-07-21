@@ -5,14 +5,14 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-@FindBy(xpath = "//li[@class='product__list--item']")   //FindBy pentru clasa parinte (fragment)
-public class ProgramFragment {
+public class ProgramStoreFragment {
 
     @FindBy(xpath = ".//a[@class='product__list--name']")    //element din fragment
-    private WebElement title;
+    public WebElement title;
 
     @FindBy(xpath = ".//div[@class='product__listing--description']")   //element din fragment
-    private WebElement description;
+    public WebElement description;
+
 
     public WebElement getTitle() {
         return title;

@@ -135,7 +135,6 @@ public class SignInPageStepDefs {
 
     @And("customer clicks on Store button from the header of the page")
     public void clickOnStoreButtonFromTheHeaderOfThePage() {
-        navigator.scrollDown();
         signInPage.clickStoreButtonHeader();
     }
 

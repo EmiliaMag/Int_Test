@@ -16,7 +16,7 @@ public class CartPageStepDefs {
 
 
     @And("customer clicks on Save cart button on the pop-up")
-    public void clickOnSaveCartButtonOnThePopUp() throws InterruptedException {
+    public void clickOnSaveCartButtonOnThePopUp()  {
         Waits.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
@@ -47,7 +47,7 @@ public class CartPageStepDefs {
     }
 
     @Then("customer clicks on checkout button")
-    public void clickOnCheckoutButton() throws InterruptedException {
+    public void clickOnCheckoutButton()  {
         Waits.implicitWait();
         navigator.scrollDown();
         cartPage.clickOnCheckoutButton();
@@ -97,6 +97,12 @@ public class CartPageStepDefs {
 
     @And("customer clicks on Save Button from Save Cart Popup")
     public void customerClicksSaveButtonFromSaveCartPopup() {
+        navigator.scrollDown();
         cartPage.clickSaveButtonSaveCartPopup();
+    }
+
+    @Then("customer should see an cart update message")
+    public void customerShouldSeeAnCartUpdateMessage() {
+        Assert.assertEquals("The messages are not identical","Your cart Name is added to Saved Carts.", cartPage.getSaveCartUpdateMessage());
     }
 }

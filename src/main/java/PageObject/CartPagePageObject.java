@@ -52,11 +52,14 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='program_name']")
     private WebElement abasProductLink;
 
-    @FindBy(xpath = "//input[@id='saveCartName']")
+    @FindBy(xpath = "//div[@id='cboxLoadedContent']//input[@id='saveCartName']")
     private WebElement saveCartNameFieldPopup;
 
-    @FindBy(xpath = "//div[@class='col-xs-12']//button[@class='button--primary button--block']")
+    @FindBy(xpath = "//div[@id='cboxLoadedContent']//button[@class='button--primary button--block']")
     private WebElement saveButtonSaveCartPopup;
+
+    @FindBy(xpath = "//p[@class='c-alert__text']")
+    private WebElement saveCartUpdateMessage;
 
 
     //methods
@@ -130,5 +133,9 @@ public class CartPagePageObject extends PageObject {
 
     public void clickSaveButtonSaveCartPopup () {
         saveButtonSaveCartPopup.click();
+    }
+
+    public String getSaveCartUpdateMessage() {
+        return saveCartUpdateMessage.getText();
     }
 }

@@ -1,11 +1,12 @@
 package PageObject;
 
-import Fragments.ProgramFragment;
-import Utils.Waits;
+import Fragments.FormatCardsFragment;
+import Fragments.ProgramStoreFragment;
+import Utils.GetBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Wait;
 
 import java.util.List;
 
@@ -68,9 +69,14 @@ public class StorePagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='pmc-alert__inner']")
     private WebElement alertMessage;
 
+    @FindBy(xpath = ".//li[@class='product__list--item']")
+    private List<WebElement> programFragmentList;
 
-    @FindBy(xpath = "locator")
-    private List<ProgramFragment> programFragmentList;
+    @FindBy(xpath = ".//li[@class='preferred-format__card']")
+    private List<WebElement> formatCardList;
+
+    @FindBy(xpath = ".//li[@class='program-page__item']")
+    private List<WebElement> addToCartList;
 
 
     //methods
@@ -139,19 +145,54 @@ public class StorePagePageObject extends PageObject {
     }
 
 
-    @FindBy(xpath = "locator parinte")
-    private WebElement nameFragmentSection;
-
-    private ProgramFragment getNameFragmentByName(String uniqueName) {
+    //Programs Page
+    public WebElement getProgramByTitle(String title) {
+        By titleBy = GetBy.getBy("title", ProgramStoreFragment.class);
         return programFragmentList.stream()
-                .filter(item -> item.getTitle().getText().equals(uniqueName))
+                .filter(searchResultFragment -> searchResultFragment.findElement(titleBy).getText().contains(title))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Unable to find a nameFragment with uniqueName: " + uniqueName));
+                .orElseThrow(() -> new IllegalStateException("Unable to find a program with Name: " + title));
     }
 
-    public void clickOnNameFragmentWithName(String name) {
-        Waits.waitUntilElementIsClickable(getNameFragmentByName(name).getTitle());
-        getNameFragmentByName(name).click();
+    public WebElement getProgramTitleElementByName(String title) {
+        By titleBy = GetBy.getBy("title", ProgramStoreFragment.class);
+        return getProgramByTitle(title).findElement(titleBy);
+    }
+
+    public String getProgramTitle(String title) {
+        return getProgramTitleElementByName(title).getText();
+    }
+
+    public void clickOnProgramTitle(String title) {
+        getProgramTitleElementByName(title).click();
+    }
+
+
+    //Format Cards
+    public WebElement getFormatCardByTitle(String title) {
+        By titleBy = GetBy.getBy("formatCardTitle", FormatCardsFragment.class);
+        return formatCardList.stream()
+                .filter(searchResultFragment -> searchResultFragment.findElement(titleBy).getText().contains(title))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a format card with Name: " + title));
+    }
+
+    public void clickOnFormatCardTitle(String title) {
+        getFormatCardByTitle(title).click();
+    }
+
+
+    //Add to Cart Buttons
+    public WebElement getAddToCartByIsbn(String isbn) {
+        By addToCart = GetBy.getBy("formatCardIsbn", FormatCardsFragment.class);
+        return addToCartList.stream()
+                .filter(searchResultFragment -> searchResultFragment.findElement(addToCart).getText().contains(isbn))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a format card with Name: " + isbn)).findElement(addToCart);
+    }
+
+    public void clickOnAddToCartButton(String title) {
+        getFormatCardByTitle(title).click();
     }
 
 }

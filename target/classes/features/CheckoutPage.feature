@@ -9,7 +9,7 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     And customer clicks on Store button from the header of the page
     And customer clicks on "Adolescent/Adult Sensory Profile (Sensory Profile Adult/Adolescent)" Product Link
 #    And customer clicks No button on the Survey Pop-up
-    And customer clicks on Kits Format Cart for SPA product
+    And customer clicks on "All products" Format Cart for SPA product
     And customer clicks on add to Cart button
     And customer clicks on View Cart on the displayed pop-up
     Then customer clicks on checkout button

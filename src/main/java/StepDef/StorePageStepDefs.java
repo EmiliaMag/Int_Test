@@ -53,8 +53,7 @@ public class StorePageStepDefs {
     public void clickOnSensoryProfileAdultProductLink(String name) {
         Waits.implicitWait();
         navigator.scrollDown();
-        storePage.clickSensoryProfileAdultProductLink();
-//        storePage.clickOnNameFragmentWithName(name);
+        storePage.clickOnProgramTitle(name);
     }
 
     @And("customer clicks No button on the Survey Pop-up")
@@ -62,10 +61,11 @@ public class StorePageStepDefs {
         storePage.clickNoSurveyPopup();
     }
 
-    @And("customer clicks on Kits Format Cart for SPA product")
-    public void clickOnKitsFormatCartForSPAProduct() {
+    @And("^customer clicks on \"(.*)\" Format Cart for SPA product$")
+    public void clickOnKitsFormatCartForSPAProduct(String title) {
         navigator.scrollDown();
-        storePage.clickonKitsFormatCardSpaProduct();
+        storePage.clickOnFormatCardTitle(title);
+        //storePage.clickonKitsFormatCardSpaProduct();
     }
 
     @And("customer clicks on View Cart on the displayed pop-up")
@@ -74,11 +74,12 @@ public class StorePageStepDefs {
         storePage.clickOnViewCart();
     }
 
-    @And("customer clicks on Sensory Profile Adult Product")
-    public void clickOnSensoryProfileAdultProduct() {
+    @And("^customer clicks on \"(.*)\" Product$")
+    public void clickOnSensoryProfileAdultProduct(String name) {
         Waits.implicitWait();
         navigator.scrollDown();
-        storePage.clickSensoryProfileAdultProductLink();
+        storePage.clickOnProgramTitle(name);
+        //storePage.clickSensoryProfileAdultProductLink();
     }
 
     @And("customer clicks on Kits Format Card")
