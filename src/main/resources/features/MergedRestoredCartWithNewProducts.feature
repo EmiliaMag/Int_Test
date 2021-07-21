@@ -10,7 +10,7 @@ Feature: Merged carts
     And customer clicks on Store button from the header of the page
     And customer clicks on "Adolescent/Adult Sensory Profile (Sensory Profile Adult/Adolescent)" Product Link
 #    And customer clicks No button on the Survey Pop-up
-    And customer clicks on Kits Format Cart for SPA product
+    And customer clicks on "Kits" Format Cart
     And customer clicks on add to Cart button
     And customer clicks on View Cart on the displayed pop-up
     Then user should see the Cart page with the product selected
@@ -24,6 +24,6 @@ Feature: Merged carts
     And customer clicks on Restore Button from the Restore Popup
     And customer clicks on Store button from the header of the page
     And customer clicks on "Adolescent/Adult Sensory Profile (Sensory Profile Adult/Adolescent)" Product Link
-    And customer clicks on Kits Format Cart for SPA product
+    And customer clicks on "Kits" Format Cart
     And customer clicks on add to Cart button
     And customer clicks on View Cart on the displayed pop-up

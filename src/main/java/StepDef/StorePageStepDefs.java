@@ -61,7 +61,7 @@ public class StorePageStepDefs {
         storePage.clickNoSurveyPopup();
     }
 
-    @And("^customer clicks on \"(.*)\" Format Cart for SPA product$")
+    @And("^customer clicks on \"(.*)\" Format Cart$")
     public void clickOnKitsFormatCartForSPAProduct(String title) {
         navigator.scrollDown();
         storePage.clickOnFormatCardTitle(title);
@@ -88,10 +88,11 @@ public class StorePageStepDefs {
         storePage.clickonKitsFormatCardSpaProduct();
     }
 
-    @And("customer clicks on add to Cart button")
-    public void clickOnAddToCartButton() {
+    @And("^customer clicks on Add to Cart Button from the product with isbn :\"(.*)\"$")
+    public void clickOnAddToCartButton(String isbn) {
         navigator.scrollDown();
-        storePage.clickOnAddToCartButton();
+        storePage.clickOnAddToCartButton(isbn);
+        //storePage.clickOnAddToCartButton();
     }
 
     @And("customer clicks on View Cart button from the Add to Cart pop-up")
@@ -115,7 +116,7 @@ public class StorePageStepDefs {
 
     @Then("customer should see the header of the page")
     public void customerShouldSeeTheHeaderOfThePage() {
-        Assert.assertEquals("The messages are not identical","For telepractice support during COVID-19 see our resources.", storePage.getAlertMessageText());
+        Assert.assertEquals("The messages are not identical", "For telepractice support during COVID-19 see our resources.", storePage.getAlertMessageText());
         navigator.closeBrowser();
 
     }

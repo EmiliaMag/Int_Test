@@ -188,11 +188,12 @@ public class StorePagePageObject extends PageObject {
         return addToCartList.stream()
                 .filter(searchResultFragment -> searchResultFragment.findElement(addToCart).getText().contains(isbn))
                 .findFirst()
-                .orElseThrow(() -> new IllegalStateException("Unable to find a format card with Name: " + isbn)).findElement(addToCart);
+                .orElseThrow(() -> new IllegalStateException("Unable to find a format card with Name: " + isbn))
+                .findElement(addToCart);
     }
 
     public void clickOnAddToCartButton(String title) {
-        getFormatCardByTitle(title).click();
+        getAddToCartByIsbn(title).click();
     }
 
 }
