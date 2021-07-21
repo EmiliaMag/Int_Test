@@ -30,7 +30,7 @@ public class AddAddressPageObject extends PageObject {
     @FindBy(xpath = "//button[@class='button--primary button--block change_address_button show_processing_message']")
     private WebElement saveButton;
 
-
+    //methods
     public AddAddressPageObject(WebDriver driver) {
         super(driver);
     }

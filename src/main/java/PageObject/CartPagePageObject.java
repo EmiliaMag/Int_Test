@@ -52,6 +52,7 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='program_name']")
     private WebElement abasProductLink;
 
+
     //methods
     public CartPagePageObject(WebDriver driver) {
         super(driver);

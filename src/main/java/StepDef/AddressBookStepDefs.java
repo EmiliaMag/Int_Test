@@ -12,14 +12,13 @@ import org.junit.Assert;
 public class AddressBookStepDefs {
 
     AddressBookPageObject addressBook = new AddressBookPageObject(DriverManager.getDriver());
-
     PageObject navigator = new PageObject(DriverManager.getDriver());
+
 
     @And("customer clicks on Add Address button on the Address Book Page")
     public void customerClicksOnAddAddress() {
         addressBook.clickOnAddAddress();
     }
-
 
     @Then("customer should see an update message")
     public void customerShouldSeeAnUpdateMessage() {
@@ -43,6 +42,6 @@ public class AddressBookStepDefs {
 
     @Then("customer should see the update message")
     public void customerShouldSeeTheUpdateMessage() {
-        Assert.assertEquals("The messages are not identical","Address removed successfully", addressBook.getAddressRemovedMessage());
+        Assert.assertEquals("The messages are not identical", "Address removed successfully", addressBook.getAddressRemovedMessage());
     }
 }

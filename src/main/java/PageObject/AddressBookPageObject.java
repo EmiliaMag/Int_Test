@@ -26,7 +26,7 @@ public class AddressBookPageObject extends PageObject {
     private WebElement deleteButtonAddressPopup;
 
 
-
+    //methods
     public AddressBookPageObject(WebDriver driver) {
         super(driver);
     }

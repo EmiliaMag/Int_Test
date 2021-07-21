@@ -113,13 +113,13 @@ public class SignInPageStepDefs {
     }
 
     @And("customer clicks on Store button from the header")
-    public void clickOnStoreButtonFromTheHeader() throws InterruptedException {
+    public void clickOnStoreButtonFromTheHeader() {
         Waits.implicitWait();
         signInPage.clickStoreButtonHeader();
     }
 
     @When("customer customer clicks on SignIn button from the header of the page")
-    public void userClickOnSignInButtonFromTheHeaderOfThePage() throws InterruptedException {
+    public void userClickOnSignInButtonFromTheHeaderOfThePage() {
         Waits.implicitWait();
         signInPage.clickSigninRegisterHeaderButton();
     }
@@ -134,8 +134,8 @@ public class SignInPageStepDefs {
         signInPage.typeValidPassword();
     }
 
-    @Then("customer clicks on Store button from the header of the page")
-    public void clickOnStoreButtonFromTheHeaderOfThePage() throws InterruptedException {
+    @And("customer clicks on Store button from the header of the page")
+    public void clickOnStoreButtonFromTheHeaderOfThePage() {
         navigator.scrollDown();
         signInPage.clickStoreButtonHeader();
     }
@@ -154,7 +154,6 @@ public class SignInPageStepDefs {
     public void customerClicksOnAddressBook() {
         signInPage.clickOnAddressBook();
     }
-
 
 }
 

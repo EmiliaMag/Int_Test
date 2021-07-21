@@ -83,7 +83,7 @@ public class SecureCheckoutPageObject extends PageObject {
     private WebElement addressForm;
 
     @FindBy(xpath = "//input[@class='form-control ui-autocomplete-input']")
-    private WebElement  searchAddressField;
+    private WebElement searchAddressField;
 
     @FindBy(xpath = "//a[@href='/store/usassessments/en/cart']")
     private WebElement backToCartBreadcrumb;
@@ -236,7 +236,7 @@ public class SecureCheckoutPageObject extends PageObject {
         searchAddressField.click();
     }
 
-    public void typeSearchAddressFieldInput(){
+    public void typeSearchAddressFieldInput() {
         searchAddressField.sendKeys("Emilia");
     }
 
@@ -250,8 +250,8 @@ public class SecureCheckoutPageObject extends PageObject {
         clickWithJS(searchAddressField);
     }
 
-public void clickOnBackToCartBreadcrumb() {
+    public void clickOnBackToCartBreadcrumb() {
         backToCartBreadcrumb.click();
-}
+    }
 }
 

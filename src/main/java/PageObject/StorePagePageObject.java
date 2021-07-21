@@ -62,8 +62,16 @@ public class StorePagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='pagination-bar-results']")
     private WebElement totalNumberOfProducts;
 
+    @FindBy(xpath = "//a[@href='#top']")
+    private WebElement topButton;
+
+    @FindBy(xpath = "//div[@class='pmc-alert__inner']")
+    private WebElement alertMessage;
+
+
     @FindBy(xpath = "locator")
     private List<ProgramFragment> programFragmentList;
+
 
     //methods
     public StorePagePageObject(WebDriver driver) {
@@ -122,7 +130,13 @@ public class StorePagePageObject extends PageObject {
         surveyPopUp.click();
     }
 
+    public void clickTopButton() {
+        topButton.click();
+    }
 
+    public String getAlertMessageText() {
+        return alertMessage.getText();
+    }
 
 
     @FindBy(xpath = "locator parinte")
@@ -135,7 +149,7 @@ public class StorePagePageObject extends PageObject {
                 .orElseThrow(() -> new IllegalStateException("Unable to find a nameFragment with uniqueName: " + uniqueName));
     }
 
-    public void clickOnNameFragmentWithName(String name){
+    public void clickOnNameFragmentWithName(String name) {
         Waits.waitUntilElementIsClickable(getNameFragmentByName(name).getTitle());
         getNameFragmentByName(name).click();
     }

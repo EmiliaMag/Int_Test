@@ -81,5 +81,6 @@ public class CartPageStepDefs {
 
     @Then("customer should see the {string} product in Cart")
     public void customerShouldSeeTheProductInCart(String arg0) {
-        Assert.assertEquals("", "Adaptive Behavior Assessment System | Third Edition", cartPage.getAbasLinkText()); }
+        Assert.assertEquals("", "Adaptive Behavior Assessment System | Third Edition", cartPage.getAbasLinkText());
+    }
 }

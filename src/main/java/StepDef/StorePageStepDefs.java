@@ -23,14 +23,14 @@ public class StorePageStepDefs {
     }
 
     @When("customer clicks Behavior Category Filter")
-    public void userClickBehaviorCategoryFilter() throws InterruptedException {
+    public void userClickBehaviorCategoryFilter() {
         Waits.implicitWait();
         navigator.scrollDown();
         storePage.clickBehaviorCategoryFilter();
     }
 
     @And("customer clicks Age Range Dropdown")
-    public void clickAgeRangeDropdown() throws InterruptedException {
+    public void clickAgeRangeDropdown() {
         Waits.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
@@ -38,7 +38,7 @@ public class StorePageStepDefs {
     }
 
     @And("customer clicks Preschool Checkbox")
-    public void clickPreschoolCheckbox() throws InterruptedException {
+    public void clickPreschoolCheckbox() {
         navigator.scrollDown();
         storePage.clickPreschoolCheckbox();
     }
@@ -68,7 +68,7 @@ public class StorePageStepDefs {
     }
 
     @And("customer clicks on View Cart on the displayed pop-up")
-    public void clickOnViewCartOnTheDisplayedPopUp() throws InterruptedException {
+    public void clickOnViewCartOnTheDisplayedPopUp() {
 //        Waits.implicitWait();
         storePage.clickOnViewCart();
     }
@@ -93,11 +93,28 @@ public class StorePageStepDefs {
     }
 
     @And("customer clicks on View Cart button from the Add to Cart pop-up")
-    public void clickOnViewCartButtonFromTheAddToCartPopUp() throws InterruptedException {
+    public void clickOnViewCartButtonFromTheAddToCartPopUp() {
         Waits.implicitWait();
         storePage.clickOnViewCart();
     }
 
+    @And("customer clicks on Top Button from the bottom-right side of the page")
+    public void clickOnTopButton() {
+        storePage.clickTopButton();
+    }
 
+    @And("customer scrolls to the bottom of the page")
+    public void scrollToBottomPage() {
+        Waits.implicitWait();
+        navigator.scrollDown();
+        navigator.scrollDown();
 
+    }
+
+    @Then("customer should see the header of the page")
+    public void customerShouldSeeTheHeaderOfThePage() {
+        Assert.assertEquals("The messages are not identical", "For telepractice support during COVID-19 see our resources.", storePage.getAlertMessageText());
+        navigator.closeBrowser();
+
+    }
 }

@@ -94,7 +94,7 @@ public class QuickOrderPageStepDefs {
     }
 
     @And("customer clicks on View Cart button from the pop-up")
-    public void customerClicksOnViewCart(){
+    public void customerClicksOnViewCart() {
         quickOrderPage.clickOnViewCartButton();
     }
 

@@ -6,7 +6,7 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     When customer customer clicks on SignIn button from the header of the page
     And customer clicks the username and password field and enter the credentials on the SignIn form
     And customer clicks on SignIn button
-    Then customer clicks on Store button from the header of the page
+    And customer clicks on Store button from the header of the page
     And customer clicks on "Adolescent/Adult Sensory Profile (Sensory Profile Adult/Adolescent)" Product Link
 #    And customer clicks No button on the Survey Pop-up
     And customer clicks on Kits Format Cart for SPA product

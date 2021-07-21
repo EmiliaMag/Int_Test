@@ -43,6 +43,11 @@ public class PageObject {
         jse.executeScript("document.querySelector('table th:last-child').scrollIntoView();");
     }
 
+    public void scrollToTheBottomOfPage() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+                jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
 
     //click with JS method
     public void clickWithJS(WebElement element) {
