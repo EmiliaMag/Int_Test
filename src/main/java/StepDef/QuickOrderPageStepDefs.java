@@ -23,7 +23,7 @@ public class QuickOrderPageStepDefs {
     }
 
     @And("customer clicks on add to Cart button on the right side of the Product Code field")
-    public void clickOnAddToCartButtonOnTheRightSideOfTheProductCodeField() throws InterruptedException {
+    public void clickOnAddToCartButtonOnTheRightSideOfTheProductCodeField() {
         Waits.implicitWait();
         navigator.scrollUp();
         quickOrderPage.clickOnAddToCartButtonTop();
@@ -31,7 +31,7 @@ public class QuickOrderPageStepDefs {
     }
 
     @When("customer clicks Quick Order button")
-    public void userClickQuickOrderButton() throws InterruptedException {
+    public void userClickQuickOrderButton() {
         Waits.implicitWait();
         quickOrderPage.clickOnQuickOrderButton();
     }
@@ -55,14 +55,14 @@ public class QuickOrderPageStepDefs {
     }
 
     @Then("customer should see the product with the product code")
-    public void theUserShouldSeeTheProductWithTheProductCode() throws InterruptedException {
+    public void theUserShouldSeeTheProductWithTheProductCode() {
         Waits.implicitWait();
         Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
         navigator.closeBrowser();
     }
 
     @Then("customer should see the product name")
-    public void theUserShouldSeeTheProductWithTheProductCode2() throws InterruptedException {
+    public void theUserShouldSeeTheProductWithTheProductCode2() {
         Waits.implicitWait();
         Assert.assertEquals("The product name does not match", "ABAS-3 Manual", quickOrderPage.getProductNameAbas());
         DriverManager.getDriver().manage().deleteAllCookies();

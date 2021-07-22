@@ -158,8 +158,6 @@ public class SignInPageStepDefs {
         signInPage.clickOnSaveCartsLink();
     }
 
-
-
 }
 
 

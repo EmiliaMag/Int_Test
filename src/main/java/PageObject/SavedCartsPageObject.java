@@ -12,8 +12,7 @@ public class SavedCartsPageObject extends PageObject {
     @FindBy(xpath = "//button[@class='js-save-cart-restore-btn button--primary button--block js-track-restorecart']")
     private WebElement restoreButtonPopup;
 
-
-
+    //methods
     public void clickOnRestoreButton() {
         restoreButton.click();
     }

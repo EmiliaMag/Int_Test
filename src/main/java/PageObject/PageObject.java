@@ -45,7 +45,7 @@ public class PageObject {
 
     public void scrollToTheBottomOfPage() {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
-                jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
 

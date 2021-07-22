@@ -173,7 +173,6 @@ public class SignInPageObject extends PageObject {
         saveCartsLink.click();
     }
 
-
 }
 
 

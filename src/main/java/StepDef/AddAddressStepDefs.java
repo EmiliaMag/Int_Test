@@ -7,15 +7,14 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
 public class AddAddressStepDefs {
-    AddAddressPageObject addAddressBook = new AddAddressPageObject(DriverManager.getDriver());
 
+    AddAddressPageObject addAddressBook = new AddAddressPageObject(DriverManager.getDriver());
 
     @And("customer clicks on First Name field and types {string}")
     public void customerClicksOnFirstNameFieldAndTypes(String arg0) {
         addAddressBook.clickOnFirstNameField();
         addAddressBook.typeFirstName();
     }
-
 
     @And("customer clicks on Last Name field and types {string}")
     public void customerClicksOnLastNameFieldAndTypes(String arg0) {

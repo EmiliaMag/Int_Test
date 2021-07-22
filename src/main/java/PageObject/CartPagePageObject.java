@@ -88,14 +88,6 @@ public class CartPagePageObject extends PageObject {
         qtyField.sendKeys(Keys.BACK_SPACE);
     }
 
-//    public void typeQtyField() {
-//        qtyField.sendKeys("3");
-//    }
-//
-//    public void enterValueTypedQty() {
-//        qtyField.sendKeys(Keys.ENTER);
-//    }
-
     public String getQuantityUpdatedMessage() {
         return quantityUpdatedMessage.getText();
     }
@@ -140,7 +132,7 @@ public class CartPagePageObject extends PageObject {
         saveCartNameFieldPopup.sendKeys("Name");
     }
 
-    public void clickSaveButtonSaveCartPopup () {
+    public void clickSaveButtonSaveCartPopup() {
         saveButtonSaveCartPopup.click();
     }
 
@@ -149,7 +141,7 @@ public class CartPagePageObject extends PageObject {
     }
 
 
-    //Products in Cart
+    //Products in Cart  - find qty field
     public WebElement getProductInCartByIsbn(String isbn) {
         By isbnBy = GetBy.getBy("productIsbn", ProductInCartFragment.class);
         By qtyField = GetBy.getBy("productQtyField", ProductInCartFragment.class);
@@ -171,6 +163,24 @@ public class CartPagePageObject extends PageObject {
     public void typeQtyFieldInput(String value, String isbn) {
         getProductInCartByIsbn(isbn).sendKeys(value);
         getProductInCartByIsbn(isbn).sendKeys(Keys.ENTER);
+    }
+
+
+    //Products in Cart  - find remove button
+    public WebElement getProductInCart(String isbn) {
+        By isbnBy = GetBy.getBy("productIsbn", ProductInCartFragment.class);
+        By xButton = GetBy.getBy("productXButton", ProductInCartFragment.class);
+        By removeButton = GetBy.getBy("removeButton", ProductInCartFragment.class);
+
+        return productInCartList.stream()
+                .filter(searchResultFragment -> searchResultFragment.findElement(isbnBy).getText().contains(isbn))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a the field: " + isbn))
+                .findElement(xButton).findElement(removeButton);
+    }
+
+    public void clickOnXButton(String isbn) {
+        getProductInCart(isbn).click();
     }
 
 

@@ -209,14 +209,6 @@ public class SecureCheckoutPageObject extends PageObject {
         return paymentAndBillingTitle.getText();
     }
 
-//    public void clickOnCountryField() {
-//        countryField.click();
-//    }
-
-//    public void selectFromCountryField() {
-//        countryFieldsArgentinaOption.click();
-//    }
-
     public String getPlaceOrderButtonAttributeD() {
         return placeOrderButton.getAttribute("disabled");
         //return placeOrderButton.getCssValue("disabled");

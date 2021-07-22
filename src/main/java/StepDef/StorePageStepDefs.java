@@ -74,14 +74,6 @@ public class StorePageStepDefs {
         storePage.clickOnViewCart();
     }
 
-//    @And("^customer clicks on \"(.*)\" Product$")
-//    public void clickOnSensoryProfileAdultProduct(String name) {
-//        Waits.implicitWait();
-//        navigator.scrollDown();
-//        storePage.clickOnProgramTitle(name);
-//        //storePage.clickSensoryProfileAdultProductLink();
-//    }
-
     @And("^customer clicks on Add to Cart Button from the product with isbn: \"(.*)\"$")
     public void clickOnAddToCartButton(String isbn) {
         navigator.scrollDown();

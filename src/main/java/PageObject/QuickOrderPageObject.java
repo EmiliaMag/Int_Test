@@ -91,6 +91,4 @@ public class QuickOrderPageObject extends PageObject {
     public void clickOnResetFormButton() {
         resetFormButton.click();
     }
-
-
 }

@@ -14,4 +14,7 @@ public class ProductInCartFragment {
     @FindBy(xpath = ".//input[@class='input js-update-entry-quantity-input']")    //element din fragment
     public WebElement productQtyField;
 
+    @FindBy(xpath = ".//a[@class='js-track-removecartitem']")    //element din fragment
+    public WebElement removeButton;
+
 }

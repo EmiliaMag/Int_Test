@@ -16,7 +16,7 @@ public class CartPageStepDefs {
 
 
     @And("customer clicks on Save cart button on the pop-up")
-    public void clickOnSaveCartButtonOnThePopUp()  {
+    public void clickOnSaveCartButtonOnThePopUp() {
         Waits.implicitWait();
         navigator.scrollDown();
         navigator.scrollDown();
@@ -27,14 +27,11 @@ public class CartPageStepDefs {
     public void clickOnQtyField(String isbn) {
         cartPage.clickOnQtyFieldIsbn(isbn);
         cartPage.deleteQtyFieldInput(isbn);
-        //cartPage.clickOnQtyField();
     }
 
     @And("^customer types the value \"(.*)\" in the Qty field for isbn : \"(.*)\"$")
     public void enterTheValue(String value, String isbn) {
         cartPage.typeQtyFieldInput(value, isbn);
-//        cartPage.typeQtyField();
-//        cartPage.enterValueTypedQty();
     }
 
     @Then("customer should see update message")
@@ -45,7 +42,7 @@ public class CartPageStepDefs {
     }
 
     @Then("customer clicks on checkout button")
-    public void clickOnCheckoutButton()  {
+    public void clickOnCheckoutButton() {
         Waits.implicitWait();
         navigator.scrollDown();
         cartPage.clickOnCheckoutButton();
@@ -101,6 +98,6 @@ public class CartPageStepDefs {
 
     @Then("customer should see an cart update message")
     public void customerShouldSeeAnCartUpdateMessage() {
-        Assert.assertEquals("The messages are not identical","Your cart Name is added to Saved Carts.", cartPage.getSaveCartUpdateMessage());
+        Assert.assertEquals("The messages are not identical", "Your cart Name is added to Saved Carts.", cartPage.getSaveCartUpdateMessage());
     }
 }
