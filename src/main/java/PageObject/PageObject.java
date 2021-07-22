@@ -1,12 +1,33 @@
 package PageObject;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+import Utils.DriverManager;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.*;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class PageObject {
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
+
+    //Webdriver
+    public PageObject(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+
+    //close browser method
+    public void closeBrowser() {
+        DriverManager.getDriver().manage().deleteAllCookies();
+        DriverManager.getDriver().close();
+    }
+
+
+    //scroll methods
     public void scrollDown() {
         JavascriptExecutor jsx = (JavascriptExecutor) driver;
         jsx.executeScript("window.scrollBy(0,450)", "");
@@ -22,11 +43,20 @@ public class PageObject {
         jse.executeScript("document.querySelector('table th:last-child').scrollIntoView();");
     }
 
+    public void scrollToTheBottomOfPage() {
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
 
-    public PageObject(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
 
+    //click with JS method
+    public void clickWithJS(WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].click();", element);
+    }
+
+    public void acceptChromePopup() {
+        DriverManager.getDriver().switchTo().alert().accept();
     }
 
 }
