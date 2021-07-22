@@ -12,29 +12,29 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     And customer clicks on "All products" Format Cart
     And customer clicks on Add to Cart Button from the product with isbn: "0158009169"
     And customer clicks on View Cart on the displayed pop-up
-#    Then customer clicks on checkout button
-#    And customer clicks on My Account Radio Button
-#    And customer clicks on Continue button
-#    Then customer should see the Secure Checkout Page
-#    And customer clicks on Add a new address radio button
-##    And customer clicks on Country field and selects "Chile"
-#    And customer clicks on First Name field and types "Name" in the field
-#    And customer clicks on Last Name field and types "Last Name" in the field
-#    And customer clicks on Street Address field and types "the address" in the field
-#    And customer clicks on the City field and types "Phoenix" in the field
-#    And customer clicks on State dropdown list and selects "Arizona" from the list
-#    And customer clicks on ZIP field and types "85018" in the ZIP field
-#    And customer clicks on the Next button
-#    Then customer should see the Shipping method displayed
-#    And customer clicks on Next button
-#    Then customer should see Payment and billing section displayed
-#    And customer clicks on Card Number field and types "3546456456456456" in the "Card Number" field
-#    And customer clicks on Month dropdown list and selects "5" from the "Month" list
-#    And customer clicks on Year dropdown list and selects "2022" from the "Year" list
-#    And customer clicks on Security code field and types "245" in the "Security Code" field
-#    Then customer should see the Place Order button disabled
-#    And customer clicks on Terms&Conditions checkbox button
-#    Then customer should see the Place Order button enabled
+    Then customer clicks on checkout button
+    And customer clicks on My Account Radio Button
+    And customer clicks on Continue button
+    Then customer should see the Secure Checkout Page
+    And customer clicks on Add a new address radio button
+#    And customer clicks on Country field and selects "Chile"
+    And customer clicks on First Name field and types "Name" in the field
+    And customer clicks on Last Name field and types "Last Name" in the field
+    And customer clicks on Street Address field and types "the address" in the field
+    And customer clicks on the City field and types "Phoenix" in the field
+    And customer clicks on State dropdown list and selects "Arizona" from the list
+    And customer clicks on ZIP field and types "85018" in the ZIP field
+    And customer clicks on the Next button
+    Then customer should see the Shipping method displayed
+    And customer clicks on Next button
+    Then customer should see Payment and billing section displayed
+    And customer clicks on Card Number field and types "3546456456456456" in the "Card Number" field
+    And customer clicks on Month dropdown list and selects "5" from the "Month" list
+    And customer clicks on Year dropdown list and selects "2022" from the "Year" list
+    And customer clicks on Security code field and types "245" in the "Security Code" field
+    Then customer should see the Place Order button disabled
+    And customer clicks on Terms&Conditions checkbox button
+    Then customer should see the Place Order button enabled
 
 
 

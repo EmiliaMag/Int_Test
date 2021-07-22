@@ -59,15 +59,16 @@ public class CartPageStepDefs {
         navigator.closeBrowser();
     }
 
-    @And("customer clicks on the X button on the right side of the first product")
-    public void customerClicksXButton() {
-        cartPage.clickOnTheXButton();
+    @And("^customer clicks on the X button then Remove button for the product with isbn : \"(.*)\"$")
+    public void customerClicksXButton(String isbn) {
+        cartPage.clickXButton(isbn);
+        cartPage.clickRemoveProduct(isbn);
     }
 
-    @And("customer clicks on remove button")
-    public void customerClicksOnRemoveButton() {
-        cartPage.clickOnRemoveButton();
-    }
+//    @And("customer clicks on remove button")
+//    public void customerClicksOnRemoveButton() {
+//        cartPage.clickOnRemoveButton();
+//    }
 
     @Then("customer should see the remove alert message")
     public void customerShouldSeeTheRemoveAlertMessage() {

@@ -166,7 +166,7 @@ public class CartPagePageObject extends PageObject {
     }
 
 
-    //Products in Cart  - find remove button
+    //Products in Cart  - find X button
     public WebElement getProductInCart(String isbn) {
         By isbnBy = GetBy.getBy("productIsbn", ProductInCartFragment.class);
         By xButton = GetBy.getBy("productXButton", ProductInCartFragment.class);
@@ -176,11 +176,28 @@ public class CartPagePageObject extends PageObject {
                 .filter(searchResultFragment -> searchResultFragment.findElement(isbnBy).getText().contains(isbn))
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("Unable to find a the field: " + isbn))
-                .findElement(xButton).findElement(removeButton);
+                .findElement(xButton);
     }
 
-    public void clickOnXButton(String isbn) {
+    public void clickXButton(String isbn) {
         getProductInCart(isbn).click();
+    }
+
+
+    //Products in Cart  - find Remove button
+    public WebElement getRemoveButtonByIsbn(String isbn) {
+        By isbnBy = GetBy.getBy("productIsbn", ProductInCartFragment.class);
+        By removeButton = GetBy.getBy("removeButton", ProductInCartFragment.class);
+
+        return productInCartList.stream()
+                .filter(searchResultFragment -> searchResultFragment.findElement(isbnBy).getText().contains(isbn))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a the field: " + isbn))
+                .findElement(removeButton);
+    }
+
+    public void clickRemoveProduct(String isbn) {
+        getRemoveButtonByIsbn(isbn).click();
     }
 
 
