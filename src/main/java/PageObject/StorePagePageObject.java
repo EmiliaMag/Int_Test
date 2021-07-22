@@ -1,5 +1,6 @@
 package PageObject;
 
+import Fragments.AddToCartFragment;
 import Fragments.FormatCardsFragment;
 import Fragments.ProgramStoreFragment;
 import Utils.GetBy;
@@ -184,16 +185,17 @@ public class StorePagePageObject extends PageObject {
 
     //Add to Cart Buttons
     public WebElement getAddToCartByIsbn(String isbn) {
-        By addToCart = GetBy.getBy("formatCardIsbn", FormatCardsFragment.class);
+        By isbnBy = GetBy.getBy("productIsbn", AddToCartFragment.class);
+        By addToCartButton = GetBy.getBy("addToCartButton", AddToCartFragment.class);
         return addToCartList.stream()
-                .filter(searchResultFragment -> searchResultFragment.findElement(addToCart).getText().contains(isbn))
+                .filter(searchResultFragment -> searchResultFragment.findElement(isbnBy).getText().contains(isbn))
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException("Unable to find a format card with Name: " + isbn))
-                .findElement(addToCart);
+                .findElement(addToCartButton);
     }
 
-    public void clickOnAddToCartButton(String title) {
-        getAddToCartByIsbn(title).click();
+    public void clickOnAddToCartButton(String isbn) {
+        getAddToCartByIsbn(isbn).click();
     }
 
 }

@@ -50,10 +50,10 @@ public class StorePageStepDefs {
     }
 
     @And("^customer clicks on \"(.*)\" Product Link$")
-    public void clickOnSensoryProfileAdultProductLink(String name) {
+    public void clickOnSensoryProfileAdultProductLink(String isbn) {
         Waits.implicitWait();
         navigator.scrollDown();
-        storePage.clickOnProgramTitle(name);
+        storePage.clickOnProgramTitle(isbn);
     }
 
     @And("customer clicks No button on the Survey Pop-up")
@@ -82,13 +82,7 @@ public class StorePageStepDefs {
 //        //storePage.clickSensoryProfileAdultProductLink();
 //    }
 
-    @And("customer clicks on Kits Format Card")
-    public void clickOnKitsFormatCard() {
-        navigator.scrollDown();
-        storePage.clickonKitsFormatCardSpaProduct();
-    }
-
-    @And("^customer clicks on Add to Cart Button from the product with isbn :\"(.*)\"$")
+    @And("^customer clicks on Add to Cart Button from the product with isbn: \"(.*)\"$")
     public void clickOnAddToCartButton(String isbn) {
         navigator.scrollDown();
         storePage.clickOnAddToCartButton(isbn);

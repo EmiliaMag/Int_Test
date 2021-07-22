@@ -23,20 +23,18 @@ public class CartPageStepDefs {
         cartPage.clickOnSaveCartButton();
     }
 
-    @Then("customer clicks on QTY field")
-    public void clickOnQtyField() {
-        cartPage.clickOnQtyField();
+    @And("^customer clicks on QTY field on product with Isbn \"(.*)\" and deletes the default input$")
+    public void clickOnQtyField(String isbn) {
+        cartPage.clickOnQtyFieldIsbn(isbn);
+        cartPage.deleteQtyFieldInput(isbn);
+        //cartPage.clickOnQtyField();
     }
 
-    @And("customer deletes the default input")
-    public void deleteTheDefaultInput() {
-        cartPage.deleteTheQtyFieldValue();
-    }
-
-    @And("customer types the value {int}")
-    public void enterTheValue(int arg0) {
-        cartPage.typeQtyField();
-        cartPage.enterValueTypedQty();
+    @And("^customer types the value \"(.*)\" in the Qty field for isbn : \"(.*)\"$")
+    public void enterTheValue(String value, String isbn) {
+        cartPage.typeQtyFieldInput(value, isbn);
+//        cartPage.typeQtyField();
+//        cartPage.enterValueTypedQty();
     }
 
     @Then("customer should see update message")

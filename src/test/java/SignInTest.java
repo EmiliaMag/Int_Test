@@ -146,8 +146,8 @@ public class SignInTest {
 
         quantityField.clickOnQtyField();
         quantityField.deleteTheQtyFieldValue();
-        quantityField.typeQtyField();
-        quantityField.enterValueTypedQty();
+//        quantityField.typeQtyField();
+//        quantityField.enterValueTypedQty();
 
         Assert.assertEquals("Product quantity has been updated.", qtyUpdatedMessage.getQuantityUpdatedMessage());
     }

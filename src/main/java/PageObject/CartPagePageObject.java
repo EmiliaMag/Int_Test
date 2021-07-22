@@ -1,9 +1,15 @@
 package PageObject;
 
+import Fragments.FormatCardsFragment;
+import Fragments.ProductInCartFragment;
+import Utils.GetBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class CartPagePageObject extends PageObject {
 
@@ -61,6 +67,9 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//p[@class='c-alert__text']")
     private WebElement saveCartUpdateMessage;
 
+    @FindBy(xpath = ".//li[@class='item__list--item--wrapper']")
+    private List<WebElement> productInCartList;
+
 
     //methods
     public CartPagePageObject(WebDriver driver) {
@@ -79,13 +88,13 @@ public class CartPagePageObject extends PageObject {
         qtyField.sendKeys(Keys.BACK_SPACE);
     }
 
-    public void typeQtyField() {
-        qtyField.sendKeys("3");
-    }
-
-    public void enterValueTypedQty() {
-        qtyField.sendKeys(Keys.ENTER);
-    }
+//    public void typeQtyField() {
+//        qtyField.sendKeys("3");
+//    }
+//
+//    public void enterValueTypedQty() {
+//        qtyField.sendKeys(Keys.ENTER);
+//    }
 
     public String getQuantityUpdatedMessage() {
         return quantityUpdatedMessage.getText();
@@ -138,4 +147,31 @@ public class CartPagePageObject extends PageObject {
     public String getSaveCartUpdateMessage() {
         return saveCartUpdateMessage.getText();
     }
+
+
+    //Products in Cart
+    public WebElement getProductInCartByIsbn(String isbn) {
+        By isbnBy = GetBy.getBy("productIsbn", ProductInCartFragment.class);
+        By qtyField = GetBy.getBy("productQtyField", ProductInCartFragment.class);
+        return productInCartList.stream()
+                .filter(searchResultFragment -> searchResultFragment.findElement(isbnBy).getText().contains(isbn))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a the field: " + isbn))
+                .findElement(qtyField);
+    }
+
+    public void clickOnQtyFieldIsbn(String isbn) {
+        getProductInCartByIsbn(isbn).click();
+    }
+
+    public void deleteQtyFieldInput(String isbn) {
+        getProductInCartByIsbn(isbn).sendKeys(Keys.BACK_SPACE);
+    }
+
+    public void typeQtyFieldInput(String value, String isbn) {
+        getProductInCartByIsbn(isbn).sendKeys(value);
+        getProductInCartByIsbn(isbn).sendKeys(Keys.ENTER);
+    }
+
+
 }
