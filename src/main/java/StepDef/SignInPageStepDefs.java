@@ -144,7 +144,8 @@ public class SignInPageStepDefs {
     }
 
     @And("customer clicks on My Account dropdown button")
-    public void customerClicksOnMyAccount() {
+    public void customerClicksOnMyAccount() throws InterruptedException {
+        Thread.sleep(3000);
         signInPage.clickMyAccountDropdownButton();
     }
 

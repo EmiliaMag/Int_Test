@@ -70,9 +70,6 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//button[@class='userNav__button jsUserSignedInIdentifier']")
     private WebElement myAccountButtonNew;
 
-    @FindBy(xpath = "//button[@class='userNav__close']")
-    private WebElement myAccountButtonDropDownNew;
-
     @FindBy(xpath = "//button[@class='button-ghost--on-dark button--primary hasArrow arrowRight js-cookie-notification-accept']")
     private WebElement closePrivacyWindow2;
 
@@ -169,9 +166,10 @@ public class SignInPageObject extends PageObject {
         closePrivacyWindow2.click();
     }
 
-    public void clickMyAccountDropdownButton() {
+    public void clickMyAccountDropdownButton()  {
        // myAccountHeaderButton.click();
-        myAccountButtonDropDownNew.click();
+        Waits.waitUntilPageIsLoaded(driver, 10);
+        clickWithJS(myAccountButtonNew);
     }
 
     public void clickOnSignOutButton() {
@@ -180,6 +178,7 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickOnAddressBook() {
+        Waits.waitUntilPageIsLoaded(driver, 20);
         addressBookButton.click();
     }
 
