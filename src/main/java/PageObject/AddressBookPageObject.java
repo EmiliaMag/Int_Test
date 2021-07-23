@@ -8,6 +8,9 @@ import org.openqa.selenium.support.FindBy;
 public class AddressBookPageObject extends PageObject {
 
     @FindBy(xpath = "//a[@class='c-sectionHeader__btn']")
+    private WebElement addAddressButtonOld;
+
+    @FindBy(xpath = "//button[@id='buttonAddAddress']")
     private WebElement addAddressButton;
 
     @FindBy(xpath = "//h1[@class='c-sectionHeader hasBorderBottom']")

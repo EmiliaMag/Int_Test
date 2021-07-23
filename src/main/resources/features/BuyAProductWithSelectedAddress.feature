@@ -7,8 +7,9 @@ Feature: Add a new Address in the Address Book
     When customer customer clicks on SignIn button from the header of the page
     And customer clicks the username and password field and enter the credentials on the SignIn form
     And customer clicks on SignIn button
-    And customer clicks on My Account dropdown button
-    And customer clicks on Address Book Button from the dropdown list
+#    And customer clicks on My Account dropdown button
+#    And customer clicks on Address Book Button from the dropdown list
+    And customer goes to the PearsonAssessment's Address Book Page
     And customer clicks on Add Address button on the Address Book Page
     Then customer should see the Add Address Page
     And customer clicks on First Name field and types "Name"
@@ -46,8 +47,9 @@ Feature: Add a new Address in the Address Book
     And customer clicks on Terms&Conditions checkbox button
     Then customer should see the Place Order button enabled
     And customer clicks on Back to Cart breadcrumb link
-    And customer clicks on My Account dropdown button
-    And customer clicks on Address Book Button from the dropdown list
+#    And customer clicks on My Account dropdown button
+#    And customer clicks on Address Book Button from the dropdown list
+    And customer goes to the PearsonAssessment's Address Book Page
     And customer click X Button to remove the new added address
     And customer click on Delete button from the Delete Address Pop-up
     Then customer should see the update message

@@ -5,6 +5,7 @@ import PageObject.StorePagePageObject;
 import Utils.DriverManager;
 import Utils.Waits;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -15,6 +16,10 @@ public class StorePageStepDefs {
     StorePagePageObject storePage = new StorePagePageObject(DriverManager.getDriver());
     PageObject navigator = new PageObject(DriverManager.getDriver());
 
+    @And("customer go to Store Page")
+    public void customerGoToStorePage() {
+        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/Store/c/store");
+    }
 
     @Then("customer should see the Ampac's Product Page")
     public void theUserShouldSeeTheAmpacSProductPage() {
@@ -100,9 +105,9 @@ public class StorePageStepDefs {
 
     }
 
-    @Then("customer should see the header of the page")
+    @Then("customer should see the alert message on the header of the page")
     public void customerShouldSeeTheHeaderOfThePage() {
-        Assert.assertEquals("The messages are not identical", "For telepractice support during COVID-19 see our resources.", storePage.getAlertMessageText());
+        Assert.assertEquals("The messages are not identical", "Due to inclement weather in the Northeast, your shipment may be delayed", storePage.getAlertMessageText());
         navigator.closeBrowser();
 
     }

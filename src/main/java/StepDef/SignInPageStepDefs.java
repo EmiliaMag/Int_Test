@@ -55,7 +55,7 @@ public class SignInPageStepDefs {
     @Then("customer should be logged in to the page")
     public void theUserShouldBeLoggedInToThePage() {
         Waits.implicitWait();
-        Assert.assertEquals("My Account", signInPage.getMyAccountText());
+        Assert.assertEquals("EM", signInPage.getMyAccountText());
         navigator.closeBrowser();
     }
 
@@ -158,6 +158,11 @@ public class SignInPageStepDefs {
         signInPage.clickOnSaveCartsLink();
     }
 
+    @And("customer goes to the Saved Carts Page")
+    public void customerGoesToSavedCartsPage() {
+        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/my-account/saved-carts");
+
+    }
 }
 
 

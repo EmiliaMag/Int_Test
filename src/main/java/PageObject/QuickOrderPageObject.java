@@ -11,6 +11,9 @@ public class QuickOrderPageObject extends PageObject {
     @FindBy(xpath = "//a[@href='/store/usassessments/en/quickOrder']")
     private WebElement quickOrderButton;
 
+    @FindBy(xpath = "//ul[@id='mn-root--1228158151']")
+    private WebElement quickOrderButtonNew;
+
     @FindBy(xpath = "//ul[@class='item__list--header']")
     private WebElement isbnPCText;
 
@@ -44,7 +47,7 @@ public class QuickOrderPageObject extends PageObject {
     }
 
     public void clickOnQuickOrderButton() {
-        quickOrderButton.click();
+        quickOrderButtonNew.click();
     }
 
     public void clickIsbnField() {

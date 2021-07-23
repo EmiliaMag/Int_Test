@@ -85,7 +85,7 @@ public class SecureCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//input[@class='form-control ui-autocomplete-input']")
     private WebElement searchAddressField;
 
-    @FindBy(xpath = "//a[@href='/store/usassessments/en/cart']")
+    @FindBy(xpath = "//ol[@class='c-breadcrumb__list show-children--all']//a[@href='/store/usassessments/en/cart']")
     private WebElement backToCartBreadcrumb;
 
     //methods
@@ -243,6 +243,7 @@ public class SecureCheckoutPageObject extends PageObject {
     }
 
     public void clickOnBackToCartBreadcrumb() {
+
         backToCartBreadcrumb.click();
     }
 }

@@ -6,6 +6,7 @@ import PageObject.PageObject;
 import Utils.DriverManager;
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -14,6 +15,9 @@ public class AddressBookStepDefs {
     AddressBookPageObject addressBook = new AddressBookPageObject(DriverManager.getDriver());
     PageObject navigator = new PageObject(DriverManager.getDriver());
 
+    @And("customer goes to the PearsonAssessment's Address Book Page")
+    public void userVisitThePearsonAssesmentSLogInPage() {
+        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/addresses");}
 
     @And("customer clicks on Add Address button on the Address Book Page")
     public void customerClicksOnAddAddress() {

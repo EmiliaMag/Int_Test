@@ -13,7 +13,7 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//div[@class = 'nav__right utility-nav--container']//a[@title='Store']")
     private WebElement storeButton;
 
-    @FindBy(xpath = "//div[@id = 'site-logo']")
+    @FindBy(xpath = "//img[@src='/content/dam/global-store/global/images/ui/logos/pearson-logo.svg']")
     private WebElement pearsonLogo;
 
     @FindBy(xpath = "//button[@class='search-box-icon']")
@@ -21,6 +21,9 @@ public class SignInPageObject extends PageObject {
 
     @FindBy(xpath = "//div[@class='pearson-banner section']//input[@placeholder='Search']")
     private WebElement searchBarField;
+
+    @FindBy(xpath = "//input[@class='search-box-input ui-autocomplete-input']")
+    private WebElement searchBarFieldNew;
 
     @FindBy(className = "pull-right forgotten-username")
     private WebElement forgotUsernameAndPasswordButton;
@@ -58,8 +61,17 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//li[@class='login-wrapper']")
     private WebElement signInRegisterHeaderButton;
 
+    @FindBy(xpath = "//a[@class='userNav__button jsUserNotSignedInIdentifier']")
+    private WebElement signInRegisterButtonNew;
+
     @FindBy(xpath = "//button[@class='js-context-switcher']")
     private WebElement myAccountHeaderButton;
+
+    @FindBy(xpath = "//button[@class='userNav__button jsUserSignedInIdentifier']")
+    private WebElement myAccountButtonNew;
+
+    @FindBy(xpath = "//button[@class='userNav__close']")
+    private WebElement myAccountButtonDropDownNew;
 
     @FindBy(xpath = "//button[@class='button-ghost--on-dark button--primary hasArrow arrowRight js-cookie-notification-accept']")
     private WebElement closePrivacyWindow2;
@@ -67,7 +79,7 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//div[@class='context-menu-section sign-out']")
     private WebElement signOutButton;
 
-    @FindBy(xpath = "//ul[@class='nav__links']//a[@title='Address Book']")
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/addresses']")
     private WebElement addressBookButton;
 
     @FindBy(xpath = "//li[1]//a[@title='Saved Carts']")
@@ -117,11 +129,11 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickOnSearchField() {
-        searchBarField.click();
+        searchBarFieldNew.click();
     }
 
     public void typeSearchFieldInput() {
-        searchBarField.sendKeys("ampac");
+        searchBarFieldNew.sendKeys("ampac");
     }
 
     public void clickOnSearchButton() {
@@ -145,11 +157,12 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickSigninRegisterHeaderButton() {
-        signInRegisterHeaderButton.click();
+        signInRegisterButtonNew.click();
     }
 
     public String getMyAccountText() {
-        return myAccountHeaderButton.getText();
+        //return myAccountHeaderButton.getText();
+        return myAccountButtonNew.getText();
     }
 
     public void clickClosePrivacyPopup2() {
@@ -157,7 +170,8 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickMyAccountDropdownButton() {
-        myAccountHeaderButton.click();
+       // myAccountHeaderButton.click();
+        myAccountButtonDropDownNew.click();
     }
 
     public void clickOnSignOutButton() {
