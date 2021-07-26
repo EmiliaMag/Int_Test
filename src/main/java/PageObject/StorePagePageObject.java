@@ -70,6 +70,9 @@ public class StorePagePageObject extends PageObject {
     @FindBy(xpath = "//div[@class='pmc-alert__inner']")
     private WebElement alertMessage;
 
+    @FindBy(xpath = "//img[@src='/content/dam/global-store/global/images/ui/logos/pearson-logo.svg']")
+    private WebElement pearsonLogo;
+
     @FindBy(xpath = ".//li[@class='product__list--item']")
     private List<WebElement> programFragmentList;
 
@@ -197,5 +200,6 @@ public class StorePagePageObject extends PageObject {
     public void clickOnAddToCartButton(String isbn) {
         getAddToCartByIsbn(isbn).click();
     }
+
 
 }

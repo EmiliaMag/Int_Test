@@ -10,40 +10,40 @@ public class AddAddressStepDefs {
 
     AddAddressPageObject addAddressBook = new AddAddressPageObject(DriverManager.getDriver());
 
-    @And("customer clicks on First Name field and types {string}")
-    public void customerClicksOnFirstNameFieldAndTypes(String arg0) {
+    @And("^customer clicks on First Name field and types \"(.*)\"$")
+    public void customerClicksOnFirstNameFieldAndTypes(String input) {
         addAddressBook.clickOnFirstNameField();
-        addAddressBook.typeFirstName();
+        addAddressBook.typeFirstName(input);
     }
 
-    @And("customer clicks on Last Name field and types {string}")
-    public void customerClicksOnLastNameFieldAndTypes(String arg0) {
+    @And("^customer clicks on Last Name field and types \"(.*)\"$")
+    public void customerClicksOnLastNameFieldAndTypes(String input) {
         addAddressBook.clickOnLastNameField();
-        addAddressBook.typeLastName();
+        addAddressBook.typeLastName(input);
     }
 
-    @And("customer clicks on Street Address field and types {string}")
-    public void customerClicksOnStreetAddressFieldAndTypes(String arg0) {
+    @And("^customer clicks on Street Address field and types \"(.*)\"$")
+    public void customerClicksOnStreetAddressFieldAndTypes(String input) {
         addAddressBook.clickOnStreetAddressField();
-        addAddressBook.typeStreetAddress();
+        addAddressBook.typeStreetAddress(input);
     }
 
-    @And("customer clicks on the {string} field and types {string}")
-    public void customerClicksOnTheFieldAndTypes(String arg0, String arg1) {
+    @And("^customer clicks on the City field and types \"(.*)\"$")
+    public void customerClicksOnTheFieldAndTypes(String input) {
         addAddressBook.clickOnCityField();
-        addAddressBook.typesCityField();
+        addAddressBook.typesCityField(input);
     }
 
-    @And("customer clicks on {string} dropdown list and selects {string}")
-    public void customerClicksOnDropdownListAndSelects(String arg0, String arg1) {
+    @And("customer clicks on State dropdown list and selects {string}")
+    public void customerClicksOnDropdownListAndSelects(String arg0) {
         addAddressBook.clickOnStateField();
         addAddressBook.selectState();
     }
 
-    @And("customer clicks on {string} field and types {string}")
-    public void customerClicksOnFieldAndTypes(String arg0, String arg1) {
+    @And("^customer clicks on ZIP field and types \"(.*)\"$")
+    public void customerClicksOnFieldAndTypes(String input) {
         addAddressBook.clickOnZipCodeField();
-        addAddressBook.typeZipCode();
+        addAddressBook.typeZipCode(input);
     }
 
     @And("customer clicks on Save Button")

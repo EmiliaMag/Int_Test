@@ -40,8 +40,8 @@ public class AddAddressPageObject extends PageObject {
         firstNameField.click();
     }
 
-    public void typeFirstName() {
-        firstNameField.sendKeys("FirstName");
+    public void typeFirstName(String input) {
+        firstNameField.sendKeys(input);
     }
 
     public void clickOnLastNameField() {
@@ -49,8 +49,8 @@ public class AddAddressPageObject extends PageObject {
         lastNameField.click();
     }
 
-    public void typeLastName() {
-        lastNameField.sendKeys("LastName");
+    public void typeLastName(String input) {
+        lastNameField.sendKeys(input);
     }
 
     public void clickOnStreetAddressField() {
@@ -58,17 +58,17 @@ public class AddAddressPageObject extends PageObject {
         streetAddressField.click();
     }
 
-    public void typeStreetAddress() {
-        streetAddressField.sendKeys("Address");
+    public void typeStreetAddress(String input) {
+        streetAddressField.sendKeys(input);
     }
 
     public void clickOnCityField() {
         cityField.click();
     }
 
-    public void typesCityField() {
+    public void typesCityField(String input) {
         cityField.clear();
-        cityField.sendKeys("Phoenix");
+        cityField.sendKeys(input);
     }
 
     public void clickOnStateField() {
@@ -84,8 +84,8 @@ public class AddAddressPageObject extends PageObject {
         zipCodeField.click();
     }
 
-    public void typeZipCode() {
-        zipCodeField.sendKeys("85018");
+    public void typeZipCode(String input) {
+        zipCodeField.sendKeys(input);
     }
 
     public void clickSaveButton() {

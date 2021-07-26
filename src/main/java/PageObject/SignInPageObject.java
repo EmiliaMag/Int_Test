@@ -19,7 +19,7 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//button[@class='search-box-icon']")
     private WebElement searchBarButton;
 
-    @FindBy(xpath = "//div[@class='pearson-banner section']//input[@placeholder='Search']")
+    @FindBy(xpath = "//input[@class='search-box-input ui-autocomplete-input']")
     private WebElement searchBarField;
 
     @FindBy(xpath = "//input[@class='search-box-input ui-autocomplete-input']")
@@ -184,6 +184,10 @@ public class SignInPageObject extends PageObject {
 
     public void clickOnSaveCartsLink() {
         saveCartsLink.click();
+    }
+
+    public String getSignInText() {
+        return  signInRegisterButtonNew.getText();
     }
 
 }

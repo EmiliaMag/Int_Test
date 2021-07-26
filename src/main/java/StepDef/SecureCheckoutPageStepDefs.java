@@ -78,28 +78,28 @@ public class SecureCheckoutPageStepDefs {
         Assert.assertEquals("Payment and billing", secureCheckoutPage.getPaymentAndBillingText());
     }
 
-    @And("customer clicks on Card Number field and types {string} in the {string} field")
-    public void customerClicksOnCardNumberFieldAndTypesInTheField(String arg0, String arg1) {
+    @And("^customer clicks on Card Number field and types \"(.*)\" in the Card field$")
+    public void customerClicksOnCardNumberFieldAndTypesInTheField(String input) {
         secureCheckoutPage.clickOnCardNumberField();
-        secureCheckoutPage.typeCardNumber();
+        secureCheckoutPage.typeCardNumber(input);
     }
 
-    @And("customer clicks on Month dropdown list and selects {string} from the {string} list")
-    public void customerClicksOnMonthDropdownListAndSelectsFromTheList(String arg0, String arg1) {
+    @And("customer clicks on Month dropdown list and selects {string} from the Month list")
+    public void customerClicksOnMonthDropdownListAndSelectsFromTheList(String arg0) {
         secureCheckoutPage.clickOnMonthField();
         secureCheckoutPage.selectOption5FromMonthField();
     }
 
-    @And("customer clicks on Year dropdown list and selects {string} from the {string} list")
-    public void customerClicksOnYearDropdownListAndSelectsFromTheList(String arg0, String arg1) {
+    @And("customer clicks on Year dropdown list and selects {string} from the Year list")
+    public void customerClicksOnYearDropdownListAndSelectsFromTheList(String arg0) {
         secureCheckoutPage.clickOnYearField();
         secureCheckoutPage.selectOption2022FromYearField();
     }
 
-    @And("customer clicks on Security code field and types {string} in the {string} field")
-    public void customerClicksOnSecurityCodeFieldAndTypesInTheField(String arg0, String arg1) {
+    @And("^customer clicks on Security code field and types \"(.*)\" in the Security Code field$")
+    public void customerClicksOnSecurityCodeFieldAndTypesInTheField(String input) {
         secureCheckoutPage.clickOnSecurityCodeField();
-        secureCheckoutPage.typeSecurityCode();
+        secureCheckoutPage.typeSecurityCode(input);
     }
 
     @And("customer clicks on Terms&Conditions checkbox button")

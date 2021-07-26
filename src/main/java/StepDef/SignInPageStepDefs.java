@@ -162,7 +162,11 @@ public class SignInPageStepDefs {
     @And("customer goes to the Saved Carts Page")
     public void customerGoesToSavedCartsPage() {
         DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/my-account/saved-carts");
+    }
 
+    @Then("customer should see the search bar field")
+    public void customerSeeSearchBar() {
+        Assert.assertEquals("The messages don't match","Sign in",signInPage.getSignInText());
     }
 }
 

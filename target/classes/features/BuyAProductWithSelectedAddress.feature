@@ -15,9 +15,9 @@ Feature: Add a new Address in the Address Book
     And customer clicks on First Name field and types "Name"
     And customer clicks on Last Name field and types "Last Name"
     And customer clicks on Street Address field and types "the address"
-    And customer clicks on the "City" field and types "Phoenix"
-    And customer clicks on "State/Province" dropdown list and selects "Arizona"
-    And customer clicks on "ZIP/Postal Code" field and types "85018"
+    And customer clicks on the City field and types "Phoenix"
+    And customer clicks on State dropdown list and selects "Arizona"
+    And customer clicks on ZIP field and types "85018"
     And customer clicks on Save Button
     Then customer should see an update message
 #    And customer clicks No button on the Survey Pop-up
@@ -27,7 +27,7 @@ Feature: Add a new Address in the Address Book
     And customer clicks on Isbn-Product Code first column text
     And customer clicks on add to Cart button on the right side of the Product Code field
     And customer clicks on View Cart button from the pop-up
-    Then customer should see the "Adaptive Behavior Assessments System" product in Cart
+    Then customer should see the "Adaptive Behavior Assessment System | Third Edition" product in Cart
     And customer clicks on checkout button
     And customer clicks on My Account Radio Button
     And customer clicks on Continue button
@@ -39,10 +39,10 @@ Feature: Add a new Address in the Address Book
     Then customer should see the Shipping method displayed
     And customer clicks on Next button
     Then customer should see Payment and billing section displayed
-    And customer clicks on Card Number field and types "3546456456456456" in the "Card Number" field
-    And customer clicks on Month dropdown list and selects "5" from the "Month" list
-    And customer clicks on Year dropdown list and selects "2022" from the "Year" list
-    And customer clicks on Security code field and types "245" in the "Security Code" field
+    And customer clicks on Card Number field and types "3546456456456456" in the Card field
+    And customer clicks on Month dropdown list and selects "5" from the Month list
+    And customer clicks on Year dropdown list and selects "2022" from the Year list
+    And customer clicks on Security code field and types "245" in the Security Code field
     Then customer should see the Place Order button disabled
     And customer clicks on Terms&Conditions checkbox button
     Then customer should see the Place Order button enabled

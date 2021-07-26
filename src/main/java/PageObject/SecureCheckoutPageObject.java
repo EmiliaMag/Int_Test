@@ -1,12 +1,17 @@
 package PageObject;
 
+import Fragments.AddToCartFragment;
+import Utils.GetBy;
 import Utils.Waits;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class SecureCheckoutPageObject extends PageObject {
 
@@ -88,6 +93,7 @@ public class SecureCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//ol[@class='c-breadcrumb__list show-children--all']//a[@href='/store/usassessments/en/cart']")
     private WebElement backToCartBreadcrumb;
 
+
     //methods
     public SecureCheckoutPageObject(WebDriver driver) {
         super(driver);
@@ -162,8 +168,8 @@ public class SecureCheckoutPageObject extends PageObject {
         cardNumberField.click();
     }
 
-    public void typeCardNumber() {
-        cardNumberField.sendKeys("3546456456456456");
+    public void typeCardNumber(String input) {
+        cardNumberField.sendKeys(input);
     }
 
     public void clickOnMonthField() {
@@ -186,8 +192,8 @@ public class SecureCheckoutPageObject extends PageObject {
         securityCodeField.click();
     }
 
-    public void typeSecurityCode() {
-        securityCodeField.sendKeys("245");
+    public void typeSecurityCode(String input) {
+        securityCodeField.sendKeys(input);
     }
 
     public void clickOnTermsCheckbox() {
@@ -243,8 +249,8 @@ public class SecureCheckoutPageObject extends PageObject {
     }
 
     public void clickOnBackToCartBreadcrumb() {
-
         backToCartBreadcrumb.click();
     }
+
 }
 

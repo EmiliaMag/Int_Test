@@ -7,4 +7,4 @@ Feature: Top button
     And customer go to Store Page
     And customer scrolls to the bottom of the page
     And customer clicks on Top Button from the bottom-right side of the page
-    Then customer should see the alert message on the header of the page
+    Then customer should see the search bar field

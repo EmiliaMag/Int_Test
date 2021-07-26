@@ -19,6 +19,8 @@ public class StorePageStepDefs {
     @And("customer go to Store Page")
     public void customerGoToStorePage() {
         DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/Store/c/store");
+        Waits.implicitWait();
+
     }
 
     @Then("customer should see the Ampac's Product Page")
@@ -57,7 +59,6 @@ public class StorePageStepDefs {
     @And("^customer clicks on \"(.*)\" Product Link$")
     public void clickOnSensoryProfileAdultProductLink(String isbn) {
         Waits.implicitWait();
-        navigator.scrollDown();
         storePage.clickOnProgramTitle(isbn);
     }
 
@@ -107,7 +108,7 @@ public class StorePageStepDefs {
 
     @Then("customer should see the alert message on the header of the page")
     public void customerShouldSeeTheHeaderOfThePage() {
-        Assert.assertEquals("The messages are not identical", "Due to inclement weather in the Northeast, your shipment may be delayed", storePage.getAlertMessageText());
+        Assert.assertEquals("The messages are not identical", "What can we help you find?", storePage.getAlertMessageText());
         navigator.closeBrowser();
 
     }

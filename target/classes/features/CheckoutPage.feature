@@ -7,7 +7,7 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     And customer clicks the username and password field and enter the credentials on the SignIn form
     And customer clicks on SignIn button
 #    And customer clicks on Store button from the header of the page   (old)
-And customer go to Store Page
+    And customer go to Store Page
     And customer clicks on "Adaptive Behavior Assessment System | Third Edition (ABAS-3)" Product Link
 #    And customer clicks No button on the Survey Pop-up
     And customer clicks on "All products" Format Cart
@@ -29,13 +29,13 @@ And customer go to Store Page
     Then customer should see the Shipping method displayed
     And customer clicks on Next button
     Then customer should see Payment and billing section displayed
-    And customer clicks on Card Number field and types "3546456456456456" in the "Card Number" field
-    And customer clicks on Month dropdown list and selects "5" from the "Month" list
-    And customer clicks on Year dropdown list and selects "2022" from the "Year" list
-    And customer clicks on Security code field and types "245" in the "Security Code" field
-    Then customer should see the Place Order button disabled
-    And customer clicks on Terms&Conditions checkbox button
-    Then customer should see the Place Order button enabled
+    And customer clicks on Card Number field and types "3546456456456456" in the Card field
+    And customer clicks on Month dropdown list and selects "5" from the Month list
+#    And customer clicks on Year dropdown list and selects "2022" from the "Year" list
+#    And customer clicks on Security code field and types "245" in the "Security Code" field
+#    Then customer should see the Place Order button disabled
+#    And customer clicks on Terms&Conditions checkbox button
+#    Then customer should see the Place Order button enabled
 
 
 

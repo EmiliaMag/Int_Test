@@ -15,9 +15,9 @@ Feature: Add a new Address in the Address Book
     And customer clicks on First Name field and types "Name"
     And customer clicks on Last Name field and types "Last Name"
     And customer clicks on Street Address field and types "the address"
-    And customer clicks on the "City" field and types "Phoenix"
-    And customer clicks on "State/Province" dropdown list and selects "Arizona"
-    And customer clicks on "ZIP/Postal Code" field and types "85018"
+    And customer clicks on the City field and types "Phoenix"
+    And customer clicks on State dropdown list and selects "Arizona"
+    And customer clicks on ZIP field and types "85018"
     And customer clicks on Save Button
     Then customer should see an update message
 #    And customer clicks No button on the Survey Pop-up
