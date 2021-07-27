@@ -4,7 +4,7 @@ Feature: Filters section on the Store Page
     Given customer visits the PearsonAssessment's LogIn Page
     And customer closes pop-ups
 #    And  customer clicks on Store button from the header
-  And customer go to Store Page
+    And customer go to Store Page
     When customer clicks Behavior Category Filter
     And customer clicks Age Range Dropdown
     And customer clicks Preschool Checkbox

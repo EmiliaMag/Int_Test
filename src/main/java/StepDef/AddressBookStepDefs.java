@@ -17,7 +17,8 @@ public class AddressBookStepDefs {
 
     @And("customer goes to the PearsonAssessment's Address Book Page")
     public void userVisitThePearsonAssesmentSLogInPage() {
-        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/addresses");}
+        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/addresses");
+    }
 
     @And("customer clicks on Add Address button on the Address Book Page")
     public void customerClicksOnAddAddress() {

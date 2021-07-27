@@ -5,6 +5,7 @@ import Utils.DriverManager;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 
 public class AddAddressStepDefs {
 
@@ -34,10 +35,10 @@ public class AddAddressStepDefs {
         addAddressBook.typesCityField(input);
     }
 
-    @And("customer clicks on State dropdown list and selects {string}")
-    public void customerClicksOnDropdownListAndSelects(String arg0) {
+    @And("^customer clicks on State dropdown list and selects \"(.*)\"$")
+    public void customerClicksOnDropdownListAndSelects(String input) {
         addAddressBook.clickOnStateField();
-        addAddressBook.selectState();
+        addAddressBook.selectState(input);
     }
 
     @And("^customer clicks on ZIP field and types \"(.*)\"$")

@@ -7,8 +7,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
 public class SavedCartsStepDefs {
+
     SavedCartsPageObject savecarts = new SavedCartsPageObject(DriverManager.getDriver()); //obj
-    PageObject navigator = new PageObject(DriverManager.getDriver());
 
 
     @And("customer clicks on Restore Button")
@@ -20,6 +20,4 @@ public class SavedCartsStepDefs {
     public void customerClicksRestoreButtonRestorePopup() {
         savecarts.clickOnRestoreButtonPopup();
     }
-
-
 }

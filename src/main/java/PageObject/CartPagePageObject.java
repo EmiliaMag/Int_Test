@@ -128,8 +128,8 @@ public class CartPagePageObject extends PageObject {
         saveCartNameFieldPopup.click();
     }
 
-    public void typeCartNameFieldPopupName() {
-        saveCartNameFieldPopup.sendKeys("Name");
+    public void typeCartNameFieldPopupName(String input) {
+        saveCartNameFieldPopup.sendKeys(input);
     }
 
     public void clickSaveButtonSaveCartPopup() {
@@ -199,6 +199,5 @@ public class CartPagePageObject extends PageObject {
     public void clickRemoveProduct(String isbn) {
         getRemoveButtonByIsbn(isbn).click();
     }
-
 
 }

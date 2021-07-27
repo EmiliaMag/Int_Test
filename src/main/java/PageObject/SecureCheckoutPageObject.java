@@ -51,14 +51,14 @@ public class SecureCheckoutPageObject extends PageObject {
     @FindBy(xpath = "//select[@id='ExpiryMonth']")
     private WebElement expiryDateField;
 
-    @FindBy(xpath = "//select[@id='ExpiryMonth']//option[@value='5']")
-    private WebElement expiryDateField5Option;
+//    @FindBy(xpath = "//select[@id='ExpiryMonth']//option[@value='5']")
+//    private WebElement expiryDateField5Option;
 
     @FindBy(xpath = "//select[@id='ExpiryYear']")
     private WebElement expiryYearField;
 
-    @FindBy(xpath = "//select[@id='ExpiryYear']//option[@value='2022']")
-    private WebElement expiryYearField2022Option;
+//    @FindBy(xpath = "//select[@id='ExpiryYear']//option[@value='2022']")
+//    private WebElement expiryYearField2022Option;
 
     @FindBy(xpath = "//input[@id='card_cvNumber']")
     private WebElement securityCodeField;
@@ -176,16 +176,20 @@ public class SecureCheckoutPageObject extends PageObject {
         expiryDateField.click();
     }
 
-    public void selectOption5FromMonthField() {
-        expiryDateField5Option.click();
+    public void selectOptionFromMonthField(String input) {
+        Select month = new Select(driver.findElement(By.xpath("//select[@id='ExpiryMonth']")));
+        month.selectByVisibleText(input);
+        //expiryDateField5Option.click();
     }
 
     public void clickOnYearField() {
         expiryYearField.click();
     }
 
-    public void selectOption2022FromYearField() {
-        expiryYearField2022Option.click();
+    public void selectOption2022FromYearField(String input) {
+        Select year = new Select(driver.findElement(By.xpath("//select[@id='ExpiryYear']")));
+        year.selectByVisibleText(input);
+        // expiryYearField2022Option.click();
     }
 
     public void clickOnSecurityCodeField() {
@@ -251,6 +255,5 @@ public class SecureCheckoutPageObject extends PageObject {
     public void clickOnBackToCartBreadcrumb() {
         backToCartBreadcrumb.click();
     }
-
 }
 

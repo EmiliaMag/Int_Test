@@ -1,8 +1,10 @@
 package PageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class AddAddressPageObject extends PageObject {
 
@@ -75,8 +77,10 @@ public class AddAddressPageObject extends PageObject {
         stateDropDownList.click();
     }
 
-    public void selectState() {
-        arizonaDropDownList.click();
+    public void selectState(String input) {
+        Select state = new Select(driver.findElement(By.xpath("//select[@id='address.region']")));
+        state.selectByVisibleText(input);
+//        arizonaDropDownList.click();
     }
 
     public void clickOnZipCodeField() {

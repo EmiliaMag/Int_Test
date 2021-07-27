@@ -166,7 +166,7 @@ public class SignInPageStepDefs {
 
     @Then("customer should see the search bar field")
     public void customerSeeSearchBar() {
-        Assert.assertEquals("The messages don't match","Sign in",signInPage.getSignInText());
+        Assert.assertEquals("The messages don't match", "Sign in", signInPage.getSignInText());
     }
 }
 

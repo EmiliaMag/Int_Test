@@ -166,9 +166,8 @@ public class SignInPageObject extends PageObject {
         closePrivacyWindow2.click();
     }
 
-    public void clickMyAccountDropdownButton()  {
-       // myAccountHeaderButton.click();
-        Waits.waitUntilPageIsLoaded(driver, 10);
+    public void clickMyAccountDropdownButton() {
+        // myAccountHeaderButton.click();
         clickWithJS(myAccountButtonNew);
     }
 
@@ -187,9 +186,8 @@ public class SignInPageObject extends PageObject {
     }
 
     public String getSignInText() {
-        return  signInRegisterButtonNew.getText();
+        return signInRegisterButtonNew.getText();
     }
-
 }
 
 

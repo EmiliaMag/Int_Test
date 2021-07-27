@@ -65,11 +65,6 @@ public class CartPageStepDefs {
         cartPage.clickRemoveProduct(isbn);
     }
 
-//    @And("customer clicks on remove button")
-//    public void customerClicksOnRemoveButton() {
-//        cartPage.clickOnRemoveButton();
-//    }
-
     @Then("customer should see the remove alert message")
     public void customerShouldSeeTheRemoveAlertMessage() {
         Assert.assertEquals("The messages don't match", "The product has been removed from your cart.", cartPage.getRemoveAlertMessageText());
@@ -85,10 +80,10 @@ public class CartPageStepDefs {
         cartPage.clickOnSaveCartButton();
     }
 
-    @And("customer clicks on Cart Name field on Save Cart Popup and types {string} in the field")
-    public void customerClicksOnCartNameFieldOnSaveCartPopupAndTypesInTheField(String arg0) {
+    @And("^customer clicks on Cart Name field on Save Cart Popup and types \"(.*)\" in the field$")
+    public void customerClicksOnCartNameFieldOnSaveCartPopupAndTypesInTheField(String input) {
         cartPage.clickCartNameFieldPopUp();
-        cartPage.typeCartNameFieldPopupName();
+        cartPage.typeCartNameFieldPopupName(input);
     }
 
     @And("customer clicks on Save Button from Save Cart Popup")

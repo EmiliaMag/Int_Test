@@ -31,11 +31,11 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     Then customer should see Payment and billing section displayed
     And customer clicks on Card Number field and types "3546456456456456" in the Card field
     And customer clicks on Month dropdown list and selects "5" from the Month list
-#    And customer clicks on Year dropdown list and selects "2022" from the "Year" list
-#    And customer clicks on Security code field and types "245" in the "Security Code" field
-#    Then customer should see the Place Order button disabled
-#    And customer clicks on Terms&Conditions checkbox button
-#    Then customer should see the Place Order button enabled
+    And customer clicks on Year dropdown list and selects "2030" from the Year list
+    And customer clicks on Security code field and types "245" in the Security Code field
+    Then customer should see the Place Order button disabled
+    And customer clicks on Terms&Conditions checkbox button
+    Then customer should see the Place Order button enabled
 
 
 

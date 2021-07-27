@@ -7,8 +7,6 @@ import Utils.Waits;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Wait;
 
 public class SecureCheckoutPageStepDefs {
 
@@ -84,16 +82,16 @@ public class SecureCheckoutPageStepDefs {
         secureCheckoutPage.typeCardNumber(input);
     }
 
-    @And("customer clicks on Month dropdown list and selects {string} from the Month list")
-    public void customerClicksOnMonthDropdownListAndSelectsFromTheList(String arg0) {
+    @And("^customer clicks on Month dropdown list and selects \"(.*)\" from the Month list$")
+    public void customerClicksOnMonthDropdownListAndSelectsFromTheList(String input) {
         secureCheckoutPage.clickOnMonthField();
-        secureCheckoutPage.selectOption5FromMonthField();
+        secureCheckoutPage.selectOptionFromMonthField(input);
     }
 
-    @And("customer clicks on Year dropdown list and selects {string} from the Year list")
-    public void customerClicksOnYearDropdownListAndSelectsFromTheList(String arg0) {
+    @And("^customer clicks on Year dropdown list and selects \"(.*)\" from the Year list$")
+    public void customerClicksOnYearDropdownListAndSelectsFromTheList(String input) {
         secureCheckoutPage.clickOnYearField();
-        secureCheckoutPage.selectOption2022FromYearField();
+        secureCheckoutPage.selectOption2022FromYearField(input);
     }
 
     @And("^customer clicks on Security code field and types \"(.*)\" in the Security Code field$")

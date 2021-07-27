@@ -201,5 +201,4 @@ public class StorePagePageObject extends PageObject {
         getAddToCartByIsbn(isbn).click();
     }
 
-
 }
