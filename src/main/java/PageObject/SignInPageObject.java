@@ -82,6 +82,29 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//li[1]//a[@title='Saved Carts']")
     private WebElement saveCartsLink;
 
+    //Create Account
+
+    @FindBy(xpath = "//input[@id=firstName']")
+    private WebElement firstNameField;
+
+    @FindBy(xpath = "//input[@id=lastName']")
+    private WebElement lastNameField;
+
+    @FindBy(xpath = "//input[@id=emailID']")
+    private WebElement emailField;
+
+    @FindBy(xpath = "//input[@id=userID']")
+    private WebElement usernameField;
+
+    @FindBy(xpath = "//input[@id=passwordID']")
+    private WebElement passwordFieldCreateAccount;
+
+    @FindBy(xpath = "//span[@class='c-checkbox__check']")
+    private WebElement sameAsEmailCheckbox;
+
+    @FindBy(xpath = "//input[@id='acceptTermsOfUse'']")
+    private WebElement termsAndConditionsCheckbox;
+
 
     //methods
     public SignInPageObject(WebDriver driver) {
