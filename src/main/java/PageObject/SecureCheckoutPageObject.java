@@ -255,5 +255,9 @@ public class SecureCheckoutPageObject extends PageObject {
     public void clickOnBackToCartBreadcrumb() {
         backToCartBreadcrumb.click();
     }
+
+    public void clickOnPlaceOrderButton() {
+        placeOrderButton.click();
+    }
 }
 

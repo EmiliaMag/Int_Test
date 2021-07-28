@@ -38,11 +38,13 @@ public class EditLicensePageObject extends PageObject {
     }
 
     public void clickAndSendInputCertificationNumberField(String input) {
+        certificationNumberField.clear();
         certificationNumberField.click();
         certificationNumberField.sendKeys(input);
     }
 
     public void clickAndSendInputCertifyingAgencyField(String input) {
+       certificationAgencyField.clear();
         certificationAgencyField.click();
         certificationAgencyField.sendKeys(input);
     }

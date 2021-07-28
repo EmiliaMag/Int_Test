@@ -39,6 +39,7 @@ public class EditAccreditedInstitutionPageObject extends PageObject {
     }
 
     public void clickAndTypeOnInstitutionNameField(String input) {
+        institutionNameField.clear();
         institutionNameField.click();
         institutionNameField.sendKeys(input);
     }
@@ -56,11 +57,13 @@ public class EditAccreditedInstitutionPageObject extends PageObject {
     }
 
     public void clickAndTypeStreetAddressField(String input) {
+        streetField.clear();
         streetField.click();
         streetField.sendKeys(input);
     }
 
     public void clickAndTypeCityField(String input) {
+        cityField.clear();
         cityField.click();
         cityField.sendKeys(input);
     }
@@ -72,6 +75,7 @@ public class EditAccreditedInstitutionPageObject extends PageObject {
     }
 
     public void clickAndTypeZipCode(String input) {
+        zipField.clear();
         zipField.click();
         zipField.sendKeys(input);
     }

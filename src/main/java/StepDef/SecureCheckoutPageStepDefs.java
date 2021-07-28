@@ -144,4 +144,9 @@ public class SecureCheckoutPageStepDefs {
     public void customerClicksOnBackToCartBreadcrumbLink() {
         secureCheckoutPage.clickOnBackToCartBreadcrumb();
     }
+
+    @And("customer clicks on Place Order button")
+    public void customerClicksOnPlaceOrderButton(){
+        secureCheckoutPage.clickOnPlaceOrderButton();
+    }
 }

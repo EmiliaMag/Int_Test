@@ -28,6 +28,7 @@ public class EditLicenseStepDefs {
 
     @And("^customer clicks on State field and selects \"(.*)\"$")
     public void customerSelectsFromStateDropdown(String input) {
+        navigator.scrollDown();
         license.clickOnStateField();
         license.selectOptionFromStateDropdown(input);
     }

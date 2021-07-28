@@ -22,7 +22,7 @@ public class SignInPageStepDefs {
     @Given("customer visits the PearsonAssessment's LogIn Page")
     public void userVisitThePearsonAssesmentSLogInPage() {
 
-        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
+        DriverManager.getDriver().get("https://pearsonassessments-stg2.pearson.com/store/usassessments/en/login");
         DriverManager.getDriver().manage().window().maximize();
         DriverManager.getDriver().manage().deleteAllCookies();
     }
@@ -161,7 +161,7 @@ public class SignInPageStepDefs {
 
     @And("customer goes to the Saved Carts Page")
     public void customerGoesToSavedCartsPage() {
-        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/my-account/saved-carts");
+        DriverManager.getDriver().get("https://pearsonassessments-stg2.pearson.com/store/usassessments/en/my-account/saved-carts");
     }
 
     @Then("customer should see the search bar field")
