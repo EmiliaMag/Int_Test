@@ -12,9 +12,10 @@ public class OrderConfirmationStepDefs {
 
     OrderConfirmationPageObject orderConf = new OrderConfirmationPageObject(DriverManager.getDriver());
 
-        @Then("^customer should see the Order Confirmation Page$")
+        @Then("^customer should see the Order Confirmation Page with an Thank You Message$")
     public void customerShouldSeeTheOrderConfirmationPage(){
-            Assert.assertEquals("The titles don't match","Order Confirmation",orderConf.getOrderConfirmationPageTitle());
+            Assert.assertEquals("The titles don't match","Order confirmation",orderConf.getOrderConfirmationPageTitle());
+            Assert.assertEquals("The messages are not identical","Thank you for your order",orderConf.getThankYouConfirmationMessage());
         }
 
 }

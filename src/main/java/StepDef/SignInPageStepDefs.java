@@ -4,13 +4,12 @@ import PageObject.PageObject;
 import PageObject.SignInPageObject;
 import Utils.DriverManager;
 import Utils.Waits;
-import com.sun.deploy.util.Waiter;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 public class SignInPageStepDefs {
 
@@ -36,7 +35,7 @@ public class SignInPageStepDefs {
     @When("customer types the username in the Username Field")
     public void userTypeTheUsernameInTheUsernameField() {
         signInPage.clickOnUsernameInput();
-        signInPage.typeValidUsername();
+        signInPage.typeValidUsernameSignIn();
     }
 
     @And("customer types the password in the Password Field")
@@ -104,11 +103,9 @@ public class SignInPageStepDefs {
         navigator.closeBrowser();
     }
 
-    @And("user is logged out and redirected to the home page")
+    @And("customer clicks on Sign Out")
     public void userIsLoggedOut() {
-        signInPage.clickMyAccountDropdownButton();
-        signInPage.clickOnSignOutButton();
-        DriverManager.getDriver().get("https://www.pearsonassessments.com/store/usassessments/en/login");
+      signInPage.clickOnSignOutButton();
     }
 
     @And("customer clicks on Store button from the header")
@@ -127,7 +124,7 @@ public class SignInPageStepDefs {
     public void clickTheUsernameAndPasswordFieldAndEnterTheCredentialsOnTheSignInForm() {
         navigator.scrollDown();
         signInPage.clickOnUsernameInput();
-        signInPage.typeValidUsername();
+        signInPage.typeValidUsernameSignIn();
         navigator.scrollDown();
         signInPage.clickPasswordInputField();
         signInPage.typeValidPassword();
@@ -154,6 +151,11 @@ public class SignInPageStepDefs {
         signInPage.clickOnAddressBook();
     }
 
+    @And("customer clicks on Quotes Button from the dropdown list")
+    public void customerClicksOnQuotes() {
+        signInPage.clickOnQuotesButton();
+    }
+
     @And("customer clicks on Saved Carts Link from the dropdown list")
     public void customerClicksOnSavedCarts() {
         signInPage.clickOnSaveCartsLink();
@@ -168,6 +170,64 @@ public class SignInPageStepDefs {
     public void customerSeeSearchBar() {
         Assert.assertEquals("The messages don't match", "Sign in", signInPage.getSignInText());
     }
+
+    @Then("customer should see the Sign In button")
+    public void customerShouldSeeTheSignInButton() {
+//        Assert.assertEquals("The text don't match", "Sign in", signInPage.getSignInText());
+        Assert.assertTrue("the element is displayed", signInPage.isSignInButtonDisplayed());
+    }
+
+    @And("^customer clicks on First Name field in the Create Account form and types \"(.*)\"$")
+    public void customerClicksOnFirstNameFieldAndTypes(String input){
+        signInPage.clickAndTypeFirstNameField(input);
+    }
+
+    @And("^customer clicks on Last Name field in the Create Account form and types \"(.*)\"$")
+    public void customerClicksOnLastNameFieldAndTypes(String input){
+        signInPage.clickAndTypeLastNameField(input);
+    }
+
+    @And("^customer clicks on Email field in the Create Account form and types \"(.*)\"$")
+    public void customerClicksOnEmailFieldAndTypes(String input){
+        signInPage.clickAndTypeEmailField(input);
+    }
+
+    @And("customer unchecks the Same as email address checkbox")
+    public void customerUnchecksTheSameAsEmailAddressCheckbox() {
+        signInPage.uncheckSameAsEmailCheckbox();
+    }
+
+    @And("^customer clicks on Username field in the Create Account form and types \"(.*)\"$")
+    public void customerClicksOnUsernameFieldAndTypes(String input){
+        signInPage.clickAndTypeUsernameFieldCreateAccount(input);
+    }
+
+    @And("^customer clicks on Password field in the Create Account form and types \"(.*)\"$")
+    public void customerClicksOnPasswordFieldAndTypes(String input){
+        signInPage.clickAndTypePasswordField(input);
+    }
+
+    @And("customer clicks on Terms&Conditions checkbox")
+    public void customerClicksOnTermsAndConditionsCheckbox() {
+        navigator.scrollDown();
+        signInPage.checkTermsAndConditionsCheckbox();
+    }
+
+    @And("customer clicks on Create Account button")
+    public void customerClicksOnCreateAccountButton() {
+        signInPage.clickCreateAccountButton();
+    }
+
+    @Then("customer should see an error message under the email field")
+    public void customerShouldSeeAnErrorMessageUnderTheEmailField() {
+        signInPage.getEmailErrorMessage();
+    }
+
+    @Then("customer should see the Capcha filter")
+    public void customerShouldSeeChapchaFilter() {
+        Assert.assertTrue("The element is not displayed", signInPage.isCapchaElementDisplayed());
+    }
+
 }
 
 

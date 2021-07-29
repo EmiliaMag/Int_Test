@@ -9,6 +9,9 @@ public class OrderConfirmationPageObject extends PageObject {
     @FindBy(xpath = "//h1[@class='c-sectionHeader hasBorderBottom']")
     private WebElement orderConfirmationPageTitle;
 
+    @FindBy(xpath = "//h2[@class='h4']")
+    private WebElement thankYouMessage;
+
     //methods
     public OrderConfirmationPageObject(WebDriver driver) {
         super(driver);
@@ -16,5 +19,9 @@ public class OrderConfirmationPageObject extends PageObject {
 
     public String getOrderConfirmationPageTitle() {
         return orderConfirmationPageTitle.getText();
+    }
+
+    public String getThankYouConfirmationMessage() {
+        return thankYouMessage.getText();
     }
 }

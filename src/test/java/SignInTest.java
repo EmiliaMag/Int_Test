@@ -27,7 +27,7 @@ public class SignInTest {
 
         signIn.clickPopUpCloseButton();         //close the Pop-Up
         signIn.clickOnUsernameInput();          //Click on Username field
-        signIn.typeValidUsername();
+        signIn.typeValidUsernameSignIn();
         Thread.sleep(2000);//Type an Username
         navigator.scrollDown();
         signIn.clickPasswordInputField();       //click on Password field
@@ -240,7 +240,7 @@ public class SignInTest {
         signInPage.clickSigninRegisterHeaderButton();
         signInPage.clickOnUsernameInput();
         navigator.scrollDown();
-        signInPage.typeValidUsername();
+        signInPage.typeValidUsernameSignIn();
         signInPage.clickPasswordInputField();
         navigator.scrollDown();
         signInPage.typeValidPassword();

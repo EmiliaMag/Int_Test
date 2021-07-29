@@ -67,6 +67,9 @@ public class CartPagePageObject extends PageObject {
     @FindBy(xpath = "//p[@class='c-alert__text']")
     private WebElement saveCartUpdateMessage;
 
+    @FindBy(xpath = "//button[@class='button--block button--secondary js-create-quote-button']")
+    private WebElement createQuoteButton;
+
     @FindBy(xpath = ".//li[@class='item__list--item--wrapper']")
     private List<WebElement> productInCartList;
 
@@ -138,6 +141,10 @@ public class CartPagePageObject extends PageObject {
 
     public String getSaveCartUpdateMessage() {
         return saveCartUpdateMessage.getText();
+    }
+
+    public void clickCreateQuoteButton() {
+        createQuoteButton.click();
     }
 
 

@@ -97,5 +97,9 @@ public class CartPageStepDefs {
         Assert.assertEquals("The messages are not identical", "Your cart Name is added to Saved Carts.", cartPage.getSaveCartUpdateMessage());
     }
 
+    @And("customer clicks on Create Quote Button")
+    public void customerClicksOnCreateQuoteButton() {
+        cartPage.clickCreateQuoteButton();
+    }
 
 }

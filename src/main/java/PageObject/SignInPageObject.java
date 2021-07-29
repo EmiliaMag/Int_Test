@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class SignInPageObject extends PageObject {
 
     @FindBy(xpath = "//input[@id = 'username']")
-    private WebElement usernameInput;
+    private WebElement usernameFieldSignIn;
 
     @FindBy(xpath = "//div[@class = 'nav__right utility-nav--container']//a[@title='Store']")
     private WebElement storeButton;
@@ -28,14 +28,8 @@ public class SignInPageObject extends PageObject {
     @FindBy(className = "pull-right forgotten-username")
     private WebElement forgotUsernameAndPasswordButton;
 
-    @FindBy(xpath = "//input[@id='emailID']")
-    private WebElement emailInput;
-
     @FindBy(xpath = "//*[@id='acceptTermsOfUseError']/label/input")
     private WebElement termsAgreementsCheckbox;
-
-    @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 no-padding button-container']//button[@class='button--primary button--block']")
-    private WebElement createAccountButton;
 
     @FindBy(xpath = "//button[@class='pop-up-close']")
     private WebElement popUpCloseButton;
@@ -73,7 +67,7 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//button[@class='button-ghost--on-dark button--primary hasArrow arrowRight js-cookie-notification-accept']")
     private WebElement closePrivacyWindow2;
 
-    @FindBy(xpath = "//div[@class='context-menu-section sign-out']")
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/logout']")
     private WebElement signOutButton;
 
     @FindBy(xpath = "//a[@href='/store/usassessments/en/addresses']")
@@ -82,37 +76,44 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//li[1]//a[@title='Saved Carts']")
     private WebElement saveCartsLink;
 
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/my-account/my-quotes']")
+    private WebElement quotesButton;
+
     //Create Account
 
-    @FindBy(xpath = "//input[@id=firstName']")
+    @FindBy(xpath = "//input[@id='firstName']")
     private WebElement firstNameField;
 
-    @FindBy(xpath = "//input[@id=lastName']")
+    @FindBy(xpath = "//input[@id='lastName']")
     private WebElement lastNameField;
 
-    @FindBy(xpath = "//input[@id=emailID']")
+    @FindBy(xpath = "//input[@id='emailID']")
     private WebElement emailField;
 
-    @FindBy(xpath = "//input[@id=userID']")
+    @FindBy(xpath = "//input[@id='userID']")
     private WebElement usernameField;
 
-    @FindBy(xpath = "//input[@id=passwordID']")
+    @FindBy(xpath = "//input[@id='passwordID']")
     private WebElement passwordFieldCreateAccount;
 
-    @FindBy(xpath = "//span[@class='c-checkbox__check']")
+    @FindBy(xpath = "//input[@id='same_as_email_address_registration']")
     private WebElement sameAsEmailCheckbox;
 
-    @FindBy(xpath = "//input[@id='acceptTermsOfUse'']")
+    @FindBy(xpath = "//input[@id='acceptTermsOfUse']")
     private WebElement termsAndConditionsCheckbox;
 
+    @FindBy(xpath = "//div[@class='col-xs-12 col-sm-6 no-padding button-container']//button[@class='button--primary button--block']")
+    private WebElement createAccountButton;
+
+    @FindBy(xpath = "//span[@id='emailID-error']")
+    private WebElement emailErrorMessage;
+
+    @FindBy(xpath = "//div[@class='primary-controls']")
+    private WebElement capchaElement;
 
     //methods
     public SignInPageObject(WebDriver driver) {
         super(driver);
-    }
-
-    public void clickOnEmailField() {
-        emailInput.click();
     }
 
     public void clickPopUpCloseButton() {
@@ -120,11 +121,11 @@ public class SignInPageObject extends PageObject {
     }
 
     public void clickOnUsernameInput() {
-        usernameInput.click();
+        usernameFieldSignIn.click();
     }
 
-    public void typeValidUsername() {
-        usernameInput.sendKeys("emiliamag");
+    public void typeValidUsernameSignIn() {
+        usernameFieldSignIn.sendKeys("emiliamag");
     }
 
     public void clickClosePrivacyWindow() {
@@ -210,6 +211,61 @@ public class SignInPageObject extends PageObject {
 
     public String getSignInText() {
         return signInRegisterButtonNew.getText();
+    }
+
+    public void clickOnQuotesButton() {
+        quotesButton.click();
+    }
+
+    //methods for Create Account Form
+    public void clickAndTypeFirstNameField(String input) {
+        firstNameField.click();
+        firstNameField.sendKeys(input);
+    }
+
+    public void clickAndTypeLastNameField(String input) {
+        lastNameField.click();
+        lastNameField.sendKeys(input);
+    }
+
+    public void clickAndTypeEmailField(String input) {
+        emailField.click();
+        emailField.sendKeys(input);
+    }
+
+    public void uncheckSameAsEmailCheckbox() {
+        clickWithJS(sameAsEmailCheckbox);
+//        sameAsEmailCheckbox.click();
+    }
+
+    public void clickAndTypeUsernameFieldCreateAccount(String input) {
+        usernameField.click();
+        usernameField.sendKeys(input);
+    }
+
+    public void clickAndTypePasswordField(String input) {
+        passwordFieldCreateAccount.click();
+        passwordFieldCreateAccount.sendKeys(input);
+    }
+
+    public void checkTermsAndConditionsCheckbox() {
+        clickWithJS(termsAgreementsCheckbox);
+    }
+
+    public void clickCreateAccountButton() {
+        createAccountButton.click();
+    }
+
+    public String getEmailErrorMessage() {
+        return emailErrorMessage.getText();
+    }
+
+    public Boolean isSignInButtonDisplayed() {
+        return signInRegisterButtonNew.isDisplayed();
+    }
+
+    public Boolean isCapchaElementDisplayed() {
+        return capchaElement.isDisplayed();
     }
 }
 

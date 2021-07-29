@@ -11,7 +11,7 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     And customer clicks on "Adaptive Behavior Assessment System | Third Edition (ABAS-3)" Product Link
 #    And customer clicks No button on the Survey Pop-up
     And customer clicks on "All products" Format Cart
-    And customer clicks on Add to Cart Button from the product with isbn: "0158009169"
+    And customer clicks on Add to Cart Button from the product with isbn: "0158009150"
     And customer clicks on View Cart on the displayed pop-up
     Then customer clicks on checkout button
     And customer clicks on My Account Radio Button
@@ -36,7 +36,10 @@ Feature: End to End . Customer logs in, add a product to cart, and purchases it
     Then customer should see the Place Order button disabled
     And customer clicks on Terms&Conditions checkbox button
     And customer clicks on Place Order button
-#    Then customer should see the Order Confirmation Page
+    And customer clicks No button on the Survey Pop-up
+    Then customer should see the Order Confirmation Page with an Thank You Message
+
+
 
 
 
