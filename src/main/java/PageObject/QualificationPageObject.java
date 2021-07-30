@@ -12,8 +12,23 @@ import java.util.List;
 
 public class QualificationPageObject extends PageObject {
 
+    @FindBy(xpath = "//h1[@class='c-sectionHeader hasBorderBottom']")
+    private WebElement qualificationPageTitle;
+
     @FindBy(xpath = "//a[@href='/store/usassessments/en/my-account/my-qualifications']")
     private WebElement qualificationButton;
+
+    @FindBy(xpath = "//span[@class='c-qualificationlevel__letter B']")
+    private WebElement qualificationB;
+
+    @FindBy(xpath = "//button[@id='MyQualificationBodyQualTitleB']")
+    private WebElement infoButton;
+
+    @FindBy(xpath = "//button[@id='cboxClose']")
+    private WebElement qualificationLevelXButtonPopup;
+
+    @FindBy(xpath = "//a[@href='/store/usassessments/en/Store/c/store?q=%26%26relevance%26%26qualificationLevel%26%26B']")
+    private WebElement viewProductsLink;
 
     @FindBy(xpath = "//div[@class='qualification-group']")
     private List<WebElement> qualificationGroupHeader;
@@ -40,7 +55,32 @@ public class QualificationPageObject extends PageObject {
         qualificationButton.click();
     }
 
+    public String getQualificationPageTitle() {
+        return qualificationPageTitle.getText();
+    }
+
+    public String getQualificationLevel() {
+        return qualificationB.getText();
+    }
+
+    public void clickOnInfoButton() {
+        infoButton.click();
+    }
+
+    public boolean checkIfXButtonPopupIsDisplayed() {
+        return qualificationLevelXButtonPopup.isDisplayed();
+    }
+
+    public void clickOnViewProductsLink(){
+        viewProductsLink.click();
+    }
+
     public QualificationPageObject(WebDriver driver) {
         super(driver);
+    }
+
+    public String getURL() {
+         String URL=driver.getCurrentUrl();
+         return URL;
     }
 }

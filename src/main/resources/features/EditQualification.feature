@@ -15,7 +15,7 @@ Feature: edit button from qualification page
     And customer clicks on Institution Field and types "Institution"
     And customer clicks on Terms & Conditions checkbox
     And customer clicks on Save Button from the Edit Degree Button
-
+    Then customer should be redirected to the Qualification page and should see The B Level Degree
     And  customer clicks on Edit button on "License/Certification" section
     And customer clicks on Certification Type dropdown list and selects "Medical Doctor"
     And customer clicks on Certification Number field and types "098675672354"
@@ -23,7 +23,7 @@ Feature: edit button from qualification page
     And customer clicks on State field and selects "Ohio"
     And customer clicks on Terms & Conditions checkbox
     And customer clicks on Save Button from the Edit Degree Button
-
+    Then customer should be redirected to the Qualification page and should see The B Level Degree
     And customer clicks on Edit button on "Accredited institution" section
     And customer clicks on Institution Name and types "Name"
     And customer clicks on Type of Institution Field and selects "Public"
@@ -35,9 +35,10 @@ Feature: edit button from qualification page
     And customer clicks on Accreditation status dropdown and select "Already accredited"
     And customer clicks on Terms & Conditions checkbox
     And customer clicks on Save Button from the Edit Degree Button
-
+    Then customer should be redirected to the Qualification page and should see The B Level Degree
     And customer clicks on Edit button on "Organization membership" section
     And customer clicks on Organization types dropdown and selects "American Occupational Therapy Association (AOTA)"
     And customer clicks on Membership number field and types "1234567890"
     And customer clicks on Terms & Conditions checkbox
     And customer clicks on Save Button from the Edit Degree Button
+    Then customer should be redirected to the Qualification page and should see The B Level Degree

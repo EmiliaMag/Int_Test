@@ -265,7 +265,7 @@ public class SignInPageObject extends PageObject {
     }
 
     public Boolean isCapchaElementDisplayed() {
-        return capchaElement.isDisplayed();
+        return capchaElement.isDisplayed();   //isPresent
     }
 }
 
