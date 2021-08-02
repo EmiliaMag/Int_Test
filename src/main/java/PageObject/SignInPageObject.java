@@ -116,6 +116,9 @@ public class SignInPageObject extends PageObject {
     @FindBy(xpath = "//div[@class='primary-controls']")
     private WebElement capchaElement;
 
+    @FindBy(xpath = "//h1[@class='c-sectionHeader hasBorderBottom']")
+    private WebElement accountDetailsTitle;
+
 
     //methods
     public SignInPageObject(WebDriver driver) {
@@ -272,6 +275,15 @@ public class SignInPageObject extends PageObject {
 
     public Boolean isCapchaElementDisplayed() {
         return capchaElement.isDisplayed();   //isPresent
+    }
+
+    public String getSignInURL() {
+        String URL=driver.getCurrentUrl();
+        return URL;
+    }
+
+    public String getAccountDetailsTitle() {
+        return accountDetailsTitle.getText();
     }
 
 }

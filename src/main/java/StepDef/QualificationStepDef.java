@@ -56,6 +56,6 @@ qualification.clickOnViewProductsLink();
 
     @Then("customer should be redirected to the store page")
     public void customerShouldBeRedirectedToTheStorePage() {
-Assert.assertEquals("https://pearsonassessments-stg2.pearson.com/store/usassessments/en/Store/c/store?q=%26%26relevance%26%26qualificationLevel%26%26B", qualification.getURL());
+Assert.assertEquals("https://pearsonassessments-stg2.pearson.com/store/usassessments/en/Store/c/store?q=%26%26relevance%26%26qualificationLevel%26%26B", qualification.getStoreURL());
     }
 }

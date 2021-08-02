@@ -79,7 +79,7 @@ public class QualificationPageObject extends PageObject {
         super(driver);
     }
 
-    public String getURL() {
+    public String getStoreURL() {
          String URL=driver.getCurrentUrl();
          return URL;
     }

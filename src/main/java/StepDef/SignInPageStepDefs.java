@@ -4,7 +4,6 @@ import PageObject.PageObject;
 import PageObject.SignInPageObject;
 import Utils.DriverManager;
 import Utils.Waits;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -227,6 +226,19 @@ public class SignInPageStepDefs {
     public void customerShouldSeeChapchaFilter() {
         Assert.assertTrue("The element is not displayed", signInPage.isCapchaElementDisplayed());
     }
+
+    @Then("customer should be redirected to Account details page")
+    public void customerShouldNotBeRedirectedToPage() {
+        Assert.assertEquals("","Account details", signInPage.getAccountDetailsTitle());
+    }
+
+    @Given("customer visits the PearsonAssessment's LogIn Page \\(dev environment)")
+    public void customerVisitsThePearsonAssessmentSLogInPageDevEnvironment() {
+            DriverManager.getDriver().get("https://pearsonassessments-dev.pearson.com/store/usassessments/en/login");
+            DriverManager.getDriver().manage().window().maximize();
+            DriverManager.getDriver().manage().deleteAllCookies();
+        }
+
 
 //    @And("^customer clicks on \"(.*)\" from the dropdown list on My Account$")
 //    public void customerClicksOnQualificationButtonFromTheDropdownListOnMyAccount(String input) {

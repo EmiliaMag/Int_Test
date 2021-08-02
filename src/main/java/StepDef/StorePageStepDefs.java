@@ -112,4 +112,5 @@ public class StorePageStepDefs {
         navigator.closeBrowser();
 
     }
+
 }

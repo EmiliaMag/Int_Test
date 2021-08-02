@@ -12,5 +12,5 @@ Feature: Customer access the Pearson's LogIn Page, add try to create a new accou
     And customer clicks on Password field in the Create Account form and types "PasswordTest@87"
     And customer clicks on Terms&Conditions checkbox
     And customer clicks on Create Account button
-    Then customer should see the Capcha filter
+
 
