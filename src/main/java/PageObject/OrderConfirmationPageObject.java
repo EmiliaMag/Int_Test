@@ -9,7 +9,7 @@ public class OrderConfirmationPageObject extends PageObject {
     @FindBy(xpath = "//h1[@class='c-sectionHeader hasBorderBottom']")
     private WebElement orderConfirmationPageTitle;
 
-    @FindBy(xpath = "//h2[@class='h4']")
+    @FindBy(xpath = "//h2[@class='order-details__title']")
     private WebElement thankYouMessage;
 
     //methods

@@ -18,6 +18,7 @@ public class StorePageStepDefs {
 
     @And("customer go to Store Page")
     public void customerGoToStorePage() {
+        Waits.implicitWait();
         DriverManager.getDriver().get("https://pearsonassessments-stg2.pearson.com/store/usassessments/en/Store/c/store");
         Waits.implicitWait();
 
