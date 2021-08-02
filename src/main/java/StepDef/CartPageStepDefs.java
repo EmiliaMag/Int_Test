@@ -1,6 +1,7 @@
 package StepDef;
 
 import PageObject.CartPagePageObject;
+import PageObject.StorePagePageObject;
 import PageObject.PageObject;
 import Utils.DriverManager;
 import Utils.Waits;
@@ -102,4 +103,9 @@ public class CartPageStepDefs {
         cartPage.clickCreateQuoteButton();
     }
 
+    @Then("^customer should see \"(.*)\" and \"(.*)\" products in the cart$")
+    public void customerShouldSeeBothProductsInTheCart(String input1, String input2) {
+        Assert.assertEquals("","0158052498", cartPage.getProductIsbn(input1));
+        Assert.assertEquals("","0761649700", cartPage.getProductIsbn(input2));
+    }
 }

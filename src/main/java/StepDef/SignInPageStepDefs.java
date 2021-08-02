@@ -228,6 +228,10 @@ public class SignInPageStepDefs {
         Assert.assertTrue("The element is not displayed", signInPage.isCapchaElementDisplayed());
     }
 
+//    @And("^customer clicks on \"(.*)\" from the dropdown list on My Account$")
+//    public void customerClicksOnQualificationButtonFromTheDropdownListOnMyAccount(String input) {
+//        signInPage.getMyAccountByTitle(input);
+//    }
 }
 
 

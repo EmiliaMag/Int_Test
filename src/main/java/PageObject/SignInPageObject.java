@@ -1,9 +1,14 @@
 package PageObject;
 
+import Fragments.FormatCardsFragment;
+import Utils.GetBy;
 import Utils.Waits;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class SignInPageObject extends PageObject {
 
@@ -110,6 +115,7 @@ public class SignInPageObject extends PageObject {
 
     @FindBy(xpath = "//div[@class='primary-controls']")
     private WebElement capchaElement;
+
 
     //methods
     public SignInPageObject(WebDriver driver) {
@@ -267,6 +273,7 @@ public class SignInPageObject extends PageObject {
     public Boolean isCapchaElementDisplayed() {
         return capchaElement.isDisplayed();   //isPresent
     }
+
 }
 
 

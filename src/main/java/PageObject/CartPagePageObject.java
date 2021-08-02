@@ -207,4 +207,19 @@ public class CartPagePageObject extends PageObject {
         getRemoveButtonByIsbn(isbn).click();
     }
 
+    //Find element by Title products in Cart
+    public WebElement getProductInCartByTitle(String isbn) {
+        By isbnBy = GetBy.getBy("productIsbn", ProductInCartFragment.class);
+
+        return productInCartList.stream()
+                .filter(searchResultFragment -> searchResultFragment.findElement(isbnBy).getText().contains(isbn))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unable to find a the field: " + isbn))
+                .findElement(isbnBy);
+    }
+
+    public String getProductIsbn(String isbn) {
+        return getProductInCartByTitle(isbn).getText();
+    }
+
 }
